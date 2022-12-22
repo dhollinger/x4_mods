@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff>
+  <add sel="/language">
+    <page id="9001" title="Valkyrie VRO Text" descr="Valkyrie VRO Text" voice="yes">
+      <t id="15001">IG L - Валькирия Внутренний генератор</t>
+    </page>
+  </add>
+</diff>
