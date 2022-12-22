@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content name="SVE VRO Trimmed" description=" " author="EagleDelta" version="100" save="0" sync="false">
+  <dependency id="ego_dlc_split" optional="false" name="Split Vendetta" />
+  <dependency id="ego_dlc_terran" optional="false" name="Cradle of Humanity" />
+  <dependency id="ws_1696862840" optional="false" name="Variety and Rebalance Overhaul" />
+  <dependency id="ws_2229061492" optional="false" name="Ship Variation Expansion" />
+  <dependency id="ws_2551053441" optional="false" name="Ship Variation Expansion VRO" />
+  <text language="7" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="33" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="34" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="39" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="44" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="45" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="49" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="81" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="82" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="86" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+  <text language="88" name="SVE VRO Trimmed" description="Removes several SVE and VRO ships to reduce complexity and improve balance" author="EagleDelta" />
+</content>

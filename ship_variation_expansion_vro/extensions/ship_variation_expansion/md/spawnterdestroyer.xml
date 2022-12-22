@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+  <replace sel="//cue[@name='SpawnAbandonedShipSilentWitness']/actions/do_if/generate_loadout">
+							<generate_loadout
+								macro="macro.fenrir_macro" faction="faction.ownerless"
+                wares="[ware.ishield_atf_l_destroyer_01_a, ware.software_flightassistmk1, ware.software_dockmk2, ware.software_scannerlongrangemk1, ware.software_scannerobjectmk1, ware.software_targetmk1, ware.engine_ter_l_allround_01_mk1, ware.shield_ter_l_standard_01_mk1, ware.turret_ter_l_laser_01_mk1, ware.turret_ter_m_laser_02_mk1, ware.shield_ter_m_standard_02_mk1, ware.thruster_gen_l_allround_01_mk1, ware.weapon_ter_l_destroyer_01_mk1]"
+								level="1"
+								result="$loadout"
+							/>
+  </replace>
+</diff>

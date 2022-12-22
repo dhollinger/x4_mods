@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="ishield_atf_l_valkyrie_macro" class="shieldgenerator">
+    <component ref="ishield_atf_l_valkyrie" />
+    <properties>
+      <identification name="{9001,15001}" mk="1" />
+      <recharge max="25000" rate="1435" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

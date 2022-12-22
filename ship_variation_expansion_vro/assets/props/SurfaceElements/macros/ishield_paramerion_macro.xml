@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="ishield_paramerion_macro" class="shieldgenerator">
+    <component ref="ishield_ter_s_paramerion" />
+    <properties>
+      <identification name="{9000, 14030}" mk="1" />
+      <recharge max="600" rate="40" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

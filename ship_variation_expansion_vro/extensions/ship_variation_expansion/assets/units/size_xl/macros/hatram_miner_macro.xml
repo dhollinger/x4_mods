@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/hull/@max">570000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="855.723">
+      <inertia pitch="798.799" yaw="798.799" roll="679.039" />
+      <drag forward="220.145" reverse="700.579" horizontal="250.116" vertical="250.116" pitch="647.145" yaw="647.145" roll="647.145" />
+    </physics>
+  </replace>
+</diff>
+<!-- <macros>
+  <macro name="hatram_miner_macro" class="ship_xl">
+    <component ref="hatram_miner" />
+    <properties>
+      <identification name="{6920213,4}" basename="{20101,120401}" description="{6920213,3}" variation="{20111,3101}" shortvariation="{20111,3101}" icon="ship_xl_mine_01" />
+      <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" default="1" />
+      </software>
+      <explosiondamage value="12000" />
+      <storage missile="80" unit="12" />
+      <hull max="81000" />
+      <secrecy level="1" />
+      <purpose primary="mine" />
+      <people capacity="89" />
+      <physics mass="855.723">
+        <inertia pitch="598.799" yaw="598.799" roll="479.039" />
+        <drag forward="187.145" reverse="830.579" horizontal="347.116" vertical="347.116" pitch="647.145" yaw="647.145" roll="647.145" />
+      </physics>
+      <thruster tags="extralarge" />
+      <ship type="largeminer" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="bridge_arg_xl_01_macro" connection="con_cockpit" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_shipstorage_m_01">
+        <macro ref="shipstorage_m_hatram_macro" connection="object" />
+      </connection>
+      <connection ref="con_shipstorage_s_01">
+        <macro ref="shipstorage_s_hatram_macro" connection="object" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_hatram_solid_macro" connection="ShipConnection" />
+      </connection>
+      <connection ref="con_test_argon_dockarea_m_04">
+        <macro ref="dockarea_arg_xl_builder_01_macro" connection="Connection01" />
+      </connection>
+    </connections>
+  </macro>
+</macros> -->

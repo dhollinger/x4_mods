@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/hull/@max">29500</replace>
+</diff>
+<!-- <macros>
+  <macro name="susanowa_macro" class="ship_m">
+    <component ref="susanowa" />
+    <properties>
+      <identification name="{20101,85201}" basename="{20101,85201}" description="{6920227,2}" icon="ship_m_trade_01" />
+      <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" compatible="1" />
+        <software ware="software_trademk1" default="1" />
+      </software>
+      <explosiondamage value="5000" />
+      <storage missile="40" />
+      <hull max="8000" />
+      <secrecy level="2" />
+      <purpose primary="trade" />
+      <people capacity="11" />
+      <physics mass="21.5">
+        <inertia pitch="3.751" yaw="3.751" roll="3.001" />
+        <drag forward="3.91" reverse="16.039" horizontal="13.902" vertical="13.902" pitch="11" yaw="11" roll="11" />
+      </physics>
+      <thruster tags="medium" />
+      <ship type="transporter" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="cockpit_gen_virtual_01_macro" connection="ship" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_susanowa_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros> -->

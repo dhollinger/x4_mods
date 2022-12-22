@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros">
+  
+<macros>
+  <macro name="bullet_ter_l_railgun_macro" class="bullet">
+    <component ref="bullet_par_m_railgun_01_mk2" />
+    <properties>
+      <bullet speed="25000" lifetime="1" amount="1" barrelamount="1" icon="weapon_railgun_mk2" maxhits="3" ricochet="0" scale="1" attach="0"/>
+      <reload rate="0.08" />
+      <damage value="12000" hull="4000" repair="0" />
+      <effects>
+        <impact ref="impact_par_m_railgun_01_mk1" inside="impact_par_m_railgun_01_mk1_inside" />
+        <bigobjectimpact ref="impact_par_m_railgun_01_mk1_bigobject" inside="impact_par_m_railgun_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_par_m_railgun_01_mk1" />
+      </effects>
+      <sounds>
+        <firing ref="wpn_railgun_player_charging" />
+      </sounds>
+      <weapon system="turret_longrange" />
+    </properties>
+  </macro>
+</macros>
+
+  </replace>
+</diff>
+
+<!--<macros>
+  <macro name="bullet_ter_l_railgun_macro" class="bullet">
+    <component ref="bullet_par_m_railgun_01_mk2" />
+    <properties>
+      <bullet speed="12000" lifetime="1" amount="1" barrelamount="1" icon="weapon_railgun_mk2" maxhits="3" ricochet="0" scale="1" attach="0"/>
+      <reload rate="0.08" />
+      <damage value="11200" repair="0" />
+      <effects>
+        <impact ref="impact_par_m_railgun_01_mk1" inside="impact_par_m_railgun_01_mk1_inside" />
+        <bigobjectimpact ref="impact_par_m_railgun_01_mk1_bigobject" inside="impact_par_m_railgun_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_par_m_railgun_01_mk1" />
+      </effects>
+      <sounds>
+        <firing ref="wpn_railgun_player_charging" />
+      </sounds>
+      <weapon system="turret_longrange" />
+    </properties>
+  </macro>
+</macros>-->

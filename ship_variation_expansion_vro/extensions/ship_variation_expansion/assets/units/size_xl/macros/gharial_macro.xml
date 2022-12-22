@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/identification/@name">{20101,42901}</replace>
+  <replace sel="//macros/macro/properties/identification/@basename">{20101,42901}</replace>
+  <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
+
+  <replace sel="//macros/macro/properties/hull/@max">1032000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="1324.388">
+      <inertia pitch="2250" yaw="2250" roll="2250" />
+      <drag forward="218.6" reverse="844.602" horizontal="470.3" vertical="470.3" pitch="1151" yaw="1151" roll="1151" />
+    </physics>
+  </replace>
+</diff>
+<!-- <macros>
+  <macro name="gharial_macro" class="ship_xl">
+    <component ref="gharial" />
+    <properties>
+      <identification name="{20101,42501}" basename="{20101,42501}" makerrace="split" description="{6920206,2}" icon="ship_xl_fight_01" />
+      <software>
+        <software ware="software_dockmk2" default="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" compatible="1" />
+      </software>
+      <explosiondamage value="12000" />
+	  <storage missile="260" unit="15" />
+      <hull max="340000" />
+      <secrecy level="2" />
+      <purpose primary="fight" />
+      <people capacity="179" />
+      <physics mass="800">
+        <inertia pitch="450.536" yaw="450.536" roll="380.229" />
+        <drag forward="94" reverse="405" horizontal="105.459" vertical="105.459" pitch="668.736" yaw="668.736" roll="668.736" />
+      </physics>
+      <thruster tags="extralarge" />
+      <ship type="battleship" />
+    </properties>
+    <connections>	
+		<connection ref="con_cockpit">
+			<macro ref="bridge_spl_xl_01_macro" connection="con_cockpit" />
+		</connection>	
+		<connection ref="con_dock_xs">
+			<macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+		</connection>
+		<connection ref="con_dockarea_arg_s_ship_03">
+			<macro ref="dockarea_arg_s_ship_01_macro" connection="Connection01" />
+		</connection>
+		<connection ref="con_dockarea_arg_s_ship_04">
+			<macro ref="dockarea_arg_s_ship_01_macro" connection="Connection01" />
+		</connection>
+		<connection ref="con_storage01">
+			<macro ref="storage_gharial_macro" connection="ShipConnection" />
+		</connection>
+		<connection ref="con_shipstorage01">
+			<macro ref="shipstorage_s_caiman_macro" connection="object" />
+		</connection>
+		<connection ref="con_shipstorage_xs_01">
+			<macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+		</connection>
+    </connections>
+  </macro>
+</macros> -->

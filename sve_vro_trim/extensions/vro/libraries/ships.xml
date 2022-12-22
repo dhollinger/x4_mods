@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+  <remove sel="//ships/ship[@id='paranid_hyperion']" />
+  <remove sel="//ships/ship[@id='holyorder_hyperion']" />
+  <remove sel="//ships/ship[@id='split_panther']" />
+  <remove sel="//ships/ship[@id='court_panther']" />
+  <remove sel="//ships/ship[@id='argon_centaur']" />
+  <remove sel="//ships/ship[@id='antigone_centaur']" />
+</diff>

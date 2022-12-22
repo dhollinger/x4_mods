@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/identification/@name">{20101,22501}</replace>
+  <replace sel="//macros/macro/properties/identification/@basename">{20101,22501}</replace>
+  <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
+
+  <replace sel="//macros/macro/properties/storage/@missile">450</replace>
+
+  <replace sel="//macros/macro/properties/hull/@max">1100000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="846.85">
+      <inertia pitch="1500.074" yaw="1500.074" roll="1400.659" />
+      <drag forward="370.213" reverse="1260.85" horizontal="510.578" vertical="510.578" pitch="1150.37" yaw="1150.37" roll="1150.37" />
+    </physics>
+  </replace>
+</diff>
+<!-- <macros>
+  <macro name="fulmar_macro" class="ship_xl">
+    <component ref="fulmar" />
+    <properties>
+      <identification name="{20101,22101}" basename="{20101,22101}" description="{6920207,2}" icon="ship_xl_fight_01" />
+      <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" compatible="1" />
+      </software>
+      <storage missile="400" unit="50" />
+      <hull max="375000" />
+      <secrecy level="1" />
+      <purpose primary="fight" />
+      <people capacity="188" />
+      <physics mass="846.85">
+        <inertia pitch="547.074" yaw="547.074" roll="437.659" />
+        <drag forward="315.213" reverse="1270.85" horizontal="510.578" vertical="510.578" pitch="879.37" yaw="879.37" roll="879.37" />
+      </physics>
+      <thruster tags="extralarge" />
+      <ship type="battleship" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="bridge_tel_xl_01_macro" connection="con_cockpit" />
+      </connection>
+      <connection ref="con_dockarea_tel_xl_carrier_01_a">
+        <macro ref="dockarea_tel_xl_carrier_01_macro" connection="Connection01" />
+      </connection>
+      <connection ref="con_dockarea_tel_xl_carrier_01_b">
+        <macro ref="dockarea_tel_xl_carrier_01_macro" connection="Connection01" />
+      </connection>
+      <connection ref="con_dockarea_tel_xl_carrier_01_c">
+        <macro ref="dockarea_tel_xl_carrier_01_macro" connection="Connection01" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_launchtube_arg_s_01_a">
+        <macro ref="launchtube_arg_s_01_macro" connection="Connection02" />
+      </connection>
+      <connection ref="con_launchtube_arg_s_01_b">
+        <macro ref="launchtube_arg_s_01_macro" connection="Connection02" />
+      </connection>
+      <connection ref="con_launchtube_arg_s_01_c">
+        <macro ref="launchtube_arg_s_01_macro" connection="Connection02" />
+      </connection>
+      <connection ref="con_launchtube_arg_s_01_d">
+        <macro ref="launchtube_arg_s_01_macro" connection="Connection02" />
+      </connection>
+      <connection ref="con_launchtube_arg_s_01_e">
+        <macro ref="launchtube_arg_s_01_macro" connection="Connection02" />
+      </connection>
+      <connection ref="con_launchtube_arg_s_01_f">
+        <macro ref="launchtube_arg_s_01_macro" connection="Connection02" />
+      </connection>
+      <connection ref="con_shipstorage01">
+        <macro ref="shipstorage_s_fulmar_macro" connection="object" />
+      </connection>
+      <connection ref="con_shipstorage02">
+        <macro ref="shipstorage_m_fulmar_macro" connection="object" />
+      </connection>
+      <connection ref="con_shipstorage03">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_tel_m_trans_container_01_a_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros> -->

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <replace sel="//wares/ware[@id='argonmattvalkyrie_ware']/price">
+    <price min="4300000" average="5120000" max="6240000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='argonmattvalkyrie_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="210" />
+      <ware ware="energycells" amount="820" />
+      <ware ware="metallicmicrolattice" amount="310" />
+    </primary>
+  </replace>
+
+  <add sel="/wares">
+    <ware id="ishield_atf_l_valkyrie" name="{9001,15001}" description="{9001,15001}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_atf_l_valkyrie_macro" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+  </add>
+</diff>

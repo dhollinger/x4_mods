@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/ammunition/@value">3</replace>
+  <replace sel="//macros/macro/properties/ammunition/@reload">1.1</replace>
+  <replace sel="//macros/macro/properties/bullet/@speed">4100</replace>
+  <replace sel="//macros/macro/properties/bullet/@lifetime">2.1</replace>
+  <replace sel="//macros/macro/properties/reload/@rate">1.2</replace>
+  <replace sel="//macros/macro/properties/damage/@value">240</replace>
+  <replace sel="//macros/macro/properties/damage/@hull">120</replace>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_spl_m_thermal_macro" class="bullet">
+    <component ref="bullet_spl_m_sticky_01_mk2" />
+    <properties>
+      <ammunition value="7" reload="1.1" />
+      <bullet speed="1600" lifetime="1.9" amount="1" barrelamount="1" icon="weapon_sticky_mk2" timediff="0.017" angle="0.69" maxhits="1" ricochet="0" scale="0" attach="0" sticktime="3" />
+      <reload rate="5" />
+      <damage value="15" hull="9" repair="0" />
+      <effects>
+        <impact ref="impact_gen_m_laser_01_mk1" inside="impact_gen_m_laser_01_mk1_inside" />
+        <bigobjectimpact ref="impact_gen_m_laser_01_mk1_bigobject" inside="impact_gen_m_laser_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_gen_s_laser_01_mk1" />
+      </effects>
+      <weapon system="weapon_standard" />
+    </properties>
+  </macro>
+</macros> -->

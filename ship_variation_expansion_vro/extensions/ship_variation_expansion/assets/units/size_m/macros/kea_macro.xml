@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/identification/@name">{20101,22001}</replace>
+  <replace sel="//macros/macro/properties/identification/@basename">{20101,22001}</replace>
+
+  <replace sel="//macros/macro/properties/hull/@max">29500</replace>
+</diff>
+<!-- <macros>
+  <macro name="kea_macro" class="ship_m">
+    <component ref="kea" />
+    <properties>
+      <identification name="{20101,21501}" basename="{20101,21501}" description="{6920201,2}" icon="ship_m_fight_01" />
+      <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" compatible="1" />
+      </software>
+      <explosiondamage value="5000" />
+      <storage missile="60" />
+      <hull max="16500" />
+      <secrecy level="2" />
+      <purpose primary="fight" />
+      <people capacity="21" />
+      <physics mass="40.221">
+        <inertia pitch="13.437" yaw="13.437" roll="10.75" />
+        <drag forward="10.21" reverse="42.2" horizontal="16.864" vertical="16.864" pitch="11.493" yaw="11.493" roll="11.493" />
+      </physics>
+      <thruster tags="medium" />
+      <ship type="gunboat" />
+      <sound_occlusion inside="0.4" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="cockpit_gen_virtual_01_macro" connection="ship" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_arg_m_bomber_01_a_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros> -->

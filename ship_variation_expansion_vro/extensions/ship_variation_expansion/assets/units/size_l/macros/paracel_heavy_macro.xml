@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/hull/@max">160000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="235">
+      <inertia pitch="185.799" yaw="185.799" roll="175.64" />
+      <drag forward="87" reverse="280" horizontal="95" vertical="95" pitch="200" yaw="200" roll="200" />
+    </physics>
+  </replace>
+</diff>

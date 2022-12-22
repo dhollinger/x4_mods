@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/heat/@overheat">8000</replace>
+</diff>
+<!-- <macros>
+  <macro name="weapon_ter_scimitar_plasma_l_macro" class="weapon">
+    <component ref="weapon_ter_scimitar_plasma_l" />
+    <properties>
+      <identification name="{6920229,3}" basename="{6920229,3}" makerrace="terran" description="{6920229,4}" mk="1" />
+      <bullet class="bullet_ter_scimitar_plasma_l_macro" />
+      <heat overheat="5000" cooldelay="1.1" coolrate="1600" reenable="7000" />
+      <rotationspeed max="32.3" />
+      <rotationacceleration max="16.15" />
+      <reload />
+      <hull max="8000" />
+      <sounds>
+        <firing ref="wpn_impulse_l" />
+      </sounds>
+    </properties>
+  </macro>
+</macros> -->

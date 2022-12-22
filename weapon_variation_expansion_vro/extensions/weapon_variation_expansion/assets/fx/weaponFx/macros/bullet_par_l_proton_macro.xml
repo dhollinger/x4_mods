@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/bullet/@speed">3000</replace>
+  <replace sel="//macros/macro/properties/bullet/@lifetime">5.0</replace>
+  <replace sel="//macros/macro/properties/reload/@time">3.1</replace>
+  <replace sel="//macros/macro/properties/damage/@value">2440</replace>
+  <replace sel="//macros/macro/properties/damage/@hull">930</replace>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_par_l_proton_macro" class="bullet">
+    <component ref="bullet_par_l_plasma_01_mk1" />
+    <properties>
+      <bullet speed="414" lifetime="13.5" amount="1" barrelamount="2" icon="weapon_plasma_mk1" timediff="0" angle="0" maxhits="1" ricochet="0" scale="0" attach="0" />
+      <reload time="7.12" />
+      <damage value="2040" hull="830" repair="0" />
+      <effects>
+        <impact ref="impact_gen_m_plasma_01_mk1" inside="impact_gen_m_plasma_01_mk1_inside" />
+        <bigobjectimpact ref="impact_gen_m_plasma_01_mk1_bigobject" inside="impact_gen_m_plasma_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_gen_m_plasma_01_mk1" />
+      </effects>
+      <weapon system="turret_longrange" />
+    </properties>
+  </macro>
+</macros> -->

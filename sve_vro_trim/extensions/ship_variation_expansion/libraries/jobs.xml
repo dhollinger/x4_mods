@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+  <remove sel="//jobs/job[@id='tartarus_PAR_patrol_xl_cluster']" />
+  <remove sel="//jobs/job[@id='tartarus_HOP_patrol_xl_cluster']" />
+  <remove sel="//jobs/job[@id='tartarus_trinity_patrol_xl_cluster']" />
+  <remove sel="//jobs/job[@id='zyarth_viper_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='court_viper_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='zyarth_python_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='court_python_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='argon_centaur_patrol_xl_center_galaxy']" />
+  <remove sel="//jobs/job[@id='teladi_kea_patrol_m_border_cluster']" />
+  <remove sel="//jobs/job[@id='ministry_kea_police_patrol_m']" />
+  <remove sel="//jobs/job[@id='zyarth_gharial_patrol_xl_center']" />
+  <remove sel="//jobs/job[@id='court_gharial_patrol_xl_center']" />
+  <remove sel="//jobs/job[@id='yaki_destroyer_patrol_l']" />
+</diff>

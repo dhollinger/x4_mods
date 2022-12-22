@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+  <remove sel="//jobs/job[@id='argon_centaur_l_sector_exp']" />
+  <remove sel="//jobs/job[@id='antigone_centaur_l_sector_exp']" />
+  <remove sel="//jobs/job[@id='paranid_hyperion_l']" />
+  <remove sel="//jobs/job[@id='holyorder_hyperion_l']" />
+  <remove sel="//jobs/job[@id='panther_l_sector_exp']" />
+  <remove sel="//jobs/job[@id='panther_l_sector_colonial']" />
+  <remove sel="//jobs/job[@id='split_fighter_escort_s_panther']" />
+  <remove sel="//jobs/job[@id='panther_l_sector_court']" />
+  <remove sel="//jobs/job[@id='court_fighter_escort_s_panther']" />
+  <remove sel="//jobs/job[@id='fallensplit_panther_mixed_cluster']" />
+</diff>

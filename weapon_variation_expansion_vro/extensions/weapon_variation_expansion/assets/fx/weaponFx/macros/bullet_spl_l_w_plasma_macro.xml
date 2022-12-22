@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/bullet/@speed">2000</replace>
+  <replace sel="//macros/macro/properties/bullet/@lifetime">4</replace>
+  <replace sel="//macros/macro/properties/damage/@value">1900</replace>
+  <add sel="//macros/macro/properties/damage" type="@hull">430</add>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_spl_l_w_plasma_macro" class="bullet">
+    <component ref="bullet_spl_l_laser_01_mk1" />
+    <properties>
+      <ammunition value="3" reload="1" />
+      <bullet speed="1700" lifetime="7" amount="1" barrelamount="1" timediff="0.002" angle="0.15" maxhits="1" ricochet="0" scale="0" attach="0" />
+      <heat value="500" />
+      <reload rate="2.04" />
+      <damage value="1090" repair="0" />
+      <effects>
+        <impact ref="impact_gen_l_laser_01_mk1" />
+        <bigobjectimpact ref="impact_gen_l_laser_01_mk1_bigobject" inside="impact_gen_l_laser_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_gen_l_laser_01_mk1" />
+      </effects>
+      <weapon system="weapon_standard" />
+    </properties>
+  </macro>
+</macros> -->

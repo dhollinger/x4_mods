@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/hull/@max">33000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="32.5">
+      <inertia pitch="12.6" yaw="12.6" roll="12.6" />
+      <drag forward="4.9" reverse="21.8" horizontal="18" vertical="18" pitch="14.4" yaw="14.4" roll="14.4" />
+    </physics>
+  </replace>
+</diff>
+<!-- <macros>
+  <macro name="minotaur_uni_macro" class="ship_m">
+    <component ref="minotaur_uni" />
+    <properties>
+      <identification name="{6920224,3}" basename="{6920224,3}" description="{6920224,2}" icon="ship_m_trade_01" />
+	  <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+		<software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" compatible="1" />
+        <software ware="software_trademk1" default="1" />
+      </software>
+      <explosiondamage value="1000" />
+      <storage missile="40" />
+      <hull max="10000" />
+      <secrecy level="2" />
+      <purpose primary="trade" />
+      <people capacity="7" />
+      <sounds>
+        <shipdetail ref="shipdetail_ship_m_03" />
+      </sounds>
+      <physics mass="30">
+        <inertia pitch="14.289" yaw="14.289" roll="11.431" />
+        <drag forward="3.84" reverse="15" horizontal="21.465" vertical="21.465" pitch="16.241" yaw="16.241" roll="16.241" />
+      </physics>
+      <thruster tags="medium" />
+      <ship type="transporter" />
+      <sound_occlusion inside="0.4" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="cockpit_gen_virtual_01_macro" connection="ship" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_minotaur_uni_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros> -->

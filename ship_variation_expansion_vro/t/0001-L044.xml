@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <replace sel="//language/page[@id='6920201']">
+    <page id="6920201" title="Egret" desc="Egret" voice="yes">
+      <t id="1">Egret</t>
+      <t id="2">The Egret is a more heavily armed and armored version of the Peregrine gunship, using the chassis of the Cormorant - the transport version of the Peregrine.\n\nIn addition to additional armor, the Egret also boasts two more turrets as well as additional hardpoints. These upgrades do come at the cost of speed and agility however. While it is an expensive ship to produce, and even though it does not possess the ability to carry fighters, it is non the less a powerful warship that brings more firepower to bear than most corvettes or gunships do. As such it lends itself well to fighting smaller craft as well as larger vessels.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920203']">
+    <page id="6920203" title="Aamon" descr="Aamon" voice="yes">
+      <t id="1">Aamon</t>
+      <t id="2">The Aamon is a heavy battleship developed by the argon. Having gone through several iterations, the Aamon was recently finished and offically adopted into service. A durable hull and decent shields make the Aamon a viable backbone for any naval force, be that in offensive or defensive roles. The shipclass is armed with 16 capital-class turrets and two destroyer batteries alongside an array of smaller anti-figther platforms. While the ship does not feature launchbays for drones, as many other battleships do, it can non the less quickly deploy up to 8 figthers or dones at once by using its forward mounted landing pads.</t>
+      <t id="3">(Aamon){20101,12001}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920206']">
+    <page id="6920206" title="Copperhead" descr="Copperhead" voice="yes">
+      <t id="1">Copperhead</t>
+      <t id="2">The Copperhead is a battleship manufactured by the Zyarth Patriarchy. While its construction and operating costs are far higher than that of other battleships it more than makes up for it. With an armament of 20 heavy and 40 medium turrets and the ability to carry support ships along with it make the Copperhead a devastating weapon that is able to go up against any enemy - some even say it can take on full fleets on its own.</t>
+      <t id="3">The Copperhead MK1 was a prototype of the now commonly produced Copperhead, it is not being produced anymore and all known models have been converted, scrapped or went MIA. The MK1 favoured firepower over defences when compared to the regular Copperhead. Key differences are the nose-mounted cannons in the MK1 as well as its less than ideal structural integrity.\n\nAll in all three prototypes were built by the Split, one of which got lost on an expedition into Xenon territory. Commanded by renowned Split captain Z1p'tk the fleet fought back the Xenon in several sectors, eventually leading them into the Emperors Pride system. After reports of several engangements contact was lost and the fleet deemed destroyed. No survivors or traces of the fleet were ever found during search and rescue operations.</t>
+      <t id="4">(Copperhead Raider){20101,42901} {20111,101}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920207']">
+    <page id="6920207" title="Raven" descr="Raven" voice="yes">
+      <t id="1">Raven</t>
+      <t id="2">The Raven is the answer of the Teladi to the other races producing battleships. The ships front is covered in 4 heavy-destroyer class weapon systems alongside 6 heavy turrets, giving the Raven an insane amount of forward facing firepower, making the Raven very effective at frontal attacks and breaking enemy formations. The rest of the body is similarily covered in medium and large sized turrets, enabling to Raven to engage enemies all around of itself all at once. The ship also features the strongest hull integrity of all battleships as well as decent shielding.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920209']">
+    <page id="6920209" title="Enenra" descr="Enenra" voice="yes">
+      <t id="1">Enenra</t>
+      <t id="2">The Enenra-class is the Argon response to the Split deploying the Caiman Heavy Frigate. It is itself a Heavy Frigate that trades large turrets capacity for a powerful destroyer-class main gun and improved manouverability. The Enenra is a ship well suited to all situations and capable of taking on ships much bigger than itself.</t>
+      <t id="3">A modified version of the Enenra-class heavy frigate. Pirates commonly modify their ships to increase the cargo capacity by reducing internal hull structure and convertig missle and drone storage to cargo space. This version of the ship is less arnoured and armed than its parentmodel, yet features more cargo space and speed.</t>
+      <t id="4">(Enenra Raider){20101,13101} {20111,1001}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920215']">
+    <page id="6920215" title="J" descr="J" voice="yes">
+      <t id="1">J</t>
+      <t id="2">While nothing is really known for cetrain about the J-class (just was with any other xenon ship) from what can be observed it seems to be built on the same hull as the K. Compared to the K it is reported to have more firepower, and as such sits between the K and the I-class.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920225']">
+    <page id="6920225" title="L" descr="L" voice="yes">
+      <t id="1">L</t>
+      <t id="2">The L is the smallest of the Xenon capitalship-classes. Moderately armed and shielded it is heavily covered in light turrets, making it extemely dangerous to smaller craft and effective at escorting Xenon battlegroups.</t>
+    </page>
+  </replace>
+
+  <remove sel="//language/page[@id='6920220']" />
+
+  <add sel="/language">
+    <page id="9000" title="SVE VRO Text" descr="SVE VRO text" voice="yes">
+      <t id="14001">IG S - Skua Internal Generator</t>
+      <t id="14002">IG M - Egret Internal Generator</t>
+      <t id="14003">IG M - Scorpion Internal Generator</t>
+      <t id="14004">IG M - Baku Internal Generator</t>
+      <t id="14005">IG L - Enenra Internal Generator</t>
+      <t id="14006">IG L - Taipan Internal Generator</t>
+      <t id="14007">IG L - Basilisk Internal Generator</t>
+      <t id="14008">IG L - Caiman Internal Generator</t>
+      <t id="14009">IG L - Pallas Internal Generator</t>
+      <t id="14010">IG L - Razorbill Internal Generator</t>
+      <t id="14011">IG L - Python Internal Generator</t>
+      <t id="14013">IG L - Skiron Internal Generator</t>
+      <t id="14014">IG L - Paracel Internal Generator</t>
+      <t id="14015">IG XL - Tartarus Internal Generator</t>
+      <t id="14016">IG XL - Aamon Internal Generator</t>
+      <t id="14017">IG XL - Copperhead Internal Generator</t>
+      <t id="14018">IG XL - Copperhead Mk1 Internal Generator</t>
+      <t id="14019">IG XL - Raven Internal Generator</t>
+      <t id="14020">IG XL - Griffon Internal Generator</t>
+      <t id="14021">IG XL - Hatram Internal Generator</t>
+      <t id="14022">IG XL - J Internal Generator</t>
+      <t id="14023">IG XL - Sokotra Internal Generator</t>
+      <t id="14024">IG XL - Sokotra Plunderer Internal Generator</t>
+      <t id="14025">IG XL - L Internal Generator</t>
+      <t id="14026">IG M - Susanowa Internal Generator</t>
+      <t id="14027">IG S - Kojin Internal Generator</t>
+      <t id="14028">IG XL - Duala Internal Generator</t>
+      <t id="14029">IG L - Scimitar Internal Generator</t>
+      <t id="14030">IG S - Paramerion Internal Generator</t>
+      <t id="14031">IG XL - Valkyrie Internal Generator</t>
+      <t id="14032">IG L - Bishamonten Internal Generator</t>
+      <t id="14033">IG S - Akurei Internal Generator</t>
+      <t id="14034">IG S - Akuma Internal Generator</t>
+      <t id="14035">IG L - Claymore Internal Generator</t>
+      <t id="14036">IG L - Mandalay Internal Generator</t>
+      <t id="14037">IG L - Drake Internal Generator</t>
+      <t id="14038">IG L - Namazu Internal Generator</t>
+      <t id="14039">IG L - Erebus Internal Generator</t>
+    </page>
+  </add>
+</diff>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/hull/@max">4000</replace>
+</diff>
+
+<!-- <macros>
+  <macro name="turret_spl_m_thermal_02_macro" class="turret">
+    <component ref="turret_spl_m_laser_02_mk1" />
+    <properties>
+      <identification name="{77777761,2}" basename="{20105,4661}" shortname="{77777761,3}" makerrace="split" description="{77777761,6}" mk="1" />
+      <bullet class="bullet_spl_m_thermal_macro" />
+      <rotationspeed max="150" />
+      <reload rate="1" time="1" />
+      <hull max="425" threshold="0.2" integrated="0" />
+    </properties>
+  </macro>
+</macros> -->

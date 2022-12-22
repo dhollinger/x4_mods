@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="ishield_claymore_macro" class="shieldgenerator">
+    <component ref="ishield_ter_l_claymore" />
+    <properties>
+      <identification name="{9000,14035}" />
+      <recharge max="19000" rate="1600" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+	<replace sel="//wares/ware[@id='turret_ter_l_plasma_ware']/price">
+		<price min="512634" average="563000" max="613000" />
+	</replace>
+
+	<replace sel="//wares/ware[@id='turret_ter_l_proton_ware']/price">
+		<price min="526436" average="583416" max="614023" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_par_l_proton_ware']/price">
+		<price min="620200" average="650395" max="670034" />
+	</replace>
+
+	<replace sel="//wares/ware[@id='turret_spl_m_thermal_01_ware']/price">
+		<price min="58247" average="65860" max="72535" />
+	</replace>
+
+	<replace sel="//wares/ware[@id='turret_spl_m_thermal_02_ware']/price">
+		<price min="58247" average="65860" max="72535" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='weapon_tel_l_muon_ware']/price">
+		<price min="1405000" average="1595800" max="1878000" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='weapon_spl_l_plasma_ware']/price">
+		<price min="2907725" average="3285000" max="3420200" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='weapon_gen_m_proton_ware']/price">
+		<price min="159867" average="172630" max="220393" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_spl_m_autocannon_02_ware']/price">
+		<price min="65930" average="68570" max="70700" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_arg_m_autocannon_02_ware']/price">
+		<price min="69230" average="73570" max="74000" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_tel_m_autocannon_02_ware']/price">
+		<price min="69230" average="73570" max="74000" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_par_m_autocannon_02_ware']/price">
+		<price min="69230" average="73570" max="74000" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_ter_m_autocannon_01_ware']/price">
+		<price min="71378" average="77087" max="79796" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_ter_m_autocannon_02_ware']/price">
+		<price min="71378" average="77087" max="79796" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='weapon_par_l_railgun_ware']/price">
+		<price min="1505201" average="1701335" max="1902468" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='weapon_arg_l_pulsecannon_ware']/price">
+		<price min="1278709" average="1400000" max="1602066" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_ter_l_railgun_ware']/price">
+		<price min="617321" average="684463" max="774563" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='turret_spl_l_railgun_ware']/price">
+		<price min="614321" average="684463" max="774563" />
+	</replace>
+	
+	<replace sel="//wares/ware[@id='weapon_ter_l_protoncannon_ware']/price">
+		<price min="2863602" average="3181296" max="3768990" />
+	</replace>
+</diff>

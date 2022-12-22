@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/identification/@icon">ship_l_frigate</replace>
+
+  <replace sel="//macros/macro/properties/hull/@max">145000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="195">
+      <inertia pitch="160.346" yaw="160.346" roll="140.277" />
+      <drag forward="45" reverse="261" horizontal="63" vertical="63" pitch="150" yaw="150" roll="150" />
+    </physics>
+  </replace>
+</diff>

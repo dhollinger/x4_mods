@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macros>
+	<macro name="ishield_paracel_macro" class="shieldgenerator">
+		<component ref="ishield_arg_l_paracel" />
+		<properties>
+			<identification name="{9000,14014}" mk="1" />
+			<recharge max="25749" rate="600" delay="0" />
+			<hull integrated="1" />
+		</properties>
+	</macro>
+</macros>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/ammunition/@value">10</replace>
+  <replace sel="//macros/macro/properties/ammunition/@reload">3.7</replace>
+  <replace sel="//macros/macro/properties/bullet/@speed">4000</replace>
+  <replace sel="//macros/macro/properties/bullet/@lifetime">1.75</replace>
+  <replace sel="//macros/macro/properties/bullet/@timediff">0.025</replace>
+  <replace sel="//macros/macro/properties/bullet/@angle">0.05</replace>
+  <replace sel="//macros/macro/properties/reload/@rate">1</replace>
+  <replace sel="//macros/macro/properties/areadamage/@value">32</replace>
+  <replace sel="//macros/macro/properties/areadamage/@range">275</replace>
+  <replace sel="//macros/macro/properties/damage/@value">613</replace>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_gen_m_autocannon_macro" class="bullet">
+    <component ref="bullet_gen_s_cannon_01_mk2" />
+    <properties>
+      <ammunition value="6" reload="1.5" />
+	    <bullet speed="1100" lifetime="3.7" amount="1" barrelamount="1" icon="weapon_cannon_mk1" timediff="0.001" angle="0.02" maxhits="1" ricochet="0" restitution="1" scale="0" attach="0" selfdestruct="1" />
+      <reload rate="0.85" />
+      <areadamage value="95" range="80" falloff="1" lifetime="1" />
+      <damage value="95" repair="0" />
+      <effects>
+        <impact ref="explosion_flak" />
+        <launch ref="muzzle_gen_s_flak_01_mk1" />
+      </effects>
+      <weapon system="weapon_standard" />
+    </properties>
+  </macro>
+</macros> -->

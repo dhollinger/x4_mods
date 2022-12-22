@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="//macros/macro/properties" pos="prepend">
+    <ammunition value="6" reload="10" />
+  </add>
+
+  <replace sel="//macros/macro/properties/bullet/@speed">4000</replace>
+  <replace sel="//macros/macro/properties/bullet/@lifetime">4</replace>
+  <replace sel="//macros/macro/properties/bullet/@timediff">0.003</replace>
+  <replace sel="//macros/macro/properties/bullet/@angle">0.9</replace>
+
+  <add sel="//macros/macro/properties/bullet" type="@selfdestruct">1</add>
+
+  <replace sel="//macros/macro/properties/reload/@rate">1</replace>
+  <replace sel="//macros/macro/properties/damage/@value">2500</replace>
+
+  <add sel="//macros/macro/properties/damage" type="@shield">520</add>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_ter_l_plasma_macro" class="bullet">
+    <component ref="bullet_arg_l_plasma_01_mk1" />
+    <properties>
+      <bullet speed="690" lifetime="7.98" amount="1" barrelamount="2" icon="weapon_plasma_mk1" timediff="0" angle="0.01" maxhits="1" ricochet="0" scale="0" attach="0" />
+      <reload rate="0.25" />
+      <damage value="2580" repair="0" />
+      <effects>
+        <impact ref="impact_gen_m_plasma_01_mk1" inside="impact_gen_m_plasma_01_mk1_inside" />
+        <bigobjectimpact ref="impact_gen_m_mining_01_mk1_bigobject" inside="impact_gen_m_plasma_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_turret_gen_m_plasma_01_mk1" />
+      </effects>
+      <weapon system="turret_longrange" />
+    </properties>
+  </macro>
+</macros> -->

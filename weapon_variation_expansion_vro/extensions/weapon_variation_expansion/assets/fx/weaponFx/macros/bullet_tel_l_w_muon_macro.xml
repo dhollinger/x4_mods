@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/bullet/@speed">3500</replace>
+  <replace sel="//macros/macro/properties/bullet/@lifetime">3.2</replace>
+  <replace sel="//macros/macro/properties/heat/@value">1500</replace>
+  <replace sel="//macros/macro/properties/reload/@rate">0.15</replace>
+  <replace sel="//macros/macro/properties/damage/@value">6000</replace>
+  <add sel="//macros/macro/properties/damage" type="@hull">2750</add>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_tel_l_w_muon_macro" class="bullet">
+    <component ref="bullet_tel_l_laser_01_mk1" />
+    <properties>
+      <bullet speed="1700" lifetime="3.1" amount="3" barrelamount="1" icon="weapon_charge_mk2" timediff="0.16" angle="0.09" maxhits="3" ricochet="0.3" restitution="0.55" scale="0" attach="0" sticktime="1" chargetime="1" />
+      <heat value="475" />
+      <reload rate="2" />
+      <damage value="1180" repair="0" />
+      <effects>
+        <impact ref="impact_tel_m_charge_01_mk1" inside="impact_tel_m_charge_01_mk1_inside" />
+        <bigobjectimpact ref="impact_tel_m_charge_01_mk1_bigobject" inside="impact_tel_m_charge_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_tel_m_charge_01_mk1" />
+      </effects>
+      <weapon system="weapon_standard" />
+    </properties>
+  </macro>
+</macros> -->

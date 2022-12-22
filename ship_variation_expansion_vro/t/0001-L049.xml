@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <replace sel="//language/page[@id='6920201']">
+    <page id="6920201" title="Egret" desc="Egret" voice="yes">
+      <t id="1">Egret</t>
+      <t id="2">The Egret is a more heavily armed and armored version of the Peregrine gunship, using the chassis of the Cormorant - the transport version of the Peregrine.\n\nIn addition to additional armor, the Egret also boasts two more turrets as well as additional hardpoints. These upgrades do come at the cost of speed and agility however. While it is an expensive ship to produce, and even though it does not possess the ability to carry fighters, it is non the less a powerful warship that brings more firepower to bear than most corvettes or gunships do. As such it lends itself well to fighting smaller craft as well as larger vessels.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920203']">
+    <page id="6920203" title="Aamon" descr="Aamon" voice="yes">
+      <t id="1">Aamon</t>
+      <t id="2">Der Aamon is ein schweres Schlachtschiff welches von den Argonen entworfen wurde. Nachdem die Schiffsklasse durch mehrere Neudesigns durchlaufen hat wurde sie kürzlich offiziell in den Dienst der argonischen Flotte aufgenommen. Eine starke Panzerung, sowie durchschnittliche Schilde, machen die Zentaur das Rückgrat einer jeden Flotte welche ein Schiff der Klasse ins Feld führt. Bewaffnet mit 16 Hauptschiff-Klasse Geschütztürmen und zwei Zerstörer-Klasse Batterien, sowie einer Anzahl an kleineren Geschützen zur Jägerabwehr, ist die Zentaur dazu in der Lage sowohl in offensive wie auch in defensiven Situationen ihr volles Potential zu entfalten. Während die Schiffsklasse nicht über Startrampen verfügt, wie die meisten anderen Schlachtschiffe es tun, so ist sie dennoch dazu in der Lage bis zu 8 Begleitjägern oder Drohnen auf einmal zu starten.</t>
+      <t id="3">(Aamon Mk2){20101,12001}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920206']">
+    <page id="6920206" title="Copperhead" descr="Copperhead" voice="yes">
+      <t id="1">Kupferkopf</t>
+      <t id="2">Die Kupferkopf ist eine Schlachtschiffklasse welche vom Patriarchat Zyarth hergestellt wird. Trotz vergleichsweiser hoher Konstruktions- und Unterhaltskosten ist die Gavial eine vernichtende Waffe. Mit einer Bewaffnung von 20 schweren und 40 mittleren Geschützplattformen, sowie der Fähigkeit Unterstützungsschiffe direkt mit ins Gefecht zu tragen, ist die Gavialklasse in der Lage es mit nahezu jedem Feind aufzunehmen - manche behaupten gar die Gavial könne es im Alleingang mit einer ganzen Flotte aufnehmen.</t>
+      <t id="3">Die Kupferkopf MK1 war ein Prototyp der nun hergestellten Gavial, welcher nicht länger produziert wird. Alle bekannten Modelle wurden verschrottet, umgewandelt oder sind verschollen. Die MK1 verfügte über mehr Feuerkraft als die nun hergestellte Gavial, jedoch war ihre strukturelle Integrität schwächer. Hauptunterschied sind die in der Front montierten schweren Waffen.\n\nInsgesamt wurden drei Prototypen des Schiffs gebaut, von welchen einer bei einer Expedition in Xenon Gebiete verloren ging. Die Flotte, angeführt vom bekannten Split Kommandanten Z1p'tk, kämpfte sich durch mehrere Xenon Gebiete bis sie schließlich im System Imperators Stolz ankam. Nach Berichten über mehrere schwere Gefechte ging der Kontakt verloren und die Flotte wurde als zerstört eingestuft. Kein Rettungstrupp fand je Überlebende oder Überreste der Flotte.</t>
+      <t id="4">(Kupferkopf Raider){20101,42901} {20111,101}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920207']">
+    <page id="6920207" title="Raven" descr="Raven" voice="yes">
+      <t id="1">Rabe</t>
+      <t id="2">Die Rabe-Klasse ist die Antwort der Teladi auf die Schlachtschiffe der anderen Rassen. An der Front des Schiffes befinden sich vier schwere Zerstörer-Klasse Waffensysteme sowie 6 schwere Geschütze, welche der Rabe eine enorme Vorwärtsfeuerkraft geben und sie effektiv in Frontalangriffen machen. Der Rest des Schiffes ist gleichermaßen mit mittleren und großen Geschützplattformen eingedeckt wodurch die Rabe feindliche Ziele überall um sich herum gleichzeitig bekämpfen kann. Weiterhin verfügt sie über die stärkste Panzerung aller Schlachtschiffe, sowie starke Schilde.</t>
+    </page>
+  </replace>
+
+
+  <replace sel="//language/page[@id='6920209']">
+    <page id="6920209" title="Enenra" descr="Enenra" voice="yes">
+      <t id="1">Enenra</t>
+      <t id="2">Die Enenra-Klasse ist die Antwort der Argonen auf die Kaiman-Klasse der Split. Die Enenra ist eine schwere Fregatte welche Feuerkraft, von großen Geschütztürmen, für eine Zerstörer-Klasse Hauptbatterie, sowie Wendigkeit, eintauscht. Alles in allem ist die Enenra ein vielseitiges Schiff welches sich für nahezu alle Situationen eignet, und in der Lage ist Ziele zu bekämpfen die um einiges größer sind als sie selbst.</t>
+      <t id="3">Eine modifizierte Version der Enenra Fregatte. Piraten modifizieren ihre Schiffe oftmals um mehr geraubte Fracht transportieren zu können, indem sie interne Panzerung entfernen und Munitionslager in Frachtraum umwandeln. Diese Version des Schiffes verfügt über einen größeren Frachtraum als das Original, macht dafür aber Abstriche bei der Panzerung und Bewaffnung.</t>
+      <t id="4">(Enenra Raider){20101,13101} {20111,1001}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920215']">
+    <page id="6920215" title="J" descr="J" voice="yes">
+      <t id="1">J</t>
+      <t id="2">Obwohl nichts wirklich über die J-Klasse bekannt ist (wie bei allen Xenon Schiffen) so scheint sie, laut Beobachtungen, auf der Hülle der K-Klasse gebaut zu sein. Die J führt mehr Feuerkraft als die K und sitzt somit zwischen der K und I-Klasse.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920225']">
+    <page id="6920225" title="L" descr="L" voice="yes">
+      <t id="1">L</t>
+      <t id="2">Die L-Klasse ist das kleinste aller Xenon Großkampfschiffe. Mittelmäßige Bewaffnung und Schilde werden von einer großen Anzahl an kleinen Geschütztürmen ergänzt, was die V extrem gefährlich gegenüber kleineren Schiffen macht.</t>
+    </page>
+  </replace>
+
+  <remove sel="//language/page[@id='6920220']" />
+
+  <add sel="/language">
+    <page id="9000" title="SVE VRO Text" descr="SVE VRO text" voice="yes">
+      <t id="14001">IG S - Skua Internal Generator</t>
+      <t id="14002">IG M - Egret Internal Generator</t>
+      <t id="14003">IG M - Scorpion Internal Generator</t>
+      <t id="14004">IG M - Baku Internal Generator</t>
+      <t id="14005">IG L - Enenra Internal Generator</t>
+      <t id="14006">IG L - Taipan Internal Generator</t>
+      <t id="14007">IG L - Basilisk Internal Generator</t>
+      <t id="14008">IG L - Caiman Internal Generator</t>
+      <t id="14009">IG L - Pallas Internal Generator</t>
+      <t id="14010">IG L - Razorbill Internal Generator</t>
+      <t id="14011">IG L - Python Internal Generator</t>
+      <t id="14013">IG L - Skiron Internal Generator</t>
+      <t id="14014">IG L - Paracel Internal Generator</t>
+      <t id="14015">IG XL - Tartarus Internal Generator</t>
+      <t id="14016">IG XL - Aamon Internal Generator</t>
+      <t id="14017">IG XL - Copperhead Internal Generator</t>
+      <t id="14018">IG XL - Copperhead Mk1 Internal Generator</t>
+      <t id="14019">IG XL - Raven Internal Generator</t>
+      <t id="14020">IG XL - Griffon Internal Generator</t>
+      <t id="14021">IG XL - Hatram Internal Generator</t>
+      <t id="14022">IG XL - J Internal Generator</t>
+      <t id="14023">IG XL - Sokotra Internal Generator</t>
+      <t id="14024">IG XL - Sokotra Plunderer Internal Generator</t>
+      <t id="14025">IG XL - L Internal Generator</t>
+      <t id="14026">IG M - Susanowa Internal Generator</t>
+      <t id="14027">IG S - Kojin Internal Generator</t>
+      <t id="14028">IG XL - Duala Internal Generator</t>
+      <t id="14029">IG L - Scimitar Internal Generator</t>
+      <t id="14030">IG S - Paramerion Internal Generator</t>
+      <t id="14031">IG XL - Valkyrie Internal Generator</t>
+      <t id="14032">IG L - Bishamonten Internal Generator</t>
+      <t id="14033">IG S - Akurei Internal Generator</t>
+      <t id="14034">IG S - Akuma Internal Generator</t>
+      <t id="14035">IG L - Claymore Internal Generator</t>
+      <t id="14036">IG L - Mandalay Internal Generator</t>
+      <t id="14037">IG L - Drake Internal Generator</t>
+      <t id="14038">IG L - Namazu Internal Generator</t>
+      <t id="14039">IG L - Erebus Internal Generator</t>
+    </page>
+  </add>
+</diff>

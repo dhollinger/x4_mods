@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ?xml-stylesheet href="index.xsl" type="text\xsl" ? -->
+<diff>
+  <add sel='/index'>
+    <entry name="ishield_atf_l_valkyrie" value="extensions\argonmatt_valkyrie_vro\assets\props\SurfaceElements\ishield_atf_l_valkyrie" />
+  </add>
+</diff>

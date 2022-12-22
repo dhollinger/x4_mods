@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macros>
+	<macro name="ishield_python_macro" class="shieldgenerator">
+		<component ref="ishield_spl_l_python" />
+		<properties>
+			<identification name="{9000,14011}" mk="1" />
+			<recharge max="65000" rate="960" delay="0" />
+			<hull integrated="1" />
+		</properties>
+	</macro>
+</macros>

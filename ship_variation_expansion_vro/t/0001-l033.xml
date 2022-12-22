@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <replace sel="//language/page[@id='6920201']">
+    <page id="6920201" title="Egret" desc="Egret" voice="yes">
+      <t id="1">Egret</t>
+      <t id="2">The Egret is a more heavily armed and armored version of the Peregrine gunship, using the chassis of the Cormorant - the transport version of the Peregrine.\n\nIn addition to additional armor, the Egret also boasts two more turrets as well as additional hardpoints. These upgrades do come at the cost of speed and agility however. While it is an expensive ship to produce, and even though it does not possess the ability to carry fighters, it is non the less a powerful warship that brings more firepower to bear than most corvettes or gunships do. As such it lends itself well to fighting smaller craft as well as larger vessels.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920203']">
+    <page id="6920203" title="Aamon" descr="Aamon" voice="yes">
+      <t id="1">Aamon</t>
+      <t id="2">Le Aamon est un cuirassé lourd développé par les argons. Ayant subi plusieurs modifications, le Aamon a été récemment terminé et officiellement adopté en service. Une coque durable et des boucliers décents font de la Aamon une colonne vertébrale viable pour toute force navale, que ce soit dans des rôles offensifs ou défensifs. La classe des navires est armée de 16 tourelles de classe capitale et de deux batteries de destroyers le long d'un éventail de tourelles anti-chasseurs plus petits. Bien que le navire ne dispose pas de baies de lancement pour les drones, comme beaucoup d'autres cuirassés le font, il peut déployer rapidement jusqu'à 8 chasseurs ou le faire immédiatement en utilisant ses plateformes d'atterrissage montées à l'avant.</t>
+      <t id="3">(Aamon){20101,12001}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920206']">
+    <page id="6920206" title="Copperhead" descr="Copperhead" voice="yes">
+      <t id="1">Copperhead</t>
+      <t id="2">L'Copperhead est un cuirassé fabriqué par le Patriarcat de Zyarth. Bien que ses coûts de construction et d'exploitation soient beaucoup plus élevés que ceux d'autres navires de combat, il compense largement. Avec un armement de 20 tourelles lourdes et 40 tourelles moyennes et la capacité de transporter des navires de soutien avec lui font de l'Copperhead une arme dévastatrice qui est capable de rivaliser avec n'importe quel ennemi - certains disent même qu'il peut transporter des flottes entières.</t>
+      <t id="3">L'Copperhead MK1 était un prototype de l'Copperhead maintenant couramment produit, il n'est désormais plus produit et tous les modèles connus ont été convertis ou désassemblés. Le MK1 favorisait la puissance de feu plutôt que les défenses par rapport à l'Copperhead ordinaire. Les principales différences sont les canons montés sur le nez de la MK1 ainsi que son intégrité structurelle moins qu'idéale.\n\nTous les trois prototypes ont été construits par la Split, dont l'un s'est perdu lors d'une expédition en territoire Xénon. Commandée par le célèbre capitaine split IG Lp'tk, la flotte a combattu les Xénons dans plusieurs secteurs, les menant finalement dans le système Fierté de l'Empereur. Après les rapports de plusieurs contacts, le contact a été perdu et la flotte a été jugée détruite. Aucun survivant ni aucune trace de la flotte n'ont jamais été retrouvés pendant les opérations de recherche et de sauvetage.</t>
+      <t id="4">(Copperhead Raider){20101,42901} {20111,101}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920207']">
+    <page id="6920207" title="Raven" descr="Raven" voice="yes">
+      <t id="1">Corbeau</t>
+      <t id="2">Le Corbeau est la réponse des Teladis aux autres races produisant des cuirassés. L'avant du navire est couvert de 4 systèmes d'armes de classe destroyer lourd aux côtés de 6 tourelles lourdes, ce qui donne au raven une quantité incroyable de puissance de feu orientée vers l'avant, ce qui rend le Corbeau très efficace lors des attaques frontales et des formations ennemies déferlantes. Le reste du chassis est également couvert de tourelles de taille moyenne et grande, permettant au Corbeau d'engager des ennemis tout autour de lui en même-temps. Le navire présente également l'intégrité de coque la plus solide de tous les navires de combat ainsi qu'un blindage décent.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920209']">
+    <page id="6920209" title="Enenra" descr="Enenra" voice="yes">
+      <t id="1">Enenra</t>
+      <t id="2">La classe Enenra est la réponse argone au Split en déployant la frégate lourde Caiman. C'est lui-même une frégate lourde qui échange une grande capacité de tourelles contre un puissant canon principal de classe destroyer et une maniabilité améliorée. Le Enenra est un vaisseau bien adapté à toutes les situations et capable d'embarquer des vaisseaux beaucoup plus gros que lui.</t>
+      <t id="3">Une version modifiée de la frégate lourde de classe Enenra. Les pirates modifient généralement leurs navires pour augmenter la capacité de chargement en réduisant la structure interne de la coque et en convertissant le stockage des missiles et des drones en espace de chargement. Cette version du navire est moins blindée et armée que son modèle parent, mais offre plus d'espace de chargement et de vitesse.</t>
+      <t id="4">(Enenra Raider){20101,13101} {20111,1001}</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920215']">
+    <page id="6920215" title="J" descr="J" voice="yes">
+      <t id="1">J</t>
+      <t id="2">Alors que rien n'est vraiment connu avec certitude sur la classe J (tout comme n'importe quel autre navire Xénon), de ce qui peut être observé, il semble être construit sur la même coque que le K. Par rapport au K, il est signalé pour avoir plus de puissance de feu, et se trouve donc entre le K et le I.</t>
+    </page>
+  </replace>
+
+  <replace sel="//language/page[@id='6920225']">
+    <page id="6920225" title="L" descr="L" voice="yes">
+      <t id="1">L</t>
+      <t id="2">Le L est le plus petit vaisseaux des classes capitales Xénon. Modérément armé et blindé, il est lourdement couvert de tourelles légères, ce qui le rend extrêmement dangereux pour les petits navires et efficace pour escorter les groupements tactiques Xénons.</t>
+    </page>
+  </replace>
+
+  <remove sel="//language/page[@id='6920220']" />
+
+  <add sel="/language">
+    <page id="9000" title="SVE VRO Text" descr="SVE VRO text" voice="yes">
+      <t id="14001">IG S - Skua Générateur Interne</t>
+      <t id="14002">IG M - Egret Générateur Interne</t>
+      <t id="14003">IG M - Scorpion Générateur Interne</t>
+      <t id="14004">IG M - Baku Générateur Interne</t>
+      <t id="14005">IG L - Enenra Générateur Interne</t>
+      <t id="14006">IG L - Taipan Générateur Interne</t>
+      <t id="14007">IG L - Basilisk Générateur Interne</t>
+      <t id="14008">IG L - Caiman Générateur Interne</t>
+      <t id="14009">IG L - Pallas Générateur Interne</t>
+      <t id="14010">IG L - Razorbill Générateur Interne</t>
+      <t id="14011">IG L - Python Générateur Interne</t>
+      <t id="14013">IG L - Skiron Générateur Interne</t>
+      <t id="14014">IG L - Paracel Générateur Interne</t>
+      <t id="14015">IG XL - Tartarus Générateur Interne</t>
+      <t id="14016">IG XL - Aamon Générateur Interne</t>
+      <t id="14017">IG XL - Copperhead Générateur Interne</t>
+      <t id="14018">IG XL - Copperhead Mk1 Générateur Interne</t>
+      <t id="14019">IG XL - Raven Générateur Interne</t>
+      <t id="14020">IG XL - Griffon Générateur Interne</t>
+      <t id="14021">IG XL - Hatram Générateur Interne</t>
+      <t id="14022">IG XL - J Générateur Interne</t>
+      <t id="14023">IG XL - Sokotra Générateur Interne</t>
+      <t id="14024">IG XL - Sokotra Plunderer Générateur Interne</t>
+      <t id="14025">IG XL - L Générateur Interne</t>
+      <t id="14026">IG M - Susanowa Générateur Interne</t>
+      <t id="14027">IG S - Kojin Générateur Interne</t>
+      <t id="14028">IG XL - Duala Générateur Interne</t>
+      <t id="14029">IG L - Scimitar Générateur Interne</t>
+      <t id="14030">IG S - Paramerion Générateur Interne</t>
+      <t id="14031">IG XL - Valkyrie Générateur Interne</t>
+      <t id="14032">IG L - Bishamonten Générateur Interne</t>
+      <t id="14033">IG S - Akurei Générateur Interne</t>
+      <t id="14034">IG S - Akuma Générateur Interne</t>
+      <t id="14035">IG L - Claymore Générateur Interne</t>
+      <t id="14036">IG L - Mandalay Générateur Interne</t>
+      <t id="14037">IG L - Drake Générateur Interne</t>
+      <t id="14038">IG L - Namazu Générateur Interne</t>
+      <t id="14039">IG L - Erebus Générateur Interne</t>
+    </page>
+  </add>
+</diff>

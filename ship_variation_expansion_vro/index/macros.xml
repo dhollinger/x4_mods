@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ?xml-stylesheet href="index.xsl" type="text\xsl" ? -->
+<diff>
+  <add sel="/index">
+    <!-- internal shields-->
+    <entry name="ishield_baku_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_baku_macro" />
+    <entry name="ishield_caiman_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_caiman_macro" />
+    <entry name="ishield_aamon_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_aamon_macro" />
+    <entry name="ishield_egret_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_egret_macro" />
+    <entry name="ishield_manticore_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_manticore_macro" />
+    <entry name="ishield_raven_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_raven_macro" />
+    <entry name="ishield_scorpion_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_scorpion_macro" />
+    <entry name="ishield_copperhead_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_copperhead_macro" />
+    <entry name="ishield_copperhead_mk1_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_copperhead_mk1_macro" />
+    <entry name="ishield_taipan_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_taipan_macro" />
+    <entry name="ishield_tartarus_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_tartarus_macro" />
+    <entry name="ishield_basilisk_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_basilisk_macro" />
+    <entry name="ishield_griffon_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_griffon_macro" />
+    <entry name="ishield_hatram_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_hatram_macro" />
+    <entry name="ishield_skua_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_skua_macro" />
+    <entry name="ishield_sokotra_plunderer_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_sokotra_plunderer_macro" />
+    <entry name="ishield_sokotra_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_sokotra_macro" />
+    <entry name="ishield_pallas_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_pallas_macro" />
+    <entry name="ishield_razorbill_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_razorbill_macro" />
+    <entry name="ishield_python_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_python_macro" />
+    <entry name="ishield_skiron_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_skiron_macro" />
+    <entry name="ishield_paracel_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_paracel_macro" />
+    <entry name="ishield_kojin_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_kojin_macro" />
+    <entry name="ishield_susanowa_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_susanowa_macro" />
+    <entry name="ishield_duala_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_duala_macro" />
+    <entry name="ishield_scimitar_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_scimitar_macro" />
+    <entry name="ishield_paramerion_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_paramerion_macro" />
+    <entry name="ishield_valkyrie_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_valkyrie_macro" />
+    <entry name="ishield_bishamonten_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_bishamonten_macro" />
+    <entry name="ishield_akurei_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_akurei_macro" />
+    <entry name="ishield_akuma_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_akuma_macro" />
+    <entry name="ishield_claymore_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_claymore_macro" />
+    <entry name="ishield_mandalay_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_mandalay_macro" />
+    <entry name="ishield_drake_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_drake_macro" />
+    <entry name="ishield_erebus_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_erebus_macro" />
+    <entry name="ishield_namazu_macro" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\macros\ishield_namazu_macro" />
+  </add>
+</diff>

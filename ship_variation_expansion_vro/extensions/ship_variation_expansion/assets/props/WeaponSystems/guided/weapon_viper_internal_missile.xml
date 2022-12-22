@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <remove sel="/components" />
+</diff>
+<!-- <?xml version="1.0"?>
+<components>
+	<component name="weapon_viper_internal_missile" class="missilelauncher">
+		<source/>
+		<layers>
+			<layer>
+				<waypoints/>
+				<lights/>
+			</layer>
+		</layers>
+		<connections>
+			<connection name="container" tags="contents" value="0"/>
+			<connection name="position" tags="position" value="1"/>
+			<connection name="WeaponCon_01" tags="component weapon medium internalmissile ">
+				<offset/>
+			</connection>
+			<connection name="con_rocket01" tags="rocket ">
+				<offset>
+					<position x="1.346086" y="-7.157661E-03" z="9.350305"/>
+				</offset>
+			</connection>
+			<connection name="con_rocket02" tags="rocket ">
+				<offset>
+					<position x="-1.355131" y="-7.157661E-03" z="9.350305"/>
+				</offset>
+			</connection>
+		</connections>
+	</component>
+</components> -->

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/hull/@max">25000</replace>
+
+  <replace sel="//macros/macro/properties/physics">
+    <physics mass="29.617">
+      <inertia pitch="20.831" yaw="20.831" roll="19.265" />
+      <drag forward="5.875" reverse="24.998" horizontal="16.539" vertical="16.539" pitch="22" yaw="22" roll="22" />
+    </physics>
+  </replace>
+</diff>
+<!-- <macros>
+  <macro name="scorpion_macro" class="ship_m">
+    <component ref="scorpion" />
+    <properties>
+      <identification name="{20101,40401}" basename="{20101,40401}" makerrace="split" description="{6920205,2}" icon="ship_m_fight_01" />
+      <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" compatible="1" />
+      </software>
+      <explosiondamage value="3000" />
+      <storage missile="55" />
+      <hull max="5200" />
+      <secrecy level="1" />
+      <purpose primary="fight" />
+      <people capacity="11" />
+      <sounds>
+        <shipdetail ref="shipdetail_ship_m_01" />
+      </sounds>
+      <physics mass="29.617">
+        <inertia pitch="6.831" yaw="6.831" roll="5.265" />
+        <drag forward="5.875" reverse="24.998" horizontal="8.539" vertical="8.539" pitch="10.154" yaw="10.154" roll="10.154" />
+      </physics>
+      <thruster tags="medium" />
+      <ship type="gunboat" />
+      <sound_occlusion inside="0.4" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="cockpit_gen_virtual_01_macro" connection="ship" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_par_m_corvette_01_a_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros> -->

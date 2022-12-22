@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/hull/@max">26150</replace>
+
+  <replace sel="//macros/macro/properties/rotationspeed/@max">9</replace>
+</diff><!-- <macros>
+  <macro name="turret_arg_l_fast_proton_macro" class="turret">
+    <component ref="turret_arg_l_fast_proton" />
+    <properties>
+      <identification name="{77777761,35}" basename="{77777761,34}" shortname="{77777761,33}" makerrace="argon" description="{77777761,36}" mk="1" />
+      <bullet class="bullet_arg_l_fast_proton_macro" />
+      <rotationspeed max="14" />
+      <rotationacceleration max="20" />
+      <reload rate="0.5" time="1" />
+      <hull max="2300" threshold="0.2" />
+    </properties>
+  </macro>
+</macros> -->

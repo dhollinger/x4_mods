@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <replace sel="//wares/ware[@id='xen_r_ware']/price">
+    <price min="6567574" average="7932440" max="8297306" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='kea_ware']/price">
+    <price min="1925000" average="2005000" max="2100000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='centaur_ware']/price">
+    <price min="71000000" average="81000000" max="90000000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='caiman_ware']/price">
+    <price min="6858890" average="7222724" max="7856420" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='caiman_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="2000" />
+      <ware ware="hullparts" amount="7740" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='tartarus_mk2_ware']/price">
+    <price min="72000000" average="81000000" max="89000000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='scorpion_ware']/price">
+    <price min="3350000" average="3420000" max="3570000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='gharial_ware']/price">
+    <price min="55700000" average="65000000" max="78000000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='baku_ware']/price">
+    <price min="310000" average="340000" max="370000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='manticore_ware']/price">
+    <price min="6200000" average="6800000" max="7400000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='manticore_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="1500" />
+      <ware ware="hullparts" amount="5070" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='taipan_ware']/price">
+    <price min="5550000" average="6500000" max="6950000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='taipan_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="970" />
+      <ware ware="hullparts" amount="2975" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='basilisk_ware']/price">
+    <price min="13200000" average="13700000" max="14200000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='skua_ware']/price">
+    <price min="105000" average="130000" max="165000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='skua_alliance_ware']/price">
+    <price min="125000" average="150000" max="185000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='pallas_ware']/price">
+    <price min="5300000" average="5600000" max="6300000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='pallas_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="1250" />
+      <ware ware="hullparts" amount="3500" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='razorbill_ware']/price">
+    <price min="6200000" average="6600000" max="6500000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='razorbill_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="1250" />
+      <ware ware="hullparts" amount="6970" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='manticore_plunderer_ware']/price">
+    <price min="6000000" average="6600000" max="7300000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='manticore_plunderer_ware_sca']/price">
+    <price min="6130000" average="6830000" max="7450000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='sokotra_plunderer_ware']/price">
+    <price min="12500000" average="14100000" max="16700000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='sokotra_plunderer_ware_sca']/price">
+    <price min="12900000" average="14700000" max="17300000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='python_ware']/price">
+    <price min="30000000" average="35000000" max="42000000" />
+  </replace>
+
+  <remove sel="//wares/ware[@id='viper_ware']" />
+  <remove sel="//wares/ware[@id='weapon_viper_internal_missile_ware']" />
+  <remove sel="//wares/ware[@id='weapon_viper_internal_torpedo_ware']" />
+
+  <replace sel="//wares/ware[@id='skiron_ware']/price">
+    <price min="5400000" average="5800000" max="6200000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='skiron_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="3600" />
+      <ware ware="hullparts" amount="3100" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='duala_ware']/price">
+    <price min="17000000" average="19200000" max="22500000" />
+  </replace>
+
+  <replace sel="//wares/ware[@id='duala_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="10100" />
+      <ware ware="hullparts" amount="12080" />
+      <ware ware="advancedelectronics" amount="300" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='scimitar_ware']/price">
+    <price min="9700000" average="11300000" max="14300000" />
+  </replace>
+  <replace sel="//wares/ware[@id='scimitar_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="306" />
+      <ware ware="energycells" amount="1984" />
+      <ware ware="metallicmicrolattice" amount="492" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='scimitar_ware']/restriction/@licence">capitalship</replace>
+
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_plasma_l_ware']/price">
+    <price min="2100000" average="2500000" max="3200000" />
+  </replace>
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_plasma_l_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="200" />
+      <ware ware="energycells" amount="500" />
+      <ware ware="metallicmicrolattice" amount="500" />
+      <ware ware="siliconcarbide" amount="450" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_plasma_l_ware']/restriction/@licence">capitalship</replace>
+
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_beam_l_ware']/price">
+    <price min="2100000" average="2600000" max="3500000" />
+  </replace>
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_beam_l_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="300" />
+      <ware ware="energycells" amount="700" />
+      <ware ware="metallicmicrolattice" amount="500" />
+      <ware ware="siliconcarbide" amount="400" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_beam_l_ware']/restriction/@licence">captialship</replace>
+
+  <replace sel="//wares/ware[@id='paramerion_ware']/price">
+    <price min="181338" average="262750" max="344163" />
+  </replace>
+  <replace sel="//wares/ware[@id='paramerion_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="20" />
+      <ware ware="energycells" amount="100" />
+      <ware ware="metallicmicrolattice" amount="20" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='valkyrie_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="934" />
+      <ware ware="energycells" amount="35652" />
+      <ware ware="metallicmicrolattice" amount="1725" />
+      <ware ware="siliconcarbide" amount="800" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='bishamonten_ware']/price">
+    <price min="12800000" average="13800000" max="14400000" />
+  </replace>
+  <replace sel="//wares/ware[@id='bishamonten_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="1200" />
+      <ware ware="hullparts" amount="5070" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='fenrir_ware']/price">
+    <price min="15650383" average="18823975" max="23008471" />
+  </replace>
+  <replace sel="//wares/ware[@id='fenrir_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="420" />
+      <ware ware="energycells" amount="4190" />
+      <ware ware="metallicmicrolattice" amount="680" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='claymore_ware']/price">
+    <price min="8850000" average="9300000" max="10150000" />
+  </replace>
+  <replace sel="//wares/ware[@id='claymore_ware']/production/primary">
+    <primary>
+      <ware ware="computronicsubstrate" amount="140" />
+      <ware ware="energycells" amount="300" />
+      <ware ware="metallicmicrolattice" amount="400" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='mandalay_ware']/price">
+    <price min="9200000" average="10005000" max="12100000" />
+  </replace>
+  <replace sel="//wares/ware[@id='mandalay_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="1850" />
+      <ware ware="hullparts" amount="7650" />
+      <ware ware="advancedelectronics" amount="35" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='drake_ware']/price">
+    <price min="9200000" average="10015000" max="11900000" />
+  </replace>
+  <replace sel="//wares/ware[@id='drake_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="2250" />
+      <ware ware="hullparts" amount="4712" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='namazu_ware']/price">
+    <price min="2110000" average="3620000" max="6256000" />
+  </replace>
+  <replace sel="//wares/ware[@id='namazu_ware']/production/primary">
+    <primary>
+      <ware ware="energycells" amount="3120" />
+      <ware ware="hullparts" amount="1850" />
+      <ware ware="advancedelectronics" amount="35" />
+    </primary>
+  </replace>
+
+  <replace sel="//wares/ware[@id='erebus_ware']/price">
+    <price min="7400000" average="9700000" max="13100000" />
+  </replace>
+  <replace sel="//wares/ware[@id='erebus_ware']/producion/primary">
+    <primary>
+      <ware ware="energycells" amount="3650" />
+      <ware ware="hullparts" amount="9759" />
+      <ware ware="antimatterconverters" amount="35" />
+      <ware ware="smartchips" amount="70" />
+      <ware ware="scanningarrays" amount="12" />
+    </primary>
+  </replace>
+
+
+  <add sel="/wares">
+    <!-- iShield Wares for SVE ships -->
+    <ware id="ishield_tel_s_skua" name="{9000,14001}" description="{9000,14001}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_skua_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_spl_xl_copperhead" name="{9000,14017}" description="{9000,14017}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_copperhead_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_spl_xl_copperhead_mk1" name="{9000,14018}" description="{9000,14018}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_copperhead_mk1_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_m_baku" name="{9000,14004}" description="{9000,14004}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_baku_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_l_basilisk" name="{9000,14007}" description="{9000,14007}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_basilisk_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_spl_l_caiman" name="{9000,14008}" description="{9000,14008}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_caiman_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_xl_aamon" name="{9000,14016}" description="{9000,14016}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_aamon_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ant_xl_griffon" name="{9000,14020}" description="{9000,14020}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_griffon_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_xl_hatram" name="{9000,14021}" description="{9000,14021}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_hatram_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_tel_m_egret" name="{9000,14002}" description="{9000,14001}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_egret_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_l_manticore" name="{9000,14005}" description="{9000,14005}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_manticore_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_par_l_pallas" name="{9000,14009}" description="{9000,14009}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_pallas_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_l_paracel" name="{9000,14014}" description="{9000,14014}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_paracel_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_tel_xl_raven" name="{9000,14019}" description="{9000,14019}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_raven_macro" amount="1" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0" />
+    </ware>
+
+    <ware id="ishield_spl_l_python" name="{9000,14011}" description="{9000,14011}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_python_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_tel_l_razorbill" name="{9000,14010}" description="{9000,14010}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_razorbill_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_spl_m_scorpion" name="{9000,14003}" description="{9000,14003}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_scorpion_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ant_l_skiron" name="{9000,14013}" description="{9000,14013}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_skiron_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ali_xl_sokotra" name="{9000,14023}" description="{9000,14023}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_sokotra_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_sca_xl_sokotra_plunderer" name="{9000,14024}" description="{9000,14024}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_sokotra_plunderer_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_spl_l_taipan" name="{9000,14006}" description="{9000,14006}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_taipan_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_par_xl_tartarus" name="{9000,14015}" description="{9000,14015}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_tartarus_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_yak_m_susanowa" name="{9000,14026}" description="{9000,14026}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_susanowa_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_yak_s_kojin" name="{9000,14027}" description="{9000,14027}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_kojin_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ant_xl_duala" name="{9000,14028}" description="{9000,14028}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_duala_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ter_l_scimitar" name="{9000,14029}" description="{9000,14029}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_scimitar_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ter_s_paramerion" name="{9000,14030}" description="{9000,14030}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_paramerion_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ter_xl_valkyrie" name="{9000,14031}" description="{9000,14031}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_valkyrie_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_yak_l_bishamonten" name="{9000,14032}" description="{9000,14032}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_bishamonten_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_yak_s_akurei" name="{9000,14033}" description="{9000,14033}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_akurei_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_yak_s_akuma" name="{9000,14034}" description="{9000,14034}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_akuma_macro" amount="1" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_ter_l_claymore" name="{9000,14035}" description="{9000,14035}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_claymore_macro" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_l_mandalay" name="{9000,14036}" description="{9000,14036}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_mandalay_macro" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_spl_l_drake" name="{9000,14037}" description="{9000,14037}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_drake_macro" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_l_namazu" name="{9000,14038}" description="{9000,14038}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_namazu_macro" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+    <ware id="ishield_arg_l_erebus" name="{9000,14039}" description="{9000,14039}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="12" average="16" max="21" />
+      <production time="1" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="1" />
+        </primary>
+      </production>
+      <component ref="ishield_erebus_macro" />
+      <use threshold="0" />
+      <restriction licence="generaluseequipment" />
+    </ware>
+
+  </add>
+</diff>

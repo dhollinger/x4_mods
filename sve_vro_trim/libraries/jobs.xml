@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <remove sel="//jobs/job[@id='tartarus_PAR_patrol_xl_cluster']" />
+  <remove sel="//jobs/job[@id='tartarus_HOP_patrol_xl_cluster']" />
+  <remove sel="//jobs/job[@id='tartarus_trinity_patrol_xl_cluster']" />
+  <remove sel="//jobs/job[@id='zyarth_viper_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='court_viper_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='zyarth_python_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='court_python_patrol_l_border_sector']" />
+  <remove sel="//jobs/job[@id='argon_centaur_patrol_xl_center_galaxy']" />
+  <remove sel="//jobs/job[@id='teladi_kea_patrol_m_border_cluster']" />
+  <remove sel="//jobs/job[@id='ministry_kea_police_patrol_m']" />
+  <remove sel="//jobs/job[@id='zyarth_gharial_patrol_xl_center']" />
+  <remove sel="//jobs/job[@id='court_gharial_patrol_xl_center']" />
+  <remove sel="//jobs/job[@id='yaki_destroyer_patrol_l']" />
+  <remove sel="//jobs/job[@id='argon_centaur_l_sector_exp']" />
+  <remove sel="//jobs/job[@id='antigone_centaur_l_sector_exp']" />
+  <remove sel="//jobs/job[@id='paranid_hyperion_l']" />
+  <remove sel="//jobs/job[@id='holyorder_hyperion_l']" />
+  <remove sel="//jobs/job[@id='panther_l_sector_exp']" />
+  <remove sel="//jobs/job[@id='panther_l_sector_colonial']" />
+  <remove sel="//jobs/job[@id='split_fighter_escort_s_panther']" />
+  <remove sel="//jobs/job[@id='panther_l_sector_court']" />
+  <remove sel="//jobs/job[@id='court_fighter_escort_s_panther']" />
+  <remove sel="//jobs/job[@id='fallensplit_panther_mixed_cluster']" />
+</diff>

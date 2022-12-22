@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <remove sel="//ships/ship[@id='paranid_hyperion']" />
+  <remove sel="//ships/ship[@id='holyorder_hyperion']" />
+  <remove sel="//ships/ship[@id='split_panther']" />
+  <remove sel="//ships/ship[@id='court_panther']" />
+  <remove sel="//ships/ship[@id='argon_centaur']" />
+  <remove sel="//ships/ship[@id='antigone_centaur']" />
+  <remove sel="//ships/ship[@id='tel_kea']" />
+  <remove sel="//ships/ship[@id='min_kea']" />
+  <remove sel="//ships/ship[@id='arg_manticore']" />
+  <remove sel="//ships/ship[@id='ant_manticore']" />
+  <remove sel="//ships/ship[@id='arg_basilisk']" />
+  <remove sel="//ships/ship[@id='ant_basilisk']" />
+  <remove sel="//ships/ship[@id='sca_basilisk']" />
+  <remove sel="//ships/ship[@id='spl_python']" />
+  <remove sel="//ships/ship[@id='cub_python']" />
+  <remove sel="//ships/ship[@id='spl_viper']" />
+  <remove sel="//ships/ship[@id='cub_viper']" />
+  <remove sel="//ships/ship[@id='yak_destroyer']" />
+  <remove sel="//ships/ship[@id='ter_claymore']" />
+  <remove sel="//ships/ship[@id='par_pallas']" />
+  <remove sel="//ships/ship[@id='hol_pallas']" />
+  <remove sel="//ships/ship[@id='tri_pallas']" />
+  <remove sel="//ships/ship[@id='spl_gharial']" />
+  <remove sel="//ships/ship[@id='cub_gharial']" />
+  <remove sel="//ships/ship[@id='par_tartarus']" />
+  <remove sel="//ships/ship[@id='hol_tartarus']" />
+  <remove sel="//ships/ship[@id='tri_tartarus']" />
+</diff>

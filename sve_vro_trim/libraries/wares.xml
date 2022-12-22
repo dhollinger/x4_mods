@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+  <remove sel="/wares/ware[@id='ship_spl_l_panther_a']" />
+  <!-- <remove sel="/wares/ware[@id='ship_spl_l_viper']" /> -->
+  <remove sel="/wares/ware[@id='ship_arg_l_centaur_a']" />
+  <remove sel="/wares/ware[@id='ship_arg_l_centaur_b']" />
+  <remove sel="/wares/ware[@id='ship_par_l_hyperion']" />
+  <remove sel="/wares/ware[@id='ship_ter_l_shikoku']" />
+  <remove sel="/wares/ware[@id='ship_ter_l_makhaira']" />
+  <remove sel="/wares/ware[@id='ship_ter_l_akita']" />
+  <remove sel="/wares/ware[@id='ship_ter_xl_sapporo']" />
+  <remove sel="//wares/ware[@id='kea_ware']" />
+  <remove sel="//wares/ware[@id='akuma_ware']" />
+  <remove sel="//wares/ware[@id='akurei_ware']" />
+  <remove sel="//wares/ware[@id='centaur_ware']" />
+  <remove sel="//wares/ware[@id='tartarus_mk2_ware']" />
+  <remove sel="//wares/ware[@id='gharial_ware']" />
+  <remove sel="//wares/ware[@id='manticore_ware']" />
+  <remove sel="//wares/ware[@id='basilisk_ware']" />
+  <remove sel="//wares/ware[@id='manticore_plunderer_ware']" />
+  <remove sel="//wares/ware[@id='manticore_plunderer_ware_sca']" />
+  <remove sel="//wares/ware[@id='python_ware']" />
+  <remove sel="//wares/ware[@id='viper_ware']" />
+  <remove sel="//wares/ware[@id='weapon_viper_internal_missile_ware']" />
+  <remove sel="//wares/ware[@id='weapon_viper_internal_torpedo_ware']" />
+  <remove sel="//wares/ware[@id='skiron_ware']" />
+  <remove sel="//wares/ware[@id='pallas_ware']" />
+  <remove sel="//wares/ware[@id='valkyrie_ware']" />
+  <remove sel="//wares/ware[@id='bishamonten_ware']" />
+  <remove sel="//wares/ware[@id='fenrir_ware']" />
+  <remove sel="//wares/ware[@id='claymore_ware']" />
+  <remove sel="//wares/ware[@id='mandalay_ware']" />
+  <remove sel="//wares/ware[@id='drake_ware']" />
+</diff>

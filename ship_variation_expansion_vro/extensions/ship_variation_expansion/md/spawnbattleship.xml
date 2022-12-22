@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+  <replace sel="//cue[@name='SpawnAbandonedShipEmperorsPride']/actions/do_if/generate_loadout">
+    <generate_loadout
+      macro="macro.gharial_mk1_macro" faction="faction.ownerless"
+      wares="[ware.ishield_spl_xl_copperhead_mk1, ware.software_flightassistmk1, ware.software_dockmk2, ware.software_scannerlongrangemk1, ware.software_scannerobjectmk1, ware.software_targetmk1,ware.engine_spl_l_travel_01_mk1, ware.shield_spl_xl_standard_01_mk1, ware.turret_spl_l_laser_01_mk1, ware.turret_spl_m_beam_02_mk1, ware.thruster_gen_xl_allround_01_mk1]"
+      level="1"
+      result="$loadout"
+    />
+  </replace>
+</diff>

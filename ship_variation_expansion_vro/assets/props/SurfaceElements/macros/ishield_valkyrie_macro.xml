@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+	<macro name="ishield_valkyrie_macro" class="shieldgenerator">
+		<component ref="ishield_ter_xl_valkyrie" />
+		<properties>
+			<identification name="{9000,14031}" mk="1" />
+			<recharge max="145100" rate="2650" delay="0" />
+			<hull integrated="1" />
+		</properties>
+	</macro>
+</macros>

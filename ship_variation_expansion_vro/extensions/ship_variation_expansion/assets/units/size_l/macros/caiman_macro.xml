@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros">
+
+    <macros>
+      <macro name="caiman_macro" class="ship_l">
+        <component ref="caiman" />
+        <properties>
+          <identification name="{20101,40901}" basename="{20101,40901}" makerrace="split" description="{6920204,2}" icon="ship_l_frigate" />
+          <software>
+            <software ware="software_dockmk2" compatible="1" />
+            <software ware="software_flightassistmk1" default="1" />
+            <software ware="software_scannerlongrangemk1" default="1" />
+            <software ware="software_scannerlongrangemk2" compatible="1" />
+            <software ware="software_scannerobjectmk1" default="1" />
+            <software ware="software_scannerobjectmk2" compatible="1" />
+            <software ware="software_targetmk1" default="1" />
+            <software ware="software_trademk1" compatible="1" />
+          </software>
+          <explosiondamage value="10000" />
+          <storage missile="180" unit="5" />
+          <hull max="180000" />
+          <secrecy level="1" />
+          <purpose primary="fight" />
+          <people capacity="59" />
+          <sounds>
+            <shipdetail ref="shipdetail_ship_l_01" />
+          </sounds>
+          <physics mass="200.275">
+            <inertia pitch="210.749" yaw="220.662" roll="210.616" />
+            <drag forward="65.867" reverse="165.528" horizontal="88.056" vertical="88.056" pitch="220" yaw="220" roll="210" />
+          </physics>
+          <thruster tags="large" />
+          <ship type="frigate" />
+        </properties>
+        <connections>
+          <connection ref="con_cockpit">
+            <macro ref="bridge_spl_l_01_macro" connection="con_cockpit" />
+          </connection>
+          <connection ref="con_dockarea_arg_s_ship_02">
+            <macro ref="dockarea_arg_s_ship_02_macro" connection="Connection01" />
+          </connection>
+          <connection ref="con_dock_xs">
+            <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+          </connection>
+          <connection ref="con_shipstorage_s_01">
+            <macro ref="shipstorage_s_caiman_macro" connection="object" />
+          </connection>
+          <connection ref="con_shipstorage_xs_01">
+            <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+          </connection>
+          <connection ref="con_storage01">
+            <macro ref="storage_arg_m_bomber_01_b_macro" connection="ShipConnection" />
+          </connection>
+        </connections>
+      </macro>
+    </macros>
+
+  </replace>
+</diff>
+<!-- <macros>
+  <macro name="caiman_macro" class="ship_l">
+    <component ref="caiman" />
+    <properties>
+      <identification name="{20101,40901}" basename="{20101,40901}" makerrace="split" description="{6920204,2}" icon="ship_l_fight_light_01" />
+      <software>
+        <software ware="software_dockmk2" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" compatible="1" />
+      </software>
+      <explosiondamage value="10000" />
+      <storage missile="180" unit="5" />
+      <hull max="87000" />
+      <secrecy level="1" />
+      <purpose primary="fight" />
+      <people capacity="59" />
+      <sounds>
+        <shipdetail ref="shipdetail_ship_l_01" />
+      </sounds>
+      <physics mass="169.275">
+        <inertia pitch="112.02" yaw="112.02" roll="89.616" />
+        <drag forward="55.867" reverse="233.528" horizontal="68.056" vertical="68.056" pitch="88.855" yaw="88.855" roll="88.855" />
+      </physics>
+      <thruster tags="large" />
+      <ship type="frigate" />
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="bridge_spl_l_01_macro" connection="con_cockpit" />
+      </connection>
+      <connection ref="con_dockarea_arg_s_ship_02">
+        <macro ref="dockarea_arg_s_ship_02_macro" connection="Connection01" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_shipstorage_s_01">
+        <macro ref="shipstorage_s_caiman_macro" connection="object" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_arg_m_bomber_01_b_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros>
+ -->

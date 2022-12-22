@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="ishield_akurei_macro" class="shieldgenerator">
+    <component ref="ishield_yak_s_akurei" />
+    <properties>
+      <identification name="{9000,14033}" />
+      <recharge max="3200" rate="98" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

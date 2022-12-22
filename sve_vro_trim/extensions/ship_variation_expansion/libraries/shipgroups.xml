@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+  <remove sel="//groups/group[@name='ter_heavyfrigate_l']/select[@macro='claymore_macro']" />
+  <remove sel="//groups/group[@name='ter_heavygunship_l']/select[@macro='claymore_macro']" />
+  <remove sel="//groups/group[@name='spl_destroyer_l']/select[@macro='drake_macro']" />
+  <remove sel="//groups/group/select[@macro='kea_macro']" />
+  <remove sel="//groups/group/select[@macro='manicore_macro']" />
+  <remove sel="//groups/group/select[@macro='manticore_plunderer_macro']" />
+  <remove sel="//groups/group/select[@macro='mandalay_macro']" />
+  <remove sel="//groups/group/select[@macro='skiron_macro']" />
+  <remove sel="//groups/group/select[@macro='basilisk_macro']" />
+  <remove sel="//groups/group/select[@macro='python_macro']" />
+  <remove sel="//groups/group/select[@macro='viper_macro']" />
+  <remove sel="//groups/group/select[@macro='pallas_macro']" />
+  <remove sel="//groups/group/select[@macro='pallas_mk2_macro']" />
+  <remove sel="//groups/group[@name='sca_heavyfrigate_plunderer_l']/select[@macro='manticore_plunderer_macro']" />
+  <remove sel="//groups/group[@name='sca_heavyfrigate_plunderer_l']/select[@macro='manicore_macro']" />
+  <remove sel="//groups/group[@name='yak_military_s']/select[@macro='akurei_macro']" />
+  <remove sel="//groups/group[@name='yak_military_s']/select[@macro='akuma_macro']" />
+  <remove sel="//groups/group[@name='atf_battleship_xl']/select[@macro='valkyrie_macro']" />
+  <remove sel="//groups/group[@name='teratf_destroyer_l']/select[@macro='fenrir_macro']" />
+  <remove sel="//groups/group[@name='atf_destroyer_l']/select[@macro='fenrir_macro']" />
+  <remove sel="//groups/group[@name='yak_destroyer_l']" />
+</diff>

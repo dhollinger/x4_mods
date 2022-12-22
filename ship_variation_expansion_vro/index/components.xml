@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ?xml-stylesheet href="index.xsl" type="text/xsl" ? -->
+<diff>
+  <add sel='/index'>
+    <!-- iShield Component -->
+    <entry name="ishield_ali_xl_sokotra" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ali_xl_sokotra" />
+    <entry name="ishield_ant_l_skiron" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ant_l_skiron" />
+    <entry name="ishield_ant_xl_griffon" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ant_xl_griffon" />
+    <entry name="ishield_arg_l_basilisk" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_l_basilisk" />
+    <entry name="ishield_arg_l_manticore" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_l_manticore" />
+    <entry name="ishield_arg_l_paracel" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_l_paracel" />
+    <entry name="ishield_arg_m_baku" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_m_baku" />
+    <entry name="ishield_arg_xl_aamon" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_xl_aamon" />
+    <entry name="ishield_arg_xl_hatram" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_xl_hatram" />
+    <entry name="ishield_par_l_pallas" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_par_l_pallas" />
+    <entry name="ishield_par_xl_tartarus" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_par_xl_tartarus" />
+    <entry name="ishield_sca_xl_sokotra_plunderer" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_sca_xl_sokotra_plunderer" />
+    <entry name="ishield_spl_l_caiman" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_l_caiman" />
+    <entry name="ishield_spl_l_python" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_l_python" />
+    <entry name="ishield_spl_l_taipan" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_l_taipan" />
+    <entry name="ishield_spl_m_scorpion" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_m_scorpion" />
+    <entry name="ishield_spl_xl_copperhead_mk1" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_xl_copperhead_mk1" />
+    <entry name="ishield_spl_xl_copperhead" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_xl_copperhead" />
+    <entry name="ishield_tel_l_razorbill" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_tel_l_razorbill" />
+    <entry name="ishield_tel_m_egret" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_tel_m_egret" />
+    <entry name="ishield_tel_s_skua" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_tel_s_skua" />
+    <entry name="ishield_tel_xl_raven" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_tel_xl_raven" />
+    <entry name="ishield_yak_s_kojin" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_yak_s_kojin" />
+    <entry name="ishield_yak_m_susanowa" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_yak_m_susanowa" />
+    <entry name="ishield_ant_xl_duala" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ant_xl_duala" />
+    <entry name="ishield_ter_l_scimitar" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ter_l_scimitar" />
+    <entry name="ishield_ter_s_paramerion" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ter_s_paramerion" />
+    <entry name="ishield_ter_xl_valkyrie" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ter_xl_valkyrie" />
+    <entry name="ishield_yak_l_bishamonten" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_yak_l_bishamonten" />
+    <entry name="ishield_yak_s_akurei" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_yak_s_akurei" />
+    <entry name="ishield_yak_s_akuma" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_yak_s_akuma" />
+    <entry name="ishield_ter_l_claymore" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_ter_l_claymore" />
+    <entry name="ishield_arg_l_mandalay" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_l_mandalay" />
+    <entry name="ishield_spl_l_drake" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_spl_l_drake" />
+    <entry name="ishield_arg_l_erebus" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_l_erebus" />
+    <entry name="ishield_arg_l_namazu" value="extensions\ship_variation_expansion_vro\assets\props\SurfaceElements\ishield_arg_l_namazu" />
+  </add>
+</diff>

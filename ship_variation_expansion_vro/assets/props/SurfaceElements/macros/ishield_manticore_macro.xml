@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macros>
+  <macro name="ishield_manticore_macro" class="shieldgenerator">
+    <component ref="ishield_arg_l_manticore" />
+    <properties>
+      <identification name="{9000,14005}" mk="1" />
+      <recharge max="20000" rate="500" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

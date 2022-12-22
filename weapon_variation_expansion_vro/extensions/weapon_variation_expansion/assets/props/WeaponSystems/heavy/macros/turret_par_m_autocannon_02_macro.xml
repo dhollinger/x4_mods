@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//macros/macro/properties/hull/@max">5510</replace>
+</diff>
+
+<!-- <macros>
+  <macro name="turret_par_m_autocannon_02_macro" class="turret">
+    <component ref="turret_par_m_laser_02_mk1" />
+    <properties>
+      <identification name="{77777761,18}" basename="{77777761,13}" shortname="{77777761,12}" makerrace="split" description="{77777761,14}" mk="1" />
+      <bullet class="bullet_gen_m_autocannon_macro" />
+      <rotationspeed max="105" />
+      <reload rate="1" time="1" />
+      <hull max="750" threshold="0.2" integrated="0" />
+    </properties>
+  </macro>
+</macros> -->

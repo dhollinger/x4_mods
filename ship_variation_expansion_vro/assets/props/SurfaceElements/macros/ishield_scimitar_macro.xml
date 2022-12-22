@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="ishield_scimitar_macro" class="shieldgenerator">
+    <component ref="ishield_ter_l_scimitar" />
+    <properties>
+      <identification name="{9000,14029}" />
+      <recharge max="21000" rate="1600" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

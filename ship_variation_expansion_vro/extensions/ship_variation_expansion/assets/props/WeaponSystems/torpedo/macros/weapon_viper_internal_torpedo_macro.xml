@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+    <remove sel="/macros" />
+</diff>
+
+<!-- <macros>
+  <macro name="weapon_viper_internal_torpedo_macro" class="missilelauncher">
+    <component ref="weapon_viper_internal_torpedo" />
+    <properties>
+      <identification name="{6920221,3}" basename="{6920221,1}" shortname="{6920221,3}" description="{6920221,4}" mk="2" />
+      <ammunition tags="torpedo" />
+      <bullet class="missile_torpedo_heavy_mk1_macro" />
+      <reload />
+      <storage capacity="5" />
+      <hull max="1001" hittable="0" />
+    </properties>
+  </macro>
+</macros> -->

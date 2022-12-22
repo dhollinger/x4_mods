@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:include schemaLocation="common.xsd" />
+
+  <xs:complexType name="peopleelement">
+    <xs:group ref="people"/>
+    <xs:attribute name="id" type="idname" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          ID
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- ===== Root element ==== -->
+
+  <xs:element name="peopledefinitions">
+    <xs:annotation>
+      <xs:documentation>
+        PeopleDB document node
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="people" type="peopleelement"/>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:element>
+
+</xs:schema>

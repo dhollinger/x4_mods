@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macros>
+	<macro name="ishield_taipan_macro" class="shieldgenerator">
+		<component ref="ishield_spl_l_taipan" />
+		<properties>
+			<identification name="{9000,14006}" mk="1" />
+			<recharge max="15000" rate="500" delay="0" />
+			<hull integrated="1" />
+		</properties>
+	</macro>
+</macros>

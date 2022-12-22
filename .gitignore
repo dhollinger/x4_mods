@@ -1,0 +1,7 @@
+.tool_versions
+*/**/*.dae
+*.cat
+*.dat
+*/**/*.exe
+*/**/fixsave-linux
+build/

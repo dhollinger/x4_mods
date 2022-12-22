@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macros>
+	<macro name="ishield_copperhead_macro" class="shieldgenerator">
+		<component ref="ishield_spl_xl_copperhead" />
+		<properties>
+			<identification name="{9000,14017}" mk="1" />
+			<recharge max="100100" rate="1450" delay="0" />
+			<hull integrated="1" />
+		</properties>
+	</macro>
+</macros>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+    <replace sel="//macros">
+    
+<macros>
+  <macro name="bullet_ter_l_protoncannon_macro" class="bullet">
+    <component ref="bullet_arg_l_plasma_01_mk1" />
+    <properties>
+      <ammunition value="5" reload="1.1" />
+      <bullet speed="3640" lifetime="3" amount="1" barrelamount="1" icon="weapon_laser_mk1" timediff="0.002" angle="0.03" maxhits="1" ricochet="0" scale="0" attach="0" />
+      <heat value="390" />
+      <reload rate="2.4" />
+      <damage value="1059" hull="554" repair="0" />
+      <effects>
+        <impact ref="impact_gen_l_laser_01_mk1" inside="impact_gen_l_laser_01_mk1_inside" />
+        <bigobjectimpact ref="impact_gen_l_laser_01_mk1_bigobject" inside="impact_gen_l_laser_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_gen_l_laser_01_mk1" />
+      </effects>
+      <weapon system="weapon_standard" />
+    </properties>
+  </macro>
+</macros>
+    
+    </replace>
+</diff>
+
+<!-- <macros>
+  <macro name="bullet_ter_l_protoncannon_macro" class="bullet">
+    <component ref="bullet_arg_l_plasma_01_mk1" />
+    <properties>
+      <ammunition value="5" reload="1.1" />
+      <bullet speed="2500" lifetime="3" amount="1" barrelamount="1" icon="weapon_laser_mk1" timediff="0.002" angle="0.03" maxhits="1" ricochet="0" scale="0" attach="0" />
+      <heat value="330" />
+      <reload rate="2.3" />
+      <damage value="508" hull="132" repair="0" />
+      <effects>
+        <impact ref="impact_gen_l_laser_01_mk1" inside="impact_gen_l_laser_01_mk1_inside" />
+        <bigobjectimpact ref="impact_gen_l_laser_01_mk1_bigobject" inside="impact_gen_l_laser_01_mk1_bigobject_inside" />
+        <launch ref="muzzle_gen_l_laser_01_mk1" />
+      </effects>
+      <weapon system="weapon_standard" />
+    </properties>
+  </macro>
+</macros> -->

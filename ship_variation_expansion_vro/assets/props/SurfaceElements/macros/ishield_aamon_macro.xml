@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macros>
+	<macro name="ishield_aamon_macro" class="shieldgenerator">
+		<component ref="ishield_arg_xl_aamon" />
+		<properties>
+			<identification name="{9000,14016}" mk="1" />
+			<recharge max="106201" rate="1043" delay="0" />
+			<hull integrated="1" />
+		</properties>
+	</macro>
+</macros>
