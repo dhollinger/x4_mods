@@ -54,6 +54,13 @@
     </page>
   </replace>
 
+  <replace sel="//language/page[@id='6920231']">
+    <page id="6920231" title="Freyr" descr="Freyr" voice="yes">
+      <t id="1">Freyr</t>
+      <t id="2">A main-line battleship based on the Asgard-class, the Freyr drops the Asgards mainweapon and focuses on defenses over firepower. Increased hull integrity and the addition of medium sized turrets for anti-fighter defense make the Freyr a versatile craft that is able to operate on its own.</t>
+    </page>
+  </replace>
+
   <remove sel="//language/page[@id='6920220']" />
 
   <add sel="/language">

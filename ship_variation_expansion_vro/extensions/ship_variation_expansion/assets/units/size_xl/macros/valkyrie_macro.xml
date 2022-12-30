@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+  <replace sel="//macros/macro/properties/identification/@name">{20101,67001}</replace>
+  <replace sel="//macros/macro/properties/identification/@basename">{20101,67001}</replace>
+  <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
+
   <replace sel="//macros/macro/properties/hull/@max">1105000</replace>
 
   <replace sel="//macros/macro/properties/physics">
@@ -8,8 +12,7 @@
       <drag forward="133.108" reverse="532.433" horizontal="259.232" vertical="259.232" pitch="790.73" yaw="790.73" roll="790.73" />
     </physics>
   </replace>
-</diff>
-<!-- <macros>
+</diff> <!-- <macros>
   <macro name="valkyrie_macro" class="ship_xl">
     <component ref="valkyrie" />
     <properties>

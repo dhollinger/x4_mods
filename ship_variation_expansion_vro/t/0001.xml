@@ -54,6 +54,13 @@
     </page>
   </replace>
 
+  <replace sel="//language/page[@id='6920231']">
+    <page id="6920231" title="Freyr" descr="Freyr" voice="yes">
+      <t id="1">Freyr</t>
+      <t id="2">A main-line battleship based on the Asgard-class, the Freyr drops the Asgards mainweapon and focuses on defenses over firepower. Increased hull integrity and the addition of medium sized turrets for anti-fighter defense make the Freyr a versatile craft that is able to operate on its own.</t>
+    </page>
+  </replace>
+
   <remove sel="//language/page[@id='6920220']" />
 
   <add sel="/language">
@@ -88,7 +95,7 @@
       <t id="14028">IG XL - Duala Internal Generator</t>
       <t id="14029">IG L - Scimitar Internal Generator</t>
       <t id="14030">IG S - Paramerion Internal Generator</t>
-      <t id="14031">IG XL - Valkyrie Internal Generator</t>
+      <t id="14031">IG XL - Freyr Internal Generator</t>
       <t id="14032">IG L - Bishamonten Internal Generator</t>
       <t id="14033">IG S - Akurei Internal Generator</t>
       <t id="14034">IG S - Akuma Internal Generator</t>
