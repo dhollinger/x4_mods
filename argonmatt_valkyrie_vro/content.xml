@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content name="ATF Valkyrie VRO Balance" description=" " author="EagleDelta" version="100" save="0" date="2022-12-21" id="ws_2904881034" lastupdate="1671659365">
+<content name="ATF Valkyrie VRO Balance" description=" " author="EagleDelta" version="110" save="0" date="2022-12-21" id="ws_2904881034" lastupdate="1671659365">
+  <dependency version="510" maxversion="510" />
   <dependency id="ego_dlc_split" optional="false" name="Split Vendetta"></dependency>
   <dependency id="ego_dlc_terran" optional="false" name="Cradle of Humanity"></dependency>
   <dependency id="ws_1696862840" optional="false" name="Variety and Rebalance Overhaul"></dependency>
