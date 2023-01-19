@@ -55,6 +55,11 @@ function ErrorOutput([string]$message)
 
 function Clean
 {
+  Remove-Item build/$mod* -Recurse -Force
+}
+
+function CleanAll
+{
   Remove-Item build/* -Recurse -Force
 }
 
@@ -65,7 +70,6 @@ function Build
   Create
 }
 
-
 switch ($command)
 {
   "build"
@@ -73,6 +77,9 @@ switch ($command)
   }
   "clean"
   { Clean 
+  }
+  "clean-all"
+  { CleanAll
   }
   Default
   { ErrorOutput("Not a supported argument!") 

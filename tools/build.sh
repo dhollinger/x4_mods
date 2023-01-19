@@ -27,6 +27,10 @@ function build() {
 }
 
 function clean() {
+  rm -rf build/"${mod}"*
+}
+
+function clean-all() {
   rm -rf build/*
 }
 
@@ -39,6 +43,9 @@ case "$command" in
         ;;
     "clean")
         clean
+        ;;
+    "clean-all")
+        clean-all
         ;;
     *)
         echo "Not a build command."
