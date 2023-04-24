@@ -3,7 +3,7 @@
   <macro name="ishield_manticore_macro" class="shieldgenerator">
     <component ref="ishield_arg_l_manticore" />
     <properties>
-      <identification name="{9000,14005}" mk="1" />
+      <identification name="{9000,14005}" />
       <recharge max="20000" rate="500" delay="0" />
       <hull integrated="1" />
     </properties>

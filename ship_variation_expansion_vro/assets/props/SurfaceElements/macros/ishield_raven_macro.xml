@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_raven_macro" class="shieldgenerator">
-		<component ref="ishield_tel_xl_raven" />
-		<properties>
-			<identification name="{9000,14019}" mk="1" />
-			<recharge max="145103" rate="1105" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_raven_macro" class="shieldgenerator">
+    <component ref="ishield_tel_xl_raven" />
+    <properties>
+      <identification name="{9000,14019}" />
+      <recharge max="145103" rate="1105" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

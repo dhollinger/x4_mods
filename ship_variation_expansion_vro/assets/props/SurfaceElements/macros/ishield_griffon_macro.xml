@@ -3,7 +3,7 @@
   <macro name="ishield_griffon_macro" class="shieldgenerator">
     <component ref="ishield_ant_xl_griffon" />
     <properties>
-      <identification name="{9000,14020}" mk="1" />
+      <identification name="{9000,14020}" />
       <recharge max="86509" rate="912" delay="0" />
       <hull integrated="1" />
     </properties>

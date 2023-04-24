@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_hatram_macro" class="shieldgenerator">
-		<component ref="ishield_arg_xl_hatram" />
-		<properties>
-			<identification name="{9000,14021}" mk="1" />
-			<recharge max="140100" rate="1250" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_hatram_macro" class="shieldgenerator">
+    <component ref="ishield_arg_xl_hatram" />
+    <properties>
+      <identification name="{9000,14021}" />
+      <recharge max="140100" rate="1250" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

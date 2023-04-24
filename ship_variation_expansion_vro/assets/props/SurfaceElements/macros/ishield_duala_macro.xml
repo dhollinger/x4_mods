@@ -3,7 +3,7 @@
   <macro name="ishield_duala_macro" class="shieldgenerator">
     <component ref="ishield_ant_xl_duala" />
     <properties>
-      <identification name="{9000,14028}" mk="1" />
+      <identification name="{9000,14028}" />
       <recharge max="90000" rate="912" delay="0" />
       <hull integrated="1" />
     </properties>
