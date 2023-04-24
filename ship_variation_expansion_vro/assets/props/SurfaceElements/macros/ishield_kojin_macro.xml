@@ -3,7 +3,7 @@
   <macro name="ishield_kojin_macro" class="shieldgenerator">
     <component ref="ishield_yak_s_kojin" />
     <properties>
-      <identification name="{9000, 14027}" mk="1" />
+      <identification name="{9000, 14027}" />
       <recharge max="500" rate="42" delay="0" />
       <hull integrated="1" />
     </properties>

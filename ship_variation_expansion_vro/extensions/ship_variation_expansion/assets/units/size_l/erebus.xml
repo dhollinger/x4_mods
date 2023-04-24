@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
   <add sel="//components/component/connections">
     <connection name="con_ishield_01" tags="ishield shield ishield_arg_l_erebus">
       <offset>

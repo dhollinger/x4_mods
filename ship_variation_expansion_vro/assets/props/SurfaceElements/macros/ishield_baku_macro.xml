@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_baku_macro" class="shieldgenerator">
-		<component ref="ishield_arg_m_baku" />
-		<properties>
-			<identification name="{9000,14004}" mk="1" />
-			<recharge max="5500" rate="170" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_baku_macro" class="shieldgenerator">
+    <component ref="ishield_arg_m_baku" />
+    <properties>
+      <identification name="{9000,14004}" />
+      <recharge max="5500" rate="170" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

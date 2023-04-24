@@ -3,7 +3,7 @@
   <macro name="ishield_sokotra_macro" class="shieldgenerator">
     <component ref="ishield_ali_xl_sokotra" />
     <properties>
-      <identification name="{9000,14023}" mk="1" />
+      <identification name="{9000,14023}" />
       <recharge max="46509" rate="712" delay="0" />
       <hull integrated="1" />
     </properties>

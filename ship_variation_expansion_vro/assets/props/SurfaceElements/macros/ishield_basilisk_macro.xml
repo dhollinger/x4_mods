@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_basilisk_macro" class="shieldgenerator">
-		<component ref="ishield_arg_l_basilisk" />
-		<properties>
-			<identification name="{9000,14007}" mk="1" />
-			<recharge max="41542" rate="610" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_basilisk_macro" class="shieldgenerator">
+    <component ref="ishield_arg_l_basilisk" />
+    <properties>
+      <identification name="{9000,14007}" />
+      <recharge max="41542" rate="610" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

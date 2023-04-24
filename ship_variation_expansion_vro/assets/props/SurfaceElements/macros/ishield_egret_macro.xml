@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_egret_macro" class="shieldgenerator">
-		<component ref="ishield_tel_m_egret" />
-		<properties>
-			<identification name="{9000,14002}" mk="1" />
-			<recharge max="20000" rate="372" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_egret_macro" class="shieldgenerator">
+    <component ref="ishield_tel_m_egret" />
+    <properties>
+      <identification name="{9000,14002}" />
+      <recharge max="20000" rate="372" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

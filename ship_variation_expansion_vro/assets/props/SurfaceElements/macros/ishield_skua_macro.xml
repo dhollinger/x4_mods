@@ -3,7 +3,7 @@
   <macro name="ishield_skua_macro" class="shieldgenerator">
     <component ref="ishield_tel_s_skua" />
     <properties>
-      <identification name="{9000, 14001}" mk="1" />
+      <identification name="{9000, 14001}" />
       <recharge max="327" rate="24" delay="0" />
       <hull integrated="1" />
     </properties>

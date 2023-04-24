@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_tartarus_macro" class="shieldgenerator">
-		<component ref="ishield_par_xl_tartarus" />
-		<properties>
-			<identification name="{9000,14015}" mk="1" />
-			<recharge max="129542" rate="994" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_tartarus_macro" class="shieldgenerator">
+    <component ref="ishield_par_xl_tartarus" />
+    <properties>
+      <identification name="{9000,14015}" />
+      <recharge max="129542" rate="994" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

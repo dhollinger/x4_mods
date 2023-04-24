@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content name="Ship Variation Expansion VRO" description=" " author="EagleDelta" version="493" date="2021-07-18" save="0" id="ws_2551053441" sync="false" lastupdate="1626645356">
-  <dependency version="510" maxversion="510" />
+<content name="Ship Variation Expansion VRO" description=" " author="EagleDelta" version="500"
+  date="2021-07-18" save="0" id="ws_2551053441" sync="false" lastupdate="1626645356">
   <dependency id="ego_dlc_split" optional="false" name="Split Vendetta" />
   <dependency id="ego_dlc_terran" optional="false" name="Cradle of Humanity" />
   <dependency id="ws_1696862840" optional="false" name="Variety and Rebalance Overhaul" />
   <dependency id="ws_2229061492" optional="false" name="Ship Variation Expansion" />
-  <text language="7" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="33" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="34" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="39" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="44" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="45" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="49" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="81" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="82" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="86" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
-  <text language="88" name="Ship Variation Expansion VRO" description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="7" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="33" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="34" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="39" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="44" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="45" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="49" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="81" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="82" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="86" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
+  <text language="88" name="Ship Variation Expansion VRO"
+    description="Adds several ship variants to the respective shipyards." author="EagleDelta" />
 </content>

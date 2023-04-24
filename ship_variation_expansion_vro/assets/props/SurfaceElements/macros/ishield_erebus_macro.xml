@@ -3,7 +3,7 @@
   <macro name="ishield_erebus_macro" class="shieldgenerator">
     <component ref="ishield_arg_l_erebus" />
     <properties>
-      <identification name="{9000,14039}" mk="1" />
+      <identification name="{9000,14039}" />
       <recharge max="47450" rate="1510" delay="0" />
       <hull integrated="1" />
     </properties>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <macros>
-	<macro name="ishield_susanowa_macro" class="shieldgenerator">
-		<component ref="ishield_yak_m_susanowa" />
-		<properties>
-			<identification name="{9000,14026}" mk="1" />
-			<recharge max="10565" rate="257" delay="0" />
-			<hull integrated="1" />
-		</properties>
-	</macro>
+  <macro name="ishield_susanowa_macro" class="shieldgenerator">
+    <component ref="ishield_yak_m_susanowa" />
+    <properties>
+      <identification name="{9000,14026}" />
+      <recharge max="10565" rate="257" delay="0" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
 </macros>

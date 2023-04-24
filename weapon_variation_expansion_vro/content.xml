@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content id="ws_2494762346" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" version="150" date="2021-06-03" save="0" enabled="1" sync="false" lastupdate="1622750914">
-  <text language="7" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="33" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="34" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="39" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="44" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="45" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="49" name="Weapon Variation Expansion VRO" description="Fügt dem Spiel einige neue Waffen hinzu." author="EagleDelta" />
-  <text language="81" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="82" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="86" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <text language="88" name="Weapon Variation Expansion VRO" description="Adds some more weapons to your game." author="EagleDelta" />
-  <dependency version="510" maxversion="510" />
+<content id="ws_2494762346" name="Weapon Variation Expansion VRO"
+  description="Adds some more weapons to your game." author="EagleDelta" version="200"
+  date="2021-06-03" save="0" enabled="1" sync="false" lastupdate="1622750914">
+  <text language="7" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="33" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="34" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="39" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="44" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="45" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="49" name="Weapon Variation Expansion VRO"
+    description="Fügt dem Spiel einige neue Waffen hinzu." author="EagleDelta" />
+  <text language="81" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="82" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="86" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
+  <text language="88" name="Weapon Variation Expansion VRO"
+    description="Adds some more weapons to your game." author="EagleDelta" />
   <dependency id="ego_dlc_split" name="Split Vendetta" />
   <dependency id="ego_dlc_terran" name="Cradle of Humanity" />
   <dependency id="ws_1696862840" optional="false" name="Variety and Rebalance Overhaul" />
