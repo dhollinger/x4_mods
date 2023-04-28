@@ -10,20 +10,12 @@
     </connection>
   </add>
 
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_01']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_02']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_07']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_08']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_11']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_12']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_15']/@tags">
-    turret large standard combat highpower terronly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_large_16']/@tags">
-    turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_01']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_02']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_07']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_08']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_11']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_12']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_15']/@tags">turret large standard combat highpower terronly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_large_16']/@tags">turret large standard combat highpower terronly </replace>
 </diff>

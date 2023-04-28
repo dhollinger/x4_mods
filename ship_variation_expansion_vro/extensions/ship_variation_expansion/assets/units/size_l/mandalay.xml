@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
   <!-- Add Internal Shield Generator -->
   <add sel="//components/component/connections">
     <connection name="con_ishield_01" tags="ishield shield ishield_arg_l_mandalay">
@@ -11,44 +10,26 @@
     </connection>
   </add>
 
-  <replace sel="/components/component/connections/connection[@name='con_l_turret_1']/@tags">turret
-    large combat standard missile highpower</replace>
-  <replace sel="/components/component/connections/connection[@name='con_l_turret_2']/@tags">turret
-    large combat standard missile highpower</replace>
+  <replace sel="/components/component/connections/connection[@name='con_l_turret_1']/@tags">turret large combat standard missile highpower</replace>
+  <replace sel="/components/component/connections/connection[@name='con_l_turret_2']/@tags">turret large combat standard missile highpower</replace>
 
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_1']/@tags">turret
-    medium combat standard highpower hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_2']/@tags">turret
-    medium combat standard highpower hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_3']/@tags">turret
-    medium combat standard highpower hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_4']/@tags">turret
-    medium combat standard highpower hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_1']/@tags">turret medium combat standard highpower hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_2']/@tags">turret medium combat standard highpower hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_3']/@tags">turret medium combat standard highpower hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_4']/@tags">turret medium combat standard highpower hittable</replace>
 
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_5']/@tags">turret
-    medium combat standard missile hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_6']/@tags">turret
-    medium combat standard missile hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_7']/@tags">turret
-    medium combat standard missile hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_8']/@tags">turret
-    medium combat standard missile hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_5']/@tags">turret medium combat standard missile hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_6']/@tags">turret medium combat standard missile hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_7']/@tags">turret medium combat standard missile hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_8']/@tags">turret medium combat standard missile hittable</replace>
 
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_9']/@tags">turret
-    medium combat missile standard hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_10']/@tags">turret
-    medium combat missile standard hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_11']/@tags">turret
-    medium combat missile standard hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_12']/@tags">turret
-    medium combat missile standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_9']/@tags">turret medium combat missile standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_10']/@tags">turret medium combat missile standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_11']/@tags">turret medium combat missile standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_12']/@tags">turret medium combat missile standard hittable</replace>
 
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_13']/@tags">turret
-    medium combat standard hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_14']/@tags">turret
-    medium combat standard hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_15']/@tags">turret
-    medium combat standard hittable</replace>
-  <replace sel="/components/component/connections/connection[@name='con_turret_m_16']/@tags">turret
-    medium combat standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_13']/@tags">turret medium combat standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_14']/@tags">turret medium combat standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_15']/@tags">turret medium combat standard hittable</replace>
+  <replace sel="/components/component/connections/connection[@name='con_turret_m_16']/@tags">turret medium combat standard hittable</replace>
 </diff>

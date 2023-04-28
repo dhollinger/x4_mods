@@ -10,9 +10,7 @@
     </connection>
   </add>
 
-  <replace sel="/components/component/connections/connection[@name='con_l_turret_s_1']/@tags">
-    turret large standard combat highpower missile splonly </replace>
-  <replace sel="/components/component/connections/connection[@name='con_l_turret_s_2']/@tags">
-    turret large standard combat highpower missile splonly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_l_turret_s_1']/@tags">turret large standard combat highpower missile splonly </replace>
+  <replace sel="/components/component/connections/connection[@name='con_l_turret_s_2']/@tags">turret large standard combat highpower missile splonly </replace>
 </diff>
 

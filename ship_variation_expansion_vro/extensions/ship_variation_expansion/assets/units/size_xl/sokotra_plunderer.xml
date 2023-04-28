@@ -10,6 +10,5 @@
     </connection>
   </add>
 
-  <replace sel="/components/component/connections/connection[@name='con_l_turret_1']/@tags"> turret
-    large combat standard highpower missile </replace>
+  <replace sel="/components/component/connections/connection[@name='con_l_turret_1']/@tags"> turret large combat standard highpower missile </replace>
 </diff>
