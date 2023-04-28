@@ -10,8 +10,6 @@
     </connection>
   </add>
 
-  <replace sel="/components/component/connections/connection[@name='con_weapon_02']/@tags"> weapon
-    combat small platformcollision standard highpower terronly symmetry symmetry_right symmetry_1 </replace>
-  <replace sel="/components/component/connections/connection[@name='con_weapon_03']/@tags"> weapon
-    combat small platformcollision standard highpower terronly symmetry symmetry_right symmetry_1 </replace>
+  <replace sel="/components/component/connections/connection[@name='con_weapon_02']/@tags"> weapon combat small platformcollision standard highpower terronly symmetry symmetry_right symmetry_1 </replace>
+  <replace sel="/components/component/connections/connection[@name='con_weapon_03']/@tags"> weapon combat small platformcollision standard highpower terronly symmetry symmetry_right symmetry_1 </replace>
 </diff> 

@@ -10,7 +10,6 @@
     </connection>
   </add>
 
-  <replace sel="/components/component/connections/connection[@name='con_weapon_01']/@tags"> weapon
-    small combat standard missile platformcollision highpower </replace>
+  <replace sel="/components/component/connections/connection[@name='con_weapon_01']/@tags"> weapon small combat standard missile platformcollision highpower </replace>
 </diff>
 
