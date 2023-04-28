@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../xmllib/diff.xsd">
   <remove sel="//wares/ware[@id='kea_ware']" />
   <remove sel="//wares/ware[@id='akuma_ware']" />
   <remove sel="//wares/ware[@id='akurei_ware']" />
   <remove sel="//wares/ware[@id='centaur_ware']" />
+  <remove sel="//wares/ware[@id='tartarus_ware']" />
   <remove sel="//wares/ware[@id='tartarus_mk2_ware']" />
   <remove sel="//wares/ware[@id='gharial_ware']" />
   <remove sel="//wares/ware[@id='manticore_ware']" />
@@ -119,7 +121,8 @@
       <ware ware="siliconcarbide" amount="450" />
     </primary>
   </replace>
-  <replace sel="//wares/ware[@id='weapon_ter_scimitar_plasma_l_ware']/restriction/@licence">capitalship</replace>
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_plasma_l_ware']/restriction/@licence">
+    capitalship</replace>
 
   <replace sel="//wares/ware[@id='weapon_ter_scimitar_beam_l_ware']/price">
     <price min="2100000" average="2600000" max="3500000" />
@@ -132,7 +135,8 @@
       <ware ware="siliconcarbide" amount="400" />
     </primary>
   </replace>
-  <replace sel="//wares/ware[@id='weapon_ter_scimitar_beam_l_ware']/restriction/@licence">captialship</replace>
+  <replace sel="//wares/ware[@id='weapon_ter_scimitar_beam_l_ware']/restriction/@licence">
+    captialship</replace>
 
   <replace sel="//wares/ware[@id='paramerion_ware']/price">
     <price min="181338" average="262750" max="344163" />
