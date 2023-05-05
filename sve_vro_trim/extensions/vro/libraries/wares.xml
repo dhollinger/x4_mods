@@ -7,6 +7,5 @@
   <remove sel="/wares/ware[@id='ship_par_l_hyperion']" />
   <remove sel="/wares/ware[@id='ship_ter_l_shikoku']" />
   <remove sel="/wares/ware[@id='ship_ter_l_makhaira']" />
-  <remove sel="/wares/ware[@id='ship_ter_l_akita']" />
   <remove sel="/wares/ware[@id='ship_ter_xl_sapporo']" />
 </diff>

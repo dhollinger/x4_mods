@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content name="SVE VRO Trimmed" description="" author="EagleDelta" version="120" save="0"
+<content name="SVE VRO Trimmed" description="" author="EagleDelta" version="121" save="0"
   date="2022-12-10" id="ws_2899796103">
   <dependency id="ego_dlc_split" optional="false" name="Split Vendetta" />
   <dependency id="ego_dlc_terran" optional="false" name="Cradle of Humanity" />
