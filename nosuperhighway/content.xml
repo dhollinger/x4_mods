@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <content id="ws_2202908702" name="NoSuperHighway"
   description="Replaces the really fun superhighway with a load of nothing.&#13;&#10;&#13;&#10;This is a Steam Workshop upload of Nexus Mod user stupidprocess' NoSuperHighway mod: https://www.nexusmods.com/x4foundations/mods/80&#13;&#10;&#13;&#10;The title of this mod is a misnomer. It should be NoHighways, but I left the original name for the sake of attributing credit where credit is due.&#13;&#10;&#13;&#10;This mod has been uploaded to the Steam Workshop with the original Author's permission"
-  author="EagleDelta" version="200" date="2021-03-21" save="0" lastupdate="1616382090">
+  author="EagleDelta" version="201" date="2021-03-21" save="0" lastupdate="1616382090">
   <text language="7" name="NoSuperHighway"
     description="Replaces the really fun superhighway with a load of nothing." author="EagleDelta"></text>
   <text language="33" name="NoSuperHighway"
