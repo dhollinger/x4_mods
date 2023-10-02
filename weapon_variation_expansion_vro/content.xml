@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <content id="ws_2494762346" name="Weapon Variation Expansion VRO"
-  description="Adds some more weapons to your game." author="EagleDelta" version="201"
+  description="Adds some more weapons to your game." author="EagleDelta" version="202"
   date="2021-06-03" save="0" enabled="1" sync="false" lastupdate="1622750914">
   <text language="7" name="Weapon Variation Expansion VRO"
     description="Adds some more weapons to your game." author="EagleDelta" />
