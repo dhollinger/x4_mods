@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
-  <replace sel="//macros/macro/properties/hull/@max">7520</replace>
+  <replace sel="//macros/macro/properties/hull/@max">2520</replace>
 </diff>
 
 <!-- <macros>
