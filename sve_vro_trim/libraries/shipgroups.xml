@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
-  <remove sel="//groups/group/select[@macro='ship_ter_xl_sapporo_macro']" />
   <remove sel="//groups/group/select[@macro='ship_ter_l_makhaira_macro']" />
   <remove sel="//groups/group/select[@macro='ship_ter_l_shikoku_macro']" />
   <remove sel="//groups/group[@name='ter_heavyfrigate_l']/select[@macro='claymore_macro']" />
@@ -21,7 +20,6 @@
   <remove sel="//groups/group[@name='yak_military_s']/select[@macro='akurei_macro']" />
   <remove sel="//groups/group[@name='yak_military_s']/select[@macro='akuma_macro']" />
   <remove sel="//groups/group[@name='atf_battleship_xl']/select[@macro='valkyrie_macro']" />
-  <remove sel="//groups/group[@name='teratf_destroyer_l']/select[@macro='fenrir_macro']" />
   <remove sel="//groups/group[@name='atf_destroyer_l']/select[@macro='fenrir_macro']" />
   <remove sel="//groups/group[@name='yak_destroyer_l']" />
 </diff>
