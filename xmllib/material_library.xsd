@@ -5,6 +5,7 @@
     <xs:restriction base="xs:string">
       <!-- <xs:enumeration value="UNDEFINED" /> -->
       <!-- <xs:enumeration value="DEFAULT" /> -->
+      <!-- <xs:enumeration value="DEFAULT_CCW" /> -->
       <xs:enumeration value="NONE" />
       <xs:enumeration value="WIREFRAME" />
       <xs:enumeration value="WIREFRAME_NOCULLING" />
@@ -16,12 +17,15 @@
       <xs:enumeration value="ALPHA1_FADING" />
       <xs:enumeration value="LINEDRAW" />
       <xs:enumeration value="ALPHA8" />
+      <xs:enumeration value="ALPHA8_SS" />
       <xs:enumeration value="PREALPHA8" />
       <xs:enumeration value="SCREEN" />
       <xs:enumeration value="ADDITIVE" />
       <xs:enumeration value="ADDITIVE_SS" />
+      <xs:enumeration value="ADDITIVE_CW" />
+      <xs:enumeration value="LPASS_ENVMAP" />
       <xs:enumeration value="MULTIPLY" />
-      <xs:enumeration value="SUBSTRACTIVE" />
+      <xs:enumeration value="SUBTRACTIVE" />
       <xs:enumeration value="SRCCOLOR" />
       <xs:enumeration value="HAZEBLEND" />
       <xs:enumeration value="ALPHA8_ANARK" />
@@ -35,12 +39,27 @@
       <xs:enumeration value="ADDITIVE_GLOW" />
       <xs:enumeration value="WIREFRAME_OVERLAY" />
       <xs:enumeration value="ALPHA8_OVERLAY" />
+      <xs:enumeration value="ADDITIVE_OVERLAY" />
+      <xs:enumeration value="SCREEN_OVERLAY" />
+      <xs:enumeration value="WIREFRAME_OVERLAY_NOZ" />
+      <xs:enumeration value="SCREEN_OVERLAY_NOZ" />
       <xs:enumeration value="ALPHA8_SINGLE" />
       <xs:enumeration value="ADDITIVE_SINGLE" />
       <xs:enumeration value="DISTORTION" />
       <xs:enumeration value="HAIR" />
       <xs:enumeration value="PLANET_ATMOSPHERE" />
       <xs:enumeration value="TESSELLATION" />
+      <xs:enumeration value="LOGIC_OR" />
+      <xs:enumeration value="FSR_MASK_REACTIVITY" />
+      <xs:enumeration value="FSR_MASK_TRANSPARENCY" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="materialtaglookup">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="glass" />
+      <xs:enumeration value="glassinside" />
+      <xs:enumeration value="noenvmap" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -100,6 +119,16 @@
                   <xs:attribute name="shader" use="required" />
                   <xs:attribute name="blendmode" type="blendmodelookup" use="required" />
                   <xs:attribute name="priority" type="xs:integer" />
+                  <xs:attribute name="tags">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Tags
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:list itemType="materialtaglookup" />
+                    </xs:simpleType>
+                  </xs:attribute>
                   <xs:attribute name="preview" />
                   <xs:attribute name="ref" use="optional">
                     <xs:annotation>
@@ -126,10 +155,6 @@
         </xs:element>
       </xs:sequence>
     </xs:complexType>
-    <xs:key name="collection_name">
-      <xs:selector xpath="collection" />
-      <xs:field xpath="@name" />
-    </xs:key>
   </xs:element>
 
 </xs:schema>

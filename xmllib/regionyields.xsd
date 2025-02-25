@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="regionyields">
     <xs:complexType>
@@ -80,27 +80,28 @@
                   <xs:enumeration value="hydrogen" />
                   <xs:enumeration value="helium" />
                   <xs:enumeration value="methane" />
+                  <xs:enumeration value="rawscrap" />
                 </xs:restriction>
               </xs:simpleType>
             </xs:attribute>
-            <xs:attribute name="scaneffect" type="xs:string" use="optional">
+            <xs:attribute name="effect_r" type="xs:nonNegativeInteger" use="optional">
               <xs:annotation>
                 <xs:documentation>
-                  The default scan result effect definition, see libraries/effects.xml
+                  The red component of the color to use for scan result effects, defaults to 255
                 </xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="scaneffectdensity" type="xs:float" use="optional">
+            <xs:attribute name="effect_g" type="xs:nonNegativeInteger" use="optional">
               <xs:annotation>
                 <xs:documentation>
-                  The default scan result effect density, defaults to 1.0
+                  The green component of the color to use for scan result effects, defaults to 255
                 </xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="scaneffectintensity" type="xs:float">
+            <xs:attribute name="effect_b" type="xs:nonNegativeInteger" use="optional">
               <xs:annotation>
                 <xs:documentation>
-                  The default scan result effect intensity (opacity, volume, etc.), defaults to 1.0
+                  The blue component of the color to use for scan result effects, defaults to 255
                 </xs:documentation>
               </xs:annotation>
             </xs:attribute>

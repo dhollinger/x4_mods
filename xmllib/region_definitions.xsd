@@ -61,6 +61,20 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="defaulttimedensity" type="NonNegativeFloat">
+      <xs:annotation>
+        <xs:documentation>
+          The time-based density to use if no time profile has been set yet. Defaults to 1.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="timedensitydelay" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          The maximum random delay for this field to show a change in time-based density. Value is consistent per position. Defaults to 0.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attributeGroup ref="perlinnoise" />
   </xs:attributeGroup>
 
@@ -149,6 +163,7 @@
               <xs:enumeration value="hydrogen" />
               <xs:enumeration value="helium" />
               <xs:enumeration value="methane" />
+              <xs:enumeration value="rawscrap" />
             </xs:restriction>
           </xs:simpleType>
         </xs:list>
@@ -211,9 +226,56 @@
     </xs:complexType>
   </xs:element>
 
+  <xs:element name="boundaries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="boundary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
   <xs:element name="boundary">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="position" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              Boundary position offset
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="x" type="xs:float" />
+            <xs:attribute name="y" type="xs:float" />
+            <xs:attribute name="z" type="xs:float" />
+          </xs:complexType>
+        </xs:element>
+        <xs:choice minOccurs="0" maxOccurs="1">
+          <xs:element name="rotation">
+            <xs:annotation>
+              <xs:documentation>
+                Boundary rotation offset
+              </xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:attribute name="yaw" type="xs:float" />
+              <xs:attribute name="pitch" type="xs:float" />
+              <xs:attribute name="roll" type="xs:float" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="quaternion">
+            <xs:annotation>
+              <xs:documentation>
+                Boundary rotation offset
+              </xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:attribute name="qw" type="xs:float" />
+              <xs:attribute name="qx" type="xs:float" />
+              <xs:attribute name="qy" type="xs:float" />
+              <xs:attribute name="qz" type="xs:float" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
         <xs:element minOccurs="1" maxOccurs="1" name="size">
           <xs:complexType>
             <xs:attribute name="r" type="NonNegativeFloat">
@@ -292,6 +354,13 @@
             <xs:enumeration value="splinetube" />
           </xs:restriction>
         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="invert" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this boundary is an inverse one, "cutting a hole" into the other boundaries
+          </xs:documentation>
+        </xs:annotation>
       </xs:attribute>
     </xs:complexType>
   </xs:element>
@@ -377,6 +446,7 @@
   <xs:element name="region">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="boundaries" />
         <xs:element minOccurs="0" maxOccurs="1" ref="boundary" />
         <xs:element minOccurs="0" maxOccurs="1" ref="falloff" />
         <xs:element minOccurs="1" maxOccurs="1" ref="fields" />
@@ -398,13 +468,6 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attributeGroup ref="perlinnoise" />
-      <xs:attribute name="persistencetime" type="xs:float">
-        <xs:annotation>
-          <xs:documentation>
-            If defined, any spawned region objects will stay for as long as the player is in the same cluster, and for the given time when in a different cluster before being removed.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
     </xs:complexType>
   </xs:element>
 
@@ -422,6 +485,10 @@
         <xs:element ref="positional" />
         <xs:element ref="viewcorrection" />
         <xs:element ref="volumetricfog" />
+        <xs:element ref="gravidar" />
+        <xs:element ref="force" />
+        <xs:element ref="influence" />
+        <xs:element ref="volumetriccloud" />
       </xs:choice>
     </xs:complexType>
   </xs:element>
@@ -452,6 +519,73 @@
         <xs:annotation>
           <xs:documentation>
             Z offset
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- regions/region/fields/<fieldtype>/profile -->
+  <xs:element name="profile">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation>
+          This profile, if defined, will control the time-dependent density based on a reference component's phases (the component to be used must be set externally)
+        </xs:documentation>
+      </xs:annotation>
+      <xs:attribute name="startvalue" type="xs:float" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The start value of the profile. Used while the current time is earlier than the start time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="sustainvalue" type="xs:float" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The value during the sustain part of the profile.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="endvalue" type="xs:float" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The start value of the profile. Used when the current time is later than the end time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="attackduration" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>
+            The time over which the density will interpolate between startvalue and sustainvalue. Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="sustainduration" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>
+            The time over which the density will remain at the sustainvalue. Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="releaseduration" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>
+            The time over which the density will interpolate between sustainvalue and endvalue. Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="delay" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>
+            The initial time delay before the attack phase starts. Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="loop" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this profile loops over time. Defaults to false.
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
@@ -586,7 +720,29 @@
           </xs:complexType>
         </xs:element>
         <xs:element ref="scaneffect" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="profile" minOccurs="0" maxOccurs="1" />
       </xs:sequence>
+      <xs:attribute name="affectsnavigation" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this damage field should have an effect on in-sector navigation and object placement. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hazardwarning" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this damage field should cause a hazard warning. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ignoreimmunity" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this damage field ignores immunity on ships. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attributeGroup ref="field" />
     </xs:complexType>
   </xs:element>
@@ -639,6 +795,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="affectsnavigation" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this damage field should have an effect on in-sector navigation and object placement. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hazardwarning" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this damage field should cause a hazard warning. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
 
@@ -648,6 +818,7 @@
       <xs:sequence>
         <xs:element ref="scaneffect" minOccurs="0" maxOccurs="1" />
         <xs:element ref="color" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="profile" minOccurs="0" maxOccurs="1" />
       </xs:sequence>
       <xs:attributeGroup ref="field" />
       <xs:attributeGroup ref="resourcefield" />
@@ -817,6 +988,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="offset" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="profile" minOccurs="0" maxOccurs="1" />
       </xs:sequence>
       <xs:attributeGroup ref="field" />
       <xs:attributeGroup ref="objectfield" />
@@ -857,7 +1029,159 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
+  <!-- regions/region/fields/volumetriccloud -->
+  <xs:element name="volumetriccloud">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="offset" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="profile" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="field" />
+      <xs:attributeGroup ref="objectfield" />
+      <xs:attribute name="volume" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Reference to a definition in the volume_library
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="size" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="sizevariation" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="multiplier" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 1.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="singlevolume" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="x" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 1000.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="y" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 1000.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="z" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 1000.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="flashcount" type="NonNegativeFloat" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defaults to 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- regions/region/fields/gravidar -->
+  <xs:element name="gravidar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="offset" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="profile" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="field" />
+      <xs:attribute name="factor" type="xs:float" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The gravidar range factor that will be reached at a density of 1.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- regions/region/fields/force -->
+  <xs:element name="force">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="offset" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="profile" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="field" />
+      <xs:attribute name="strength" type="xs:float" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The strength of the force effect.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="range" type="xs:float" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The range of the force effect.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- regions/region/fields/influence -->
+  <xs:element name="influence">
+    <xs:complexType>
+      <xs:attribute name="ref" type="RefString" />
+      <xs:attribute name="delay" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>
+            The delay in seconds between reapplications of the influences. Defaults to 1.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hazardous" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this influence field should be considered hazardous. Defaults to false.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="affectsnavigation" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this influence field should have an effect on in-sector navigation and object placement. Only has an effect if 'hazard' is set to true. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hazardwarning" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Whether this damage field should cause a hazard warning. Only has an effect if 'hazard' is set to true. Defaults to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="field" />
+    </xs:complexType>
+  </xs:element>
+
   <!-- regions/region/resources -->
   <xs:element name="resources">
     <xs:annotation>
@@ -895,6 +1219,7 @@
             <xs:enumeration value="hydrogen" />
             <xs:enumeration value="helium" />
             <xs:enumeration value="methane" />
+            <xs:enumeration value="rawscrap" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>

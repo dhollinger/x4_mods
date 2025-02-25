@@ -165,6 +165,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="owner" type="namestring">
+      <xs:annotation>
+        <xs:documentation>
+          Owner faction ID
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="comment" type="comment" />
   </xs:complexType>
 

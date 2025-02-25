@@ -92,31 +92,10 @@
         Control highlighting options
       </xs:documentation>
     </xs:annotation>
-    <xs:attribute name="r" type="colorvalue">
+    <xs:attribute name="color" type="xs:string">
       <xs:annotation>
         <xs:documentation>
-          Red color value (0-255, default: 0)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="g" type="colorvalue">
-      <xs:annotation>
-        <xs:documentation>
-          Green color value (0-255, default: 0)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="b" type="colorvalue">
-      <xs:annotation>
-        <xs:documentation>
-          Blue color value (0-255, default: 0)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="a" type="colorvalue">
-      <xs:annotation>
-        <xs:documentation>
-          Alpha value (0-255, default: 255)
+          Color (referenced from libraries/colors.xml)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -680,34 +659,27 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="highwaytrailcolor" minOccurs="0" maxOccurs="1">
+
         <xs:annotation>
           <xs:documentation>
             Parameters related to mass traffic ship trails in highway
           </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:all>
-            <xs:element name="danger" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  Trail vertex color for signalling collision with player ship
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attributeGroup ref="argbcolor" />
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="safe" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  Trail vertex color for signalling no collision with player ship
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attributeGroup ref="argbcolor" />
-              </xs:complexType>
-            </xs:element>
-          </xs:all>
+          <xs:attribute name="safe" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Trail vertex color for signalling no collision with player ship (referenced from libraries/colors.xml)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="danger" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Trail vertex color for signalling collision with player ship (referenced from libraries/colors.xml)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:complexType>
       </xs:element>
       <xs:element name="network" minOccurs="0" maxOccurs="1">
@@ -1030,6 +1002,13 @@
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
+          <xs:attribute name="moduleturretchance" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Chance of a module's turret being able to fire, simulating the complex geometry of stations blocking line of sight (not the limiting aspect of turret quadrants)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
           <xs:attribute name="dronebulletfactor" type="xs:float">
             <xs:annotation>
               <xs:documentation>
@@ -1054,7 +1033,14 @@
           <xs:attribute name="surfaceelementchance" type="xs:float">
             <xs:annotation>
               <xs:documentation>
-                Chance that damage done is applied to surface elements. Capped at 1.0.
+                Chance that damage done is applied to surface elements when dealing non-explosive damage. Capped at 1.0.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="surfaceelementexplosivechance" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Chance that damage done is applied to surface elements when dealing explosive damage. Capped at 1.0.
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
@@ -1069,6 +1055,13 @@
             <xs:annotation>
               <xs:documentation>
                 If damage is done to surface elements, chance that damage is applied to shield generators. Capped at 1.0.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="missilefirethreshold" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                The minimum chance required of a missile to successfully hit in which to decide whether to fire. Chance calculated before the application of the missile 'hitfactor' parameters.
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
@@ -1100,6 +1093,20 @@
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
+          <xs:attribute name="flakhitfactor" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Hit factor for flak weapons.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="turretfirechance" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Chance that each turret will fire.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:complexType>
       </xs:element>
       <xs:element name="defence" minOccurs="0" maxOccurs="1">
@@ -1109,24 +1116,38 @@
           </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:attribute name="maneouverfactor" type="xs:float">
+          <xs:attribute name="maxspeed" type="xs:float">
             <xs:annotation>
               <xs:documentation>
-                Factor of how much of a difference the speed between the attacker and defender affects the hit chance
+                Ships at or exceeding this speed will apply the weapon hit modifier of 'minspeedfactor', whereas slower targets will apply the modifier scaling towards 'maxspeedfactor' at 0m/s
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
-          <xs:attribute name="minspeed" type="xs:float">
+          <xs:attribute name="minspeedfactor" type="xs:float">
             <xs:annotation>
               <xs:documentation>
-                The minimum speed of the defender, used for evasion calculations. Slower or immobile objects will use this value
+                Weapon hit factor against ships with a speed at or exceeding 'minspeed' (lower is better for defending ship)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="maxspeedfactor" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Weapon hit factor against ships with a maximum speed of 0m/s (lower is better for defending ship)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="dodgedelay" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                The manoeuverability of the defender is used to calculate the best possible time for it to escape its projected boundingbox of travel. A random value from zero to 'dodgedelay' is added to simulate reaction time.
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
           <xs:attribute name="maxsize" type="xs:float">
             <xs:annotation>
               <xs:documentation>
-                The minimum size of the defender, used for hit chance calculations. Very large objects will use this value
+                Defender size limit helping to scale the 'sizefactor' hit chance modifier. Defenders of size 0m = 'sizefactor' whereas those of size 'maxsize' have no bonus.
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
@@ -1170,7 +1191,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="lootmagnetparams">
+  <xs:attributeGroup name="lootmagnetattributes">
     <xs:attribute name="range" type="xs:float">
       <xs:annotation>
         <xs:documentation>
@@ -1192,6 +1213,34 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:complexType name="lootmagnetparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters related to the loot magnet
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="size" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Parameter overrides for specific classes
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="lootmagnetattributes" />
+          <xs:attribute name="classes" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                The class list for which these overrides are to be used
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="lootmagnetattributes" />
     <xs:attribute name="sound" type="xs:string">
       <xs:annotation>
         <xs:documentation>
@@ -1543,7 +1592,7 @@
                             <xs:attribute name="duration" type="xs:float">
                               <xs:annotation>
                                 <xs:documentation>
-                                  The duration of the slowdown sequence in seconds (must be shorter than the landing duration!)
+                                  The duration of the slowdown sequence in seconds (delay + duration must be shorter than the landing duration!)
                                 </xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
@@ -1554,7 +1603,50 @@
                             <xs:attribute name="duration" type="xs:float">
                               <xs:annotation>
                                 <xs:documentation>
-                                  The duration of the align sequence in seconds (must be shorter than the landing duration!)
+                                  The duration of the align sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="delay" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The delay of the align sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="move" minOccurs="0" maxOccurs="1">
+                          <xs:complexType>
+                            <xs:attribute name="duration" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The duration of the move sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="delay" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The delay of the move sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="touchdown" minOccurs="0" maxOccurs="1">
+                          <xs:complexType>
+                            <xs:attribute name="duration" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The duration of the touchdown sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="delay" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The delay of the touchdown sequence in seconds (delay + duration must be shorter than the landing duration!)
                                 </xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
@@ -1590,6 +1682,20 @@
                               <xs:element name="yaw" type="swayparams" />
                               <xs:element name="roll" type="swayparams" />
                             </xs:sequence>
+                            <xs:attribute name="duration" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The duration of the sway sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="delay" type="xs:float">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  The delay of the sway sequence in seconds (delay + duration must be shorter than the landing duration!)
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
@@ -1606,6 +1712,20 @@
                             <xs:enumeration value="gridlock" />
                           </xs:restriction>
                         </xs:simpleType>
+                      </xs:attribute>
+                      <xs:attribute name="vertical" type="xs:boolean" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            Whether this parameter set is to be used for vertical movement (if only one set is provided, it will also be used for the other case)
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="usetodockpos" type="xs:boolean" use="optional">
+                        <xs:annotation>
+                          <xs:documentation>
+                            Whether the ship should first move to the todockpos before approaching the dockpos (defaults to false)
+                          </xs:documentation>
+                        </xs:annotation>
                       </xs:attribute>
                       <xs:attribute name="duration" type="xs:float">
                         <xs:annotation>
@@ -1693,6 +1813,13 @@
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
+                      <xs:attribute name="vertical" type="xs:boolean" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            Whether this parameter set is to be used for vertical movement (if only one set is provided, it will also be used for the other case)
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
                       <xs:attribute name="duration" type="xs:float">
                         <xs:annotation>
                           <xs:documentation>
@@ -1762,6 +1889,20 @@
       <xs:annotation>
         <xs:documentation>
           The maximum (linear) speed allowed while 'inside' an enclosed docking space
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="shipfrequency" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          The frequency (in 1/s) at which the ship geometry hologram moves towards the dock
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+      <xs:attribute name="shipcolor" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The color of the ship geometry hologram moving towards the dock (referenced from libraries/colors.xml)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1933,6 +2074,13 @@
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="maxwrecks" type="xs:integer">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The maximum number of wrecks which can be recycled at the same time by a build processor
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
                 <xs:attribute name="requiresconstructionvessel" type="xs:boolean">
                   <xs:annotation>
                     <xs:documentation>
@@ -1967,7 +2115,7 @@
     <xs:attribute name="method" type="xs:unsignedInt">
       <xs:annotation>
         <xs:documentation>
-          The partitioning method. Watershed (slowest), 2: Monotone (fastest), 3: Layer (pretty fast)
+          The partitioning method. 1: Watershed (slowest), 2: Monotone (fastest), 3: Layer (pretty fast)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2062,6 +2210,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="maxquerynodes" type="xs:unsignedInt">
+      <xs:annotation>
+        <xs:documentation>
+          The maximum amount of nodes to be internally stored by the navigation query helper
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="platformnavigationparams">
@@ -2096,6 +2251,68 @@
               </xs:attribute>
             </xs:extension>
           </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="navmesh_overrides">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="by_id">
+              <xs:annotation>
+                <xs:documentation>
+                  Override navmesh parameters identified by an ID string to be queried during navmesh generation. Uses either the 'navmesh' or 'smallnavmesh' values as defaults depending on 'issmall' attribute.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="navmeshcalculationparams">
+                    <xs:attribute name="id" type="xs:string" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          ID for these navmesh parameter overrides
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="issmall" type="xs:boolean" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Have these parameter values default to the 'smallnavmesh' parameters
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="comment" type="xs:string" use="optional" />
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="by_template">
+              <xs:annotation>
+                <xs:documentation>
+                  Override navmesh parameters by template name to be queried during navmesh generation. Uses either the 'navmesh' or 'smallnavmesh' values as defaults depending on 'issmall' attribute.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="navmeshcalculationparams">
+                    <xs:attribute name="template" type="xs:string" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Template name of the navigation context component
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="issmall" type="xs:boolean" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Have these parameter values default to the 'smallnavmesh' parameters
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="comment" type="xs:string" use="optional" />
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
         </xs:complexType>
       </xs:element>
       <xs:element name="crowd" minOccurs="0" maxOccurs="1">
@@ -2469,6 +2686,22 @@
           </xs:attribute>
         </xs:complexType>
       </xs:element>
+      <xs:element name="transporter" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Parameters for transporter rooms
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="duration" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                The time (in seconds) that a transporter transition takes.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -2564,6 +2797,22 @@
             <xs:annotation>
               <xs:documentation>
                 Update interval variation (= interval +/- variation)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="bonus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Workforce bonus data
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="duration" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                How long the efficiency gain from workforce lasts
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
@@ -2736,6 +2985,17 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
+            <xs:element name="buildshortage" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Time thresholds for reporting build resource shortages as insufficient, applied with a factor
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="min" type="xs:integer" />
+                <xs:attribute name="factor" type="xs:float" />
+              </xs:complexType>
+            </xs:element>
             <xs:element name="production" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
@@ -3015,37 +3275,6 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="colors" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The base colors for the indicator
-          </xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="inrange" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The color to be used if the target is in weapon range
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attributeGroup ref="argbcolor" />
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="outofrange" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The color to be used if the target is out of weapon range
-                </xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attributeGroup ref="argbcolor" />
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="pulse" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -3095,6 +3324,20 @@
       <xs:annotation>
         <xs:documentation>
           Render distance factor, 1.0 would put the pointer at the exact distance of the raycast hit
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="inrangecolor" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The color to be used if the target is in weapon range (referenced from libraries/colors.xml)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="outofrangecolor" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The color to be used if the target is out of weapon range (referenced from libraries/colors.xml)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -3178,6 +3421,92 @@
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="yielddensities">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>
+              Reference yield densities per resource. Used by the game to show the value in relation to the range.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="ware">
+              <xs:complexType>
+                <xs:attribute name="id" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The ware ID
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="min" type="xs:float">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The minimum density, in 1/km³
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="max" type="xs:float">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The maximum density, in 1/km³
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="valuethreshold" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                The resource density threshold under which AI will consider a mining area to be undesirable. This value matches what is displayed as "stars" to the player, multiplied by 3.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="scancolors">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>
+              Colors to use for the scan mode.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="ware">
+              <xs:complexType>
+                <xs:attribute name="id" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The ware ID
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="color" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Color mapping reference from libraries/colors.xml
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="nodecolor" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Color mapping reference from libraries/colors.xml
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="iconcolor" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Color mapping reference from libraries/colors.xml
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -3384,6 +3713,340 @@
     </xs:attribute>
   </xs:complexType>
 
+  <xs:complexType name="presentationparams">
+    <xs:attribute name="npcship" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The ship macro used for spawning npcs in the presentation cluster.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="npcconnection" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The connection on npcship used for placing the npc in the presentation cluster.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="fightmusicparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters for fight music logic.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="1">
+      <xs:element name="thresholds">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="threshold">
+              <xs:complexType>
+                <xs:attribute name="classes" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The class or list of classes that this threshold applies to.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="maxdistance" type="xs:float">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The distance to the player up to which objects of this class are counted for the purposes of music selection.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="bigfightamount" type="xs:float">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The amount of objects of this class at which a fight is considered to be "big" for the purposes of music selection.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="minduration" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          The minimum duration for fight music to play before it can be turned off. Does not affect switching to the "big fight" version, but that switch does reset the timer.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="enemywarningparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters for enemy warning.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="nearby">
+        <xs:annotation>
+          <xs:documentation>
+            Warning when an enemy has appeared on the player's gravidar.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="default" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Default sound ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="attack">
+        <xs:annotation>
+          <xs:documentation>
+            Warning when an enemy has started targeting the player for attack.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="default" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Default sound ID.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="playeralertparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters for player alert sounds
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="1">
+      <xs:element name="sounds">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="sound">
+              <xs:annotation>
+                <xs:documentation>
+                  Player alert definition
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="id" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Sound ID.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="name" type="xs:integer">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Text ID of the alert name (referenced on page 20225)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="tags" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Tags for this alert
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="cooldown" type="xs:float">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The minimum time until this sound can be played again when used during an event.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cutsceneparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters for cutscenes
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="1">
+      <xs:element name="default">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="scenes">
+              <xs:annotation>
+                <xs:documentation>
+                  Default scene keys
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="npcface" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Scene key for the default cutscene to present a NPC's face in the universe
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="npcdummy" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Scene key for the default cutscene to present the face of a NPC avatar, which is not connected to the universe
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="darktank" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Scene key for the default cutscene to present the dark Boron tank
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="hqtank" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Scene key for the default cutscene to present the HQ Boron tank
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="black" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Scene key for the default cutscene to present the face of an NPC avatar in a black room
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="notificationparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters for notifications
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="1">
+      <xs:element name="curmission" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Current mission notification parameters.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="tickertextcolor" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Ticker text color (referenced from libraries/colors.xml)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="tickerblinktextcolor" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Ticker blink text color (referenced from libraries/colors.xml)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="bgmission" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Background mission notification parameters.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="tickertextcolor" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Ticker text color (referenced from libraries/colors.xml)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="tickerblinktextcolor" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Ticker blink text color (referenced from libraries/colors.xml)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="defaulttextcolor" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Default text color (referenced from libraries/colors.xml)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="criticaltextcolor" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Critical priority text color (referenced from libraries/colors.xml)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="hudparams">
+    <xs:annotation>
+      <xs:documentation>
+        Parameters for HUD
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="1">
+      <xs:element name="target" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Target parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence maxOccurs="1">
+            <xs:element name="repeat" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Target repeat parameters
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="sound" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The sound ID to be played instead of repeating a target name
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="timeout" type="xs:float">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The time after which the last target name is ignored for the purposes of decided whether a target name is repeated
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:element name="parameters">
     <xs:annotation>
       <xs:documentation>
@@ -3456,17 +4119,18 @@
         <xs:element name="loadout" type="anycontent" minOccurs="0" maxOccurs="1" />
         <xs:element name="equipmentmod" type="anycontent" minOccurs="0" maxOccurs="1" />
         <xs:element name="voice" type="anycontent" minOccurs="0" maxOccurs="1" />
-        <xs:element name="fightmusic" type="anycontent" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              If at least *mintargets* within *maxdistance* meters have been attacked during the last *attackduration* seconds, play fight music for at least *minduration* seconds.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="playeralert" type="anycontent" minOccurs="0" maxOccurs="1" />
+        <xs:element name="fightmusic" type="fightmusicparams" minOccurs="0" maxOccurs="1" />
+        <xs:element name="enemywarning" type="enemywarningparams" minOccurs="0" maxOccurs="1" />
+        <xs:element name="playeralert" type="playeralertparams" minOccurs="0" maxOccurs="1" />
         <xs:element name="shieldimpact" type="anycontent" minOccurs="0" maxOccurs="1" />
         <xs:element name="missions" type="missionparams" minOccurs="0" maxOccurs="1" />
         <xs:element name="orders" type="anycontent" minOccurs="0" maxOccurs="1" />
+        <xs:element name="presentation" type="presentationparams" minOccurs="0" maxOccurs="1" />
+        <xs:element name="furnace" type="anycontent" minOccurs="0" maxOccurs="1" />
+        <xs:element name="tug" type="anycontent" minOccurs="0" maxOccurs="1" />
+        <xs:element name="cutscenes" type="cutsceneparams" minOccurs="0" maxOccurs="1" />
+        <xs:element name="notifications" type="notificationparams" minOccurs="0" maxOccurs="1" />
+        <xs:element name="hud" type="hudparams" minOccurs="0" maxOccurs="1" />
       </xs:all>
     </xs:complexType>
   </xs:element>

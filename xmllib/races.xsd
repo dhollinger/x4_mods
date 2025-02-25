@@ -27,6 +27,7 @@
   <xs:simpleType name="racetaglookup">
     <xs:restriction base="xs:string">
       <xs:enumeration value="hidden" />
+      <xs:enumeration value="nocockpitview" />
       <xs:enumeration value="workforce" />
     </xs:restriction>
   </xs:simpleType>
@@ -63,9 +64,7 @@
   </xs:simpleType>
 
   <xs:simpleType name="raceid">
-    <xs:restriction base="xs:string">
-      <xs:pattern value="([a-z])+" />
-    </xs:restriction>
+    <xs:restriction base="idname" />
   </xs:simpleType>
 
   <xs:complexType name="relation">
@@ -143,6 +142,23 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="facecutscenekey" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Key for character in-universe face cutscenes (defaults to 'ShowNPCFace')
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="characterspacesuit">
+    <xs:attribute name="ref" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Spacesuit macro ID
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="character">
@@ -158,6 +174,13 @@
         <xs:annotation>
           <xs:documentation>
             Position adjustment when sitting in event monitor
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="spacesuit" type="characterspacesuit" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Character spacesuit defaults
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -178,7 +201,33 @@
     </xs:attribute>
   </xs:complexType>
 
+  <xs:complexType name="chairsteering">
+    <xs:attribute name="trigger" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Chair steering trigger used for members of this race (default: activate_chair_steering)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="animation" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Chair steering animation used for members of this race (default: chair_steering_active)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
   <xs:complexType name="chair">
+    <xs:sequence>
+      <xs:element name="steering" type="chairsteering" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Chair steering animation
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
     <xs:attribute name="config" type="xs:string">
       <xs:annotation>
         <xs:documentation>
@@ -289,6 +338,20 @@
       <xs:annotation>
         <xs:documentation>
           Short race name (i.e. abbreviation)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="spacename" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Race space name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="homespacename" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Race home space name
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
