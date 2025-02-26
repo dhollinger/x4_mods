@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros/macro/properties/identification/@name">{20101,22501}</replace>
   <replace sel="//macros/macro/properties/identification/@basename">{20101,22501}</replace>
   <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
+
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.2" decel="0.7" ratio="3" />
+      <forward_boost accel="0.2" ratio="3" />
+      <forward_travel accel="0.3" decel="0.7" ratio="3" />
+      <strafe value="0.3" />
+      <angular value="0.15" />
+    </jerk>
+  </add>
 
   <replace sel="//macros/macro/properties/storage/@missile">450</replace>
 
   <replace sel="//macros/macro/properties/hull/@max">1100000</replace>
 
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.2" value="0.9" />
+      <point position="1.6" value="0.8" />
+      <point position="2.1" value="0.45" />
+      <point position="2.4" value="0.3" />
+      <point position="2.7" value="0.25" />
+    </steeringcurve>
+  </add>
+
   <replace sel="//macros/macro/properties/physics">
     <physics mass="846.85">
       <inertia pitch="1500.074" yaw="1500.074" roll="1400.659" />
-      <drag forward="370.213" reverse="1260.85" horizontal="510.578" vertical="510.578" pitch="1150.37" yaw="1150.37" roll="1150.37" />
+      <drag forward="370.213" reverse="1260.85" horizontal="510.578" vertical="510.578"
+        pitch="1150.37" yaw="1150.37" roll="1150.37" />
     </physics>
   </replace>
 </diff>
@@ -19,7 +42,8 @@
   <macro name="fulmar_macro" class="ship_xl">
     <component ref="fulmar" />
     <properties>
-      <identification name="{20101,22101}" basename="{20101,22101}" description="{6920207,2}" icon="ship_xl_fight_01" />
+      <identification name="{20101,22101}" basename="{20101,22101}" description="{6920207,2}"
+icon="ship_xl_fight_01" />
       <software>
         <software ware="software_dockmk2" compatible="1" />
         <software ware="software_flightassistmk1" default="1" />
@@ -37,7 +61,8 @@
       <people capacity="188" />
       <physics mass="846.85">
         <inertia pitch="547.074" yaw="547.074" roll="437.659" />
-        <drag forward="315.213" reverse="1270.85" horizontal="510.578" vertical="510.578" pitch="879.37" yaw="879.37" roll="879.37" />
+        <drag forward="315.213" reverse="1270.85" horizontal="510.578" vertical="510.578" pitch="879.37"
+yaw="879.37" roll="879.37" />
       </physics>
       <thruster tags="extralarge" />
       <ship type="battleship" />

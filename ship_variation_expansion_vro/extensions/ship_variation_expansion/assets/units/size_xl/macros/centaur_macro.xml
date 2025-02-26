@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros/macro/properties/identification/@basename">{20101,12001}</replace>
   <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
   <remove sel="//macros/macro/properties/identification/@variation" />
   <remove sel="//macros/macro/properties/identification/@shortvariation" />
+
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.2" decel="0.7" ratio="3" />
+      <forward_boost accel="0.2" ratio="3" />
+      <forward_travel accel="0.3" decel="0.7" ratio="3" />
+      <strafe value="0.3" />
+      <angular value="0.15" />
+    </jerk>
+  </add>
 
   <replace sel="//macros/macro/properties/storage/@missile">420</replace>
   <replace sel="//macros/macro/properties/storage/@unit">30</replace>
 
   <replace sel="//macros/macro/properties/hull/@max">950000</replace>
 
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.5" value="0.8" />
+      <point position="2" value="0.6" />
+      <point position="2.4" value="0.5" />
+      <point position="3" value="0.5" />
+    </steeringcurve>
+  </add>
+
   <replace sel="//macros/macro/properties/physics">
     <physics mass="900">
       <inertia pitch="1350.604" yaw="1350.604" roll="1180.883" />
-      <drag forward="345" reverse="980" horizontal="400.421" vertical="400.421" pitch="1100.326" yaw="1100.326" roll="1100.326" />
+      <drag forward="345" reverse="980" horizontal="400.421" vertical="400.421" pitch="1100.326"
+        yaw="1100.326" roll="1100.326" />
+      <accfactors forward="0.85" reverse="0.9" />
     </physics>
   </replace>
 </diff>
@@ -21,7 +44,8 @@
   <macro name="centaur_macro" class="ship_xl">
     <component ref="centaur" />
     <properties>
-      <identification name="{6920203,3}" basename="{20101,12801}" description="{6920203,2}" variation="{20111,201}" shortvariation="{20111,201}" icon="ship_xl_fight_01" />
+      <identification name="{6920203,3}" basename="{20101,12801}" description="{6920203,2}"
+variation="{20111,201}" shortvariation="{20111,201}" icon="ship_xl_fight_01" />
       <software>
         <software ware="software_dockmk2" compatible="1" />
         <software ware="software_flightassistmk1" default="1" />
@@ -43,7 +67,8 @@
       </sounds>
       <physics mass="900">
         <inertia pitch="603.604" yaw="603.604" roll="482.883" />
-        <drag forward="345" reverse="980" horizontal="254" vertical="254" pitch="730" yaw="730" roll="730" />
+        <drag forward="345" reverse="980" horizontal="254" vertical="254" pitch="730" yaw="730" roll="730"
+/>
       </physics>
       <thruster tags="extralarge" />
       <ship type="battleship" />

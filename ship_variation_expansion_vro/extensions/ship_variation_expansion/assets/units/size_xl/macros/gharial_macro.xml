@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros/macro/properties/identification/@name">{20101,42901}</replace>
   <replace sel="//macros/macro/properties/identification/@basename">{20101,42901}</replace>
   <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
 
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.3" decel="0.7" ratio="3" />
+      <forward_boost accel="0.3" ratio="3" />
+      <forward_travel accel="0.3" decel="0.7" ratio="3" />
+      <strafe value="0.3" />
+      <angular value="0.15" />
+    </jerk>
+  </add>
+
   <replace sel="//macros/macro/properties/hull/@max">1032000</replace>
+
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.2" value="0.9" />
+      <point position="1.6" value="0.8" />
+      <point position="2.1" value="0.55" />
+      <point position="2.4" value="0.45" />
+      <point position="2.7" value="0.38" />
+    </steeringcurve>
+  </add>
 
   <replace sel="//macros/macro/properties/physics">
     <physics mass="1324.388">
       <inertia pitch="2250" yaw="2250" roll="2250" />
-      <drag forward="218.6" reverse="844.602" horizontal="470.3" vertical="470.3" pitch="1151" yaw="1151" roll="1151" />
+      <drag forward="218.6" reverse="844.602" horizontal="470.3" vertical="470.3" pitch="1151"
+        yaw="1151" roll="1151" />
     </physics>
   </replace>
 </diff>
@@ -17,7 +40,8 @@
   <macro name="gharial_macro" class="ship_xl">
     <component ref="gharial" />
     <properties>
-      <identification name="{20101,42501}" basename="{20101,42501}" makerrace="split" description="{6920206,2}" icon="ship_xl_fight_01" />
+      <identification name="{20101,42501}" basename="{20101,42501}" makerrace="split"
+description="{6920206,2}" icon="ship_xl_fight_01" />
       <software>
         <software ware="software_dockmk2" default="1" />
         <software ware="software_flightassistmk1" default="1" />
@@ -36,7 +60,8 @@
       <people capacity="179" />
       <physics mass="800">
         <inertia pitch="450.536" yaw="450.536" roll="380.229" />
-        <drag forward="94" reverse="405" horizontal="105.459" vertical="105.459" pitch="668.736" yaw="668.736" roll="668.736" />
+        <drag forward="94" reverse="405" horizontal="105.459" vertical="105.459" pitch="668.736"
+yaw="668.736" roll="668.736" />
       </physics>
       <thruster tags="extralarge" />
       <ship type="battleship" />
