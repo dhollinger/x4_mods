@@ -57,6 +57,16 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="soundcategorylookup">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ambient" />
+      <xs:enumeration value="Effect" />
+      <xs:enumeration value="Music" />
+      <xs:enumeration value="UI" />
+      <xs:enumeration value="Voice" />
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:attributeGroup name="sample">
     <xs:attribute name="start" />
     <xs:attribute name="loop" />
@@ -107,6 +117,209 @@
             <xs:annotation>
               <xs:documentation>
                 Relative difference between current and target forward speed (can be between -2 and 2)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="forwardspeeddiff2">
+            <xs:annotation>
+              <xs:documentation>
+                Difference between throttle input and current forward speed, plus 10% of relative forward speed (between -1 and 1)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="forwardacc">
+            <xs:annotation>
+              <xs:documentation>
+                Relative forward acceleration (-1 is full reverse and +1 is full forward, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="reverseacc">
+            <xs:annotation>
+              <xs:documentation>
+                Relative reverse acceleration (-1 is full forward and +1 is full reverse, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="gforce">
+            <xs:annotation>
+              <xs:documentation>
+                Force acting on player
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="horizontalstrafespeed">
+            <xs:annotation>
+              <xs:documentation>
+                Relative horizontal strafe speed (-1 is left and +1 is right, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="verticalstrafespeed">
+            <xs:annotation>
+              <xs:documentation>
+                Relative vertical strafe speed (-1 is down and +1 is up, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="pitchspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Relative pitch speed (-1 is up and +1 is down, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="yawspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Relative yaw speed (-1 is left and +1 is right, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="rollspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Relative roll speed (-1 is right and +1 is left, value can be higher)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="leftspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of -horizontalstrafespeed and -yawspeed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="rightspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of horizontalstrafespeed and yawspeed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="upspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of verticalstrafespeed and -pitchspeed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="downspeed">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of -verticalstrafespeed and pitchspeed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="leftacc">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of -horizontalstrafeacc and -yawacc
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="rightacc">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of horizontalstrafeacc and yawacc
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="upacc">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of verticalstrafeacc and -pitchacc
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="downacc">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum of -verticalstrafeacc and pitchacc
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="leftforce">
+            <xs:annotation>
+              <xs:documentation>
+                Value calculated from acceleration and speed, matches strength of visual engine and thruster effects
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="rightforce">
+            <xs:annotation>
+              <xs:documentation>
+                Value calculated from acceleration and speed, matches strength of visual engine and thruster effects
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="upforce">
+            <xs:annotation>
+              <xs:documentation>
+                Value calculated from acceleration and speed, matches strength of visual engine and thruster effects
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="downforce">
+            <xs:annotation>
+              <xs:documentation>
+                Value calculated from acceleration and speed, matches strength of visual engine and thruster effects
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_left">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_right">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_above">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_below">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_above_left">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_above_right">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_below_left">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="wallecho_below_right">
+            <xs:annotation>
+              <xs:documentation>
+                Closeness of wall (0 means no wall, 1 means ship is touching wall) times current forward speed
               </xs:documentation>
             </xs:annotation>
           </xs:enumeration>
@@ -238,6 +451,7 @@
       <xs:element name="reverbcurve" type="distancecurve" minOccurs="0" maxOccurs="1" />
       <xs:element name="customcurve" type="customcurve" minOccurs="0" maxOccurs="1" />
     </xs:all>
+    <xs:attribute name="category" type="soundcategorylookup" />
     <xs:attribute name="start" type="xs:float" />
     <xs:attribute name="loop" type="xs:float" />
     <xs:attribute name="end" type="xs:float" />
@@ -285,9 +499,13 @@
       </xs:element>
       <xs:element name="filter" minOccurs="0" maxOccurs="1">
         <xs:complexType>
+          <xs:all>
+            <xs:element name="distancecurve" type="distancecurve" minOccurs="0" maxOccurs="1" />
+          </xs:all>
           <xs:attribute name="mode" type="filtermodelookup" />
           <xs:attribute name="frequency" type="xs:float" />
           <xs:attribute name="oneoverq" type="xs:float" />
+          <xs:attribute name="distance" type="xs:float" />
         </xs:complexType>
       </xs:element>
       <xs:element name="reverb" minOccurs="0" maxOccurs="1">
@@ -420,6 +638,20 @@
       <xs:annotation>
         <xs:documentation>
           This sound can only be played one at a time
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="noocclusion" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          This sound ignores occlusion (only required for ambient and effect sounds, others ignore occlusion anyway)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="permanent" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          This sound will not be automatically shut down or skipped because it's too far away (not required for ambient and music sounds)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -655,14 +887,10 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
-        <xs:sequence>
-          <xs:element name="sound" type="sound" minOccurs="0" maxOccurs="unbounded" />
-        </xs:sequence>
-        <xs:sequence>
-          <xs:element name="group" type="soundgroup" minOccurs="0" maxOccurs="unbounded" />
-        </xs:sequence>
-      </xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sound" type="sound" />
+        <xs:element name="group" type="soundgroup" />
+      </xs:choice>
     </xs:complexType>
     <xs:key name="sound_id">
       <xs:selector xpath="sound" />

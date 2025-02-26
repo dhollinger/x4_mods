@@ -23,7 +23,7 @@
 
   <xs:simpleType name="gamestartmacropath">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[a-z0-9_./]+" />
+      <xs:pattern value="[a-z0-9_./#]+" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -57,6 +57,9 @@
       <xs:enumeration value="interiorcorridor" />
       <xs:enumeration value="interiordoor" />
       <xs:enumeration value="interiorroom" />
+      <xs:enumeration value="interiorpersistent" />
+      <xs:enumeration value="interiorprivate" />
+      <xs:enumeration value="interiorrenderoutside" />
       <xs:enumeration value="modulepath" />
       <xs:enumeration value="modulemacro" />
       <xs:enumeration value="faction" />
@@ -87,6 +90,7 @@
       <xs:enumeration value="shiploadout" />
       <xs:enumeration value="shipcargo" />
       <xs:enumeration value="shippeople" />
+      <xs:enumeration value="shippeoplefillpercent" />
       <xs:enumeration value="shippaintmod" />
       <xs:enumeration value="seed" />
       <xs:enumeration value="universeringhighways" />
@@ -102,6 +106,7 @@
       <xs:enumeration value="universegodquotafactors" />
       <xs:enumeration value="universefactionpolice" />
       <xs:enumeration value="universefactionrelations" />
+      <xs:enumeration value="universestorystates" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -169,21 +174,11 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="buildmethodlookup">
+  <xs:simpleType name="scenarioscoretype">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="default">
-        <xs:annotation>
-          <xs:documentation>
-            Universal
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="argon" />
-      <xs:enumeration value="paranid" />
-      <xs:enumeration value="teladi" />
-      <xs:enumeration value="xenon" />
-      <xs:enumeration value="split" />
-      <xs:enumeration value="terran" />
+      <xs:enumeration value="int" />
+      <xs:enumeration value="float" />
+      <xs:enumeration value="time" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -229,6 +224,13 @@
         <xs:annotation>
           <xs:documentation>
             Value can be customised but results in modified game
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="budgeted">
+        <xs:annotation>
+          <xs:documentation>
+            Value can be customised using a budget and results in a standard (unmodified) game if within that budget or a modified game if outside it
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -312,6 +314,60 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="startday">
+      <xs:annotation>
+        <xs:documentation>
+          Day of the month this gamestart starts in.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="31" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="startmonth">
+      <xs:annotation>
+        <xs:documentation>
+          Month this gamestart starts in.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="startyear" type="xs:integer">
+      <xs:annotation>
+        <xs:documentation>
+          Year (CE/AD) this gamestart starts in.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartdependencies">
+    <xs:sequence>
+      <xs:element name="dependency" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A dependency defined by the child 'budget' nodes. If any defined budget in this set is currently selected then this dependency is fulfilled.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="budget" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="ref"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="gamestartunlockachievement">
@@ -324,25 +380,46 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="gamestartunlockuser">
-    <xs:attribute name="ref" type="xs:string">
+  <xs:complexType name="gamestartunlockuserdata">
+    <xs:attribute name="ref" type="xs:string" use="required">
       <xs:annotation>
         <xs:documentation>
           User data item name
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="value" type="xs:integer">
+    <xs:attribute name="value" type="xs:integer" use="optional">
       <xs:annotation>
         <xs:documentation>
-          User data value
+          User data value (default is 1)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="mask" type="xs:boolean">
+    <xs:attribute name="mask" type="xs:boolean" use="optional">
       <xs:annotation>
         <xs:documentation>
           Compare user data value as bitmask (otherwise use default behaviour, which is to compare exact value)?
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="comparison" type="xs:integer">
+      <xs:annotation>
+        <xs:documentation>
+          Value comparison (1 for greater or equal, -1 for less or equal, 0 for exactly equal, default is 0)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="progress" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Whether this userdata should be taken into account for the overall progress shown in the UI. Defaults to false. Does not work if 'mask' is true.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="text" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Text to show if this unlock requirement has not been met.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -357,7 +434,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="userdata" type="gamestartunlockuser" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="userdata" type="gamestartunlockuserdata" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             User data required to unlock gamestart
@@ -365,6 +442,142 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+    <xs:attribute name="locked" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Whether gamestart should locked regardless of conditions (false by default)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hidden" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Whether gamestart should be hidden until unlocked (false by default)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartcutscene">
+    <xs:attribute name="ref" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart cutscene name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="voice" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart cutscene voice sequence name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartintro">
+    <xs:attribute name="ref" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart intro animation
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="voice" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart intro animation voice sequence name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="length" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          Length of the startmenu intro in s (defaults to 30s)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fadeout" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          Length of the startmenu intro fade out in s (defaults to 2s)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestarttype">
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart type name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="description" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart type description
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="recommendation" type="xs:integer">
+      <xs:annotation>
+        <xs:documentation>
+          Gamestart recommendation score (higher is more recommended)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartloadingscreentext">
+    <xs:attribute name="text" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Loadingscreen text
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartloadingscreen">
+    <xs:sequence>
+      <xs:element name="text" type="gamestartloadingscreentext" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Definition of loadingscreen text
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="info" type="gamestartloadingscreentext" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Definition of loadingscreen info text
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ref" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Initial loading screen to be displayed for this gamestart.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="text" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The text to be displayed on the gamestart specific loading screen. Empty, if no text should be displayed.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="length" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          Time (in s) for how long the loading screen is to be displayed (0 implies only that screen being displayed).
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="gamestartplayerlocation">
@@ -450,6 +663,27 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="persistent" type="boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Is the interior persistent in low attention? Otherwise, must be cleaned up by another system on attention change.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="private" type="boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Can NPCs find this interior to visit or spawn in?
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="renderoutside" type="boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Is this interior also rendered when the player is outside of it?
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="gamestartlocation">
@@ -518,6 +752,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="stationgodentry" type="gamestartmacroname">
+      <xs:annotation>
+        <xs:documentation>
+          God entry name of station
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="tradestation" type="xs:boolean">
       <xs:annotation>
         <xs:documentation>
@@ -581,6 +822,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="shipgodentry" type="gamestartmacroname">
+      <xs:annotation>
+        <xs:documentation>
+          God entry name of ship
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="roompath" type="gamestartmacropath">
       <xs:annotation>
         <xs:documentation>
@@ -621,6 +869,13 @@
         </xs:annotation>
       </xs:group>
     </xs:sequence>
+    <xs:attribute name="ref" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Loadout reference reference
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="debug" type="xs:boolean">
       <xs:annotation>
         <xs:documentation>
@@ -640,6 +895,13 @@
         </xs:annotation>
       </xs:group>
     </xs:sequence>
+    <xs:attribute name="ref" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Construction sequence reference
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="debug" type="xs:boolean">
       <xs:annotation>
         <xs:documentation>
@@ -685,6 +947,112 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="gamestartperson">
+    <xs:sequence>
+      <xs:element name="page" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Voice page
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="id" type="xs:integer" use="optional">
+            <xs:annotation>
+              <xs:documentation>
+                Voice page ID (uses tags or generates page ID if not supplied)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="tags" type="xs:string" use="optional">
+            <xs:annotation>
+              <xs:documentation>
+                Voice page tags (ignored if page ID is provided, generates page ID if not supplied)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="skills" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Person skills
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="skill" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Person skill
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="type" type="skilltypelookup" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Skill type
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="value" type="xs:integer" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Skill value (range 0-15, default is 0)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="modification" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Person mods
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="clothing" type="xs:string" use="optional">
+            <xs:annotation>
+              <xs:documentation>
+                Clothing mod
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Person name (generated if not supplied)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="faction" type="factionlookup" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Person faction (used as selection criteria for NPC generator if supplied)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="race" type="racelookup" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Person race (used as selection criteria for NPC generator if supplied)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="tags" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Person tags (used as selection criteria for NPC generator if supplied)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
   <xs:complexType name="gamestartpeople">
     <xs:attribute name="people" type="xs:string">
       <xs:annotation>
@@ -693,9 +1061,151 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="fillpercent" type="xs:int">
+      <xs:annotation>
+        <xs:documentation>
+          Fill percentage
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="gamestartshipmod">
+    <xs:sequence>
+      <xs:element name="equipment" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Equipment mods
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="weapon" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Weapon mod
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="ware" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Weapon mod ware
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="context" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Shield group context on which to install shield mod (uses ship if not supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="group" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Shield group on which to install shield mod (chooses randomly if not supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="shield" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  Shield mod
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="ware" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Shield mod ware
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="path" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Weapon slot in which to install weapon mod (random if not supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="macro" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Weapon macro on which to install weapon mod (ignored if path is supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="context" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Weapon group context on which to install weapon mod (ignored if path or macro supplied, uses ship if not supplied but group is supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="group" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Weapon group on which to install weapon mod (ignored if path or macro supplied, chooses randomly if not supplied but context is supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="engine" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Engine mod
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="ware" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Engine mod ware
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ship" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Ship mod
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="ware" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Ship mod ware
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="mods" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  List of mods
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="list" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Lost of mods to install (will be installed wherever possible)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
     <xs:attribute name="paint" type="xs:string" use="optional">
       <xs:annotation>
         <xs:documentation>
@@ -725,6 +1235,13 @@
         <xs:annotation>
           <xs:documentation>
             Player ship cargo
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pilot" type="gamestartperson" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Player ship pilot
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1133,6 +1650,16 @@
     </xs:attribute>
   </xs:complexType>
 
+  <xs:complexType name="gamestartpersonmod">
+    <xs:attribute name="clothing" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Clothing mod
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
   <xs:complexType name="gamestartplayermod">
     <xs:attribute name="clothing" type="xs:string" use="optional">
       <xs:annotation>
@@ -1221,6 +1748,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="stationgodentry" type="gamestartmacroname">
+      <xs:annotation>
+        <xs:documentation>
+          God entry name of station at which this ship should be docked
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="tradestation" type="xs:boolean">
       <xs:annotation>
         <xs:documentation>
@@ -1291,6 +1825,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="dockedat" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Property ID for object docked at
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="gamestartpropertystation">
@@ -1302,23 +1843,12 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="construction" minOccurs="0" maxOccurs="1">
+      <xs:element name="construction" type="gamestartconstructionsequence" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Station construction plan
+            Construction sequence
           </xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="sequence" type="gamestartconstructionsequence" minOccurs="0" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>
-                  Construction sequence
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
       </xs:element>
       <xs:element name="cargo" type="gamestartwares" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -1327,11 +1857,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="manager" type="gamestartperson" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Station manager
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="id" type="xs:string">
       <xs:annotation>
         <xs:documentation>
-          Property id (used when referencing setting commander or docked-at location for player-owned ships also defined in this gamestart)
+          Property ID (used when referencing setting commander or docked-at location for player-owned ships also defined in this gamestart)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1364,7 +1901,7 @@
     <xs:attribute name="id" type="xs:string">
       <xs:annotation>
         <xs:documentation>
-          Property id (used when referencing setting commander or docked-at location for player-owned ships also defined in this gamestart)
+          Property ID (used when referencing setting commander or docked-at location for player-owned ships also defined in this gamestart)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1407,6 +1944,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="pilot" type="gamestartperson" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Ship pilot
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="people" type="gamestartpeople" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1418,7 +1962,34 @@
     <xs:attribute name="id" type="xs:string">
       <xs:annotation>
         <xs:documentation>
-          Property id (used when referencing setting commander or docked-at location for player-owned ships also defined in this gamestart)
+          Property ID (used when referencing setting commander or docked-at location for player-owned ships also defined in this gamestart)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="create" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Create before or after player is created (default is after)
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="before" />
+          <xs:enumeration value="after" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="count" type="xs:integer" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Number of copies of ship to create (default is 1)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="commander" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Property ID for commander object
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1605,109 +2176,29 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="gamestartuniverseregionclassfactor">
-    <xs:attribute name="class" type="regionobjectclasslookup" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Object class
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="factor" type="xs:float">
-      <xs:annotation>
-        <xs:documentation>
-          Density factor
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniverseregionwarefactor">
-    <xs:attribute name="ref" type="regionwarelookup" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Ware
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="factor" type="xs:float">
-      <xs:annotation>
-        <xs:documentation>
-          Density factor
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniverseregionobjectdensity">
+  <xs:complexType name="gamestartuniverseregionwares">
     <xs:sequence>
-      <xs:element name="component" type="gamestartuniverseregionclassfactor" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Highway configuration
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniverseregionobjects">
-    <xs:sequence>
-      <xs:element name="density" type="gamestartuniverseregionobjectdensity" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Region object density
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniverseregionywares">
-    <xs:sequence>
-      <xs:element name="ware" type="gamestartuniverseregionwarefactor" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ware" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Ware factor
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniverseregionyield">
-    <xs:sequence>
-      <xs:element name="density" type="gamestartuniverseregionywares" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Region yield density
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="object" minOccurs="0" maxOccurs="1">
         <xs:complexType>
-          <xs:sequence>
-            <xs:element name="density" type="gamestartuniverseregionywares" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  Region object yield density
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="replenish" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="time" type="gamestartuniverseregionywares" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  Region yield replenish time
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
+          <xs:attribute name="ref" type="regionwarelookup" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                Ware
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="factor" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Density factor
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -1715,19 +2206,94 @@
 
   <xs:complexType name="gamestartuniverseregions">
     <xs:sequence>
-      <xs:element name="object" type="gamestartuniverseregionobjects" minOccurs="0" maxOccurs="1">
+      <xs:element name="object" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Region objects
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="density" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Region object density
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="component" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Highway configuration
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attribute name="class" type="regionobjectclasslookup" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            Object class
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="factor" type="xs:float">
+                        <xs:annotation>
+                          <xs:documentation>
+                            Density factor
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
-      <xs:element name="yield" type="gamestartuniverseregionyield" minOccurs="0" maxOccurs="1">
+      <xs:element name="yield" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Region yields
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="density" type="gamestartuniverseregionwares" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Region yield density
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="object" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="density" type="gamestartuniverseregionwares" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Region object yield density
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="replenish" minOccurs="0" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="time" type="gamestartuniverseregionwares" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Region yield replenish time
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -1749,38 +2315,37 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="gamestartuniversequotafactor">
-    <xs:attribute name="faction" type="factionlookup">
-      <xs:annotation>
-        <xs:documentation>
-          Faction (either faction or tag, or both, must be provided)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="tag" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          Tag (either faction or tag, or both, must be provided)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="factor" type="xs:float">
-      <xs:annotation>
-        <xs:documentation>
-          Quota factor (set to 0 to disable, any non-0 value enables it if it was previously disabled)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
-
   <xs:complexType name="gamestartuniversequotas">
     <xs:sequence>
-      <xs:element name="quota" type="gamestartuniversequotafactor" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="quota" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Quota
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="faction" type="factionlookup">
+            <xs:annotation>
+              <xs:documentation>
+                Faction (either faction or tag, or both, must be provided)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="tag" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                Tag (either faction or tag, or both, must be provided)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="factor" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>
+                Quota factor (set to 0 to disable, any non-0 value enables it if it was previously disabled)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -1795,6 +2360,13 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+    <xs:attribute name="enabled" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Is the job engine enabled (defaults to true)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="gamestartuniversegod">
@@ -1807,125 +2379,164 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniversefactionpolicefaction">
-    <xs:attribute name="faction" type="factionlookup" use="required">
+    <xs:attribute name="enabled" type="xs:boolean">
       <xs:annotation>
         <xs:documentation>
-          Faction
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="policefaction" type="factionlookup" use="optional">
-      <xs:annotation>
-        <xs:documentation>
-          Police faction (defaults to self for police factions or none for non-police factions if not supplied)
+          Is the god engine enabled (defaults to true)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="gamestartuniversefactionpolice">
-    <xs:sequence>
-      <xs:element name="faction" type="gamestartuniversefactionpolicefaction" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Police
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniversefactionrelation">
-    <xs:attribute name="faction" type="factionlookup" use="required">
+  <xs:complexType name="gamestartuniversemasstraffic">
+    <xs:attribute name="enabled" type="xs:boolean">
       <xs:annotation>
         <xs:documentation>
-          Faction
+          Are Mass Traffic jobs enabled (defaults to true)
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="otherfaction" type="factionlookup" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Other faction
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="relation" type="xs:float" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Initial faction relation (range is -1.0 to 1.0, but may be further limited by min/max values in factions.xml)
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
-
-  <xs:complexType name="gamestartuniversefactionrelations">
-    <xs:sequence>
-      <xs:element name="relation" type="gamestartuniversefactionrelation" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Relation
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="gamestartuniversefactions">
     <xs:sequence>
-      <xs:element name="police" type="gamestartuniversefactionpolice" minOccurs="0" maxOccurs="1">
+      <xs:element name="police" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Faction police 
+            Faction police
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="faction" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Police
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="faction" type="factionlookup" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Faction
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="policefaction" type="factionlookup" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Police faction (defaults to self for police factions or none for non-police factions if not supplied)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
-      <xs:element name="relations" type="gamestartuniversefactionrelations" minOccurs="0" maxOccurs="1">
+      <xs:element name="relations" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Faction relations
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="relation" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Relation
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="faction" type="factionlookup" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Faction
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="otherfaction" type="factionlookup" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Other faction
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="relation" type="xs:float" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Initial faction relation (range is -1.0 to 1.0, but may be further limited by min/max values in factions.xml)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-
-  <xs:complexType name="gamestartuniverseaccesslicence">
-    <xs:attribute name="macro" type="gamestartmacroname" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Location macro
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="faction" type="factionlookup" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Owner faction for licence
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="licence" type="licencelookup" use="required">
-      <xs:annotation>
-        <xs:documentation>
-          Licence type
-        </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
-
   <xs:complexType name="gamestartuniverseaccesslicences">
     <xs:sequence>
-      <xs:element name="accesslicence" type="gamestartuniverseaccesslicence" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="accesslicence" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Access licence
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="macro" type="gamestartmacroname" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                Location macro
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="faction" type="factionlookup" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                Owner faction for licence
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="licence" type="licencelookup" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                Licence type
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartuniversestorystates">
+    <xs:sequence>
+      <xs:element name="story" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Story state
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="ref" type="xs:string" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                Story state reference
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="state" type="xs:integer" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                State
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -1967,6 +2578,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="masstraffic" type="gamestartuniversemasstraffic" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Mass Traffic configuration
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="factions" type="gamestartuniversefactions" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1978,6 +2596,13 @@
         <xs:annotation>
           <xs:documentation>
             Faction access licences
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="stories" type="gamestartuniversestorystates" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Story states
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2000,6 +2625,13 @@
       <xs:annotation>
         <xs:documentation>
           Allow ventures (default true)?
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="onlineinventory" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Allow online inventory (default true)?
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2064,7 +2696,673 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="gamestartbudgetfactor">
+    <xs:sequence>
+      <xs:element name="unlock" type="gamestartunlock" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unlock requirements for item
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dependencies" type="gamestartdependencies" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dependencies for item
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="factor" type="xs:float" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Factor (default value is 1.0)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartknownbudgetfactionsparams">
+    <xs:complexContent>
+      <xs:extension base="gamestartbudgetfactor">
+        <xs:sequence>
+          <xs:element name="faction" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Extra factor for specific faction
+              </xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="gamestartbudgetfactor">
+                  <xs:attribute name="faction" type="factionlookup" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Faction
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:group name="gamestartknownbudgetspaceparams">
+    <xs:choice>
+      <xs:element name="faction">
+        <xs:annotation>
+          <xs:documentation>
+            Extra factor for specific faction
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgetfactor">
+              <xs:attribute name="faction" type="factionlookup" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Faction
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="zone">
+        <xs:annotation>
+          <xs:documentation>
+            Extra factor for specific zone
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgetfactor">
+              <xs:attribute name="zone" type="gamestartmacroname" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Zone
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sector">
+        <xs:annotation>
+          <xs:documentation>
+            Extra factor for specific sector
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgetfactor">
+              <xs:attribute name="sector" type="gamestartmacroname" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Sector
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cluster">
+        <xs:annotation>
+          <xs:documentation>
+            Extra factor for specific cluster
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgetfactor">
+              <xs:attribute name="cluster" type="gamestartmacroname" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Cluster
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:group>
+
+  <xs:attributeGroup name="gamestartknownbudgetspaceparams">
+    <xs:attribute name="faction" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Extra factor for all factions (defaults to 1.0 if not specified, additional factors may be specified for individual factions)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="zone" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Extra factor for all zones (defaults to 1.0 if not specified, additional factors may be specified for individual zones)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="sector" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Extra factor for all sectors (defaults to 1.0 if not specified, additional factors may be specified for individual sectors)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cluster" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Extra factor for all clusters (defaults to 1.0 if not specified, additional factors may be specified for individual clusters)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:group name="gamestartknownbudgetobjectsparams">
+    <xs:choice>
+      <xs:element name="object">
+        <xs:annotation>
+          <xs:documentation>
+            Extra factor for specific object
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgetfactor">
+              <xs:attribute name="object" type="xs:string" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Object
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="class">
+        <xs:annotation>
+          <xs:documentation>
+            Extra factor for specific object class
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgetfactor">
+              <xs:attribute name="class" type="knownobjectclasslookup" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Object class
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:group>
+
+  <xs:complexType name="gamestartknownbudgetparams">
+    <xs:sequence>
+      <xs:element name="factions" type="gamestartknownbudgetfactionsparams" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Knowledge budget faction parameters
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="space" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Knowledge budget space parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="gamestartknownbudgetspaceparams" />
+          </xs:choice>
+          <xs:attributeGroup ref="gamestartknownbudgetspaceparams" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="objects" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Knowledge budget object parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <!-- Pseudo-extension of gamestartknownbudgetspaceparams: Instead of appending child elements in a sequence, add more elements to the choice (without imposing an order) -->
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="gamestartknownbudgetspaceparams" />
+            <xs:group ref="gamestartknownbudgetobjectsparams" />
+          </xs:choice>
+          <xs:attributeGroup ref="gamestartknownbudgetspaceparams" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartpeoplebudgetparams">
+    <xs:sequence>
+      <xs:element name="skills" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            People budget skill parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="skill" minOccurs="0" maxOccurs="unbounded" >
+              <xs:annotation>
+                <xs:documentation>
+                  People budget factor for skill
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="gamestartbudgetfactor">
+                    <xs:attribute name="type" type="skilltypelookup" use="optional">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Skill type (default is to match any skill)
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="value" type="xs:integer" use="optional">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Skill value (range 0-15, default is to apply the skill value itself as a multiplier)
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="people" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            People budget people parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="people" minOccurs="0" maxOccurs="unbounded" >
+              <xs:annotation>
+                <xs:documentation>
+                  People budget factor for people reference
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="gamestartbudgetfactor">
+                    <xs:attribute name="ref" type="xs:string" use="optional">
+                      <xs:annotation>
+                        <xs:documentation>
+                          People definition reference (entry where this is empty matches any people definition reference not defined in any other entry)
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartrelationsbudgetparams">
+    <xs:sequence>
+      <xs:element name="relations" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Relations budget relation parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="relation" minOccurs="0" maxOccurs="unbounded" >
+              <xs:annotation>
+                <xs:documentation>
+                  Relations budget factor for releation range
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="gamestartknownbudgetfactionsparams">
+                    <xs:attribute name="relation" type="xs:float" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Relation value
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="comparison" type="xs:integer">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Relation value comparison (1 for greater or equal, -1 for less or equal, default is 1)
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartbudgettype">
+    <xs:sequence>
+      <xs:element name="states" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Budget states
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="state" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Budget state
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="ref" type="xs:string" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      State reference
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="value" type="xs:integer" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      State value (default is -1, meaning use state value as multiplier for score)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="score" type="xs:float" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      State score value (default is 1.0, used as multiplier if state value is -1)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="limit" type="xs:float" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      State score value limit (default is no limit, ignored if state value is set)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="levels" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Budget levels
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="level" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Budget level
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="score" type="xs:float" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Score value (default is 1.0)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="budget" type="xs:integer" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Budget (default is 1)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ref" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Simple budget state name (used only if state entries are not supplied, state is unconditional if this is also not supplied either)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="factor" type="xs:float" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Simple budget state value multiplier to produce score (used only if state entries are not supplied, default is 1.0)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="limit" type="xs:float" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Simple budget state value score limit (default is no limit)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="budget" type="xs:integer" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Simple fixed budget value (used only if level entries are not supplied)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gamestartbudget">
+    <xs:sequence>
+      <xs:element name="money" type="gamestartbudgettype" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Money budget
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="known" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Knowledge budget
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgettype">
+              <xs:sequence>
+                <xs:element name="parameters" type="gamestartknownbudgetparams" minOccurs="0" maxOccurs="1" >
+                  <xs:annotation>
+                    <xs:documentation>
+                      Knowledge budget parameters
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="people" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            People budget
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgettype">
+              <xs:sequence>
+                <xs:element name="parameters" type="gamestartpeoplebudgetparams" minOccurs="0" maxOccurs="1" >
+                  <xs:annotation>
+                    <xs:documentation>
+                      People budget parameters
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="relations" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Relations budget
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgettype">
+              <xs:sequence>
+                <xs:element name="parameters" type="gamestartrelationsbudgetparams" minOccurs="0" maxOccurs="1" >
+                  <xs:annotation>
+                    <xs:documentation>
+                      Relations budget parameters
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="groups" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Budget groups
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="group" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="id" type="xs:string"/>
+                <xs:attribute name="name" type="xs:string"/>
+                <xs:attribute name="description" type="xs:string"/>
+                <xs:attribute name="isresearch" type="xs:boolean" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Is this group related to unlocking research? (defaults to false)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="story" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Story budget. Note: 'ref' string is also used as the budget state name if state entries are not supplied
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gamestartbudgettype">
+              <xs:sequence>
+                <xs:element name="dependencies" type="gamestartdependencies" minOccurs="0" maxOccurs="1">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Dependencies on other story budgets which must be selected in order for this budget to be selectable
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="name" type="xs:string" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Story budget name
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="description" type="xs:string" use="required">
+                <xs:annotation>
+                  <xs:documentation>
+                    Story budget description
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="group" type="xs:string" use="optional">
+                <xs:annotation>
+                  <xs:documentation>
+                    Group for this story budget
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="index" type="xs:string" use="optional">
+                <xs:annotation>
+                  <xs:documentation>
+                    Display index of this story within its group
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="ware" type="xs:string" use="optional">
+                <xs:annotation>
+                  <xs:documentation>
+                    Ware ID related to this story budget
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="gamestartcustomitem">
+    <xs:sequence>
+      <xs:element name="extension" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Extension list items (for use by extensions)
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="list" type="xs:string" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                Additional valid values (space-separated, ignored if min/max attributes specified in parent node)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
     <xs:attribute name="value" type="gamestartcustomvalue" use="required">
       <xs:annotation>
         <xs:documentation>
@@ -2114,6 +3412,86 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="gamestartscenario">
+    <xs:sequence>
+      <xs:element name="scores" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The scores required to reach the respective rating. Must be either strictly ascending or descending.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="score" minOccurs="2" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="value" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The score value required to earn this rating.
+                    </xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                    <xs:restriction base="xs:float">
+                      <xs:minExclusive value="0" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="rating" type="xs:positiveInteger" use="required">
+                  <xs:annotation>
+                    <xs:documentation>
+                      The rating value.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="type" type="scenarioscoretype" use="optional">
+            <xs:annotation>
+              <xs:documentation>
+                The score type, used for formatting it in the menu. Defaults to int.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="description" type="xs:string" use="optional">
+            <xs:annotation>
+              <xs:documentation>
+                A description of what the player should do to improve their rating.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="chapter" type="xs:nonNegativeInteger" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The chapter this scenario gamestart belongs to
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="description" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          A description of the scenario's gameplay.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="gamestarttaglookup">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="budget" />
+      <xs:enumeration value="customeditor" />
+      <xs:enumeration value="mapeditor" />
+      <xs:enumeration value="nosave" />
+      <xs:enumeration value="stationdesigner" />
+      <xs:enumeration value="timelineshub" />
+      <xs:enumeration value="tutorial" />
+      <xs:enumeration value="usetimelinesplayercharacter" />
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="gamestart">
     <xs:sequence>
       <xs:element name="extension" type="gamestartextension" minOccurs="0" maxOccurs="1">
@@ -2134,6 +3512,34 @@
         <xs:annotation>
           <xs:documentation>
             Unlock requirements for gamestart
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cutscene" type="gamestartcutscene" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Details of the gamestart cutscene
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="intro" type="gamestartintro" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Details of the gamestart intro
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="gamestarttype" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Details of the gamestart type
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="loadingscreen" type="gamestartloadingscreen" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Details of the gamestart loading screen
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2165,6 +3571,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="budget" type="gamestartbudget" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Custom gamestart budget
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="custom" type="gamestartcustom" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2172,11 +3585,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="scenario" type="gamestartscenario" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Scenario gamestart data
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="id" type="gamestartid" use="required">
       <xs:annotation>
         <xs:documentation>
-           Gamestart id
+          Gamestart id
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2256,6 +3676,16 @@
           Gamestart group number
         </xs:documentation>
       </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="tags">
+      <xs:annotation>
+        <xs:documentation>
+          Tags
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:list itemType="gamestarttaglookup" />
+      </xs:simpleType>
     </xs:attribute>
     <xs:attribute name="debug" type="xs:boolean">
       <xs:annotation>

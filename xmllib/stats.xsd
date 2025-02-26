@@ -116,7 +116,7 @@
   <xs:simpleType name="account">
     <xs:annotation>
       <xs:documentation>
-        Is stat stored in Steam account persistently across savegames? (Optional, default is false)
+        Is stat stored in platform account (Steam/GOG) persistently across savegames? (Optional, default is false)
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:boolean" />
@@ -125,10 +125,19 @@
   <xs:simpleType name="leaderboard">
     <xs:annotation>
       <xs:documentation>
-        Name of the corresponding Steam leaderboard if this stat should be stored in a leaderboard (optional). The name should be display-friendly but still be a unique identifier.
+        Name of the corresponding platform (Steam/GOG) leaderboard if this stat should be stored in a leaderboard (optional). The name should be display-friendly but still be a unique identifier.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" />
+  </xs:simpleType>
+
+  <xs:simpleType name="scenario">
+    <xs:annotation>
+      <xs:documentation>
+        Will platform-based account data get updated (for stats, achievements and leaderboards on Steam/GOG) when playing in a scenario gamestart? Default is false.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:boolean" />
   </xs:simpleType>
 
   <!-- CopyTo/AddTo/MapTo elements -->
@@ -314,6 +323,7 @@
     <xs:attribute name="highest" type="highest" />
     <xs:attribute name="account" type="account" />
     <xs:attribute name="leaderboard" type="leaderboard" />
+    <xs:attribute name="scenario" type="scenario" />
     <xs:attribute name="comment" type="comment" />
   </xs:complexType>
 

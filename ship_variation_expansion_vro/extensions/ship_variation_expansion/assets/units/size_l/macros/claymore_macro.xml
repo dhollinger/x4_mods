@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros/macro/properties/identification/@icon">ship_l_frigate</replace>
-
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.4" decel="0.6" ratio="4" />
+      <forward_boost accel="0.4" ratio="4" />
+      <forward_travel accel="0.3" ratio="4" />
+      <strafe value="0.5" />
+      <angular value="0.6" />
+    </jerk>
+  </add>
   <replace sel="//macros/macro/properties/hull/@max">121000</replace>
-
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.15" value="0.7" />
+      <point position="1.5" value="0.45" />
+      <point position="2" value="0.35" />
+      <point position="2.4" value="0.2" />
+    </steeringcurve>
+  </add>
   <replace sel="//macros/macro/properties/physics">
     <physics mass="105">
       <inertia pitch="95.346" yaw="95.346" roll="75.277" />
       <drag forward="30" reverse="221" horizontal="50" vertical="50" pitch="80" yaw="80" roll="80" />
     </physics>
   </replace>
-
   <replace sel="//macros/macro/properties/ship/@type">frigate</replace>
 </diff>

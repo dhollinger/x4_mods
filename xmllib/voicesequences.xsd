@@ -43,6 +43,13 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="nosubtitles" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Whether subtitles should be disabled, defaults to false (NOTE: Subtitles are automatically disabled if priority is -50 or lower)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="filter" type="xs:string">
       <xs:annotation>
         <xs:documentation>

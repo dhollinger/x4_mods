@@ -10,7 +10,7 @@
   <!ENTITY cond   "&attr;|&value;|&pos;">
   <!ENTITY step   "(&qname;|\*)(&cond;)*">
   <!ENTITY arg    "&qname;">
-  <!ENTITY fn     "(not\(&arg;\)|true\(\)|false\(\)|name\(\)|root\((&arg;)?\)|position\(\)|last\(\))">
+  <!ENTITY fn     "(not\(&arg;\)|boolean\(&arg;\)|true\(\)|false\(\)|name\(\)|root\((&arg;)?\)|position\(\)|last\(\))">
   <!ENTITY func   "\[&fn;\]">
   <!ENTITY piq    "processing-instruction\((&quot;&ncname;&quot;)\)">
   <!ENTITY pi     "processing-instruction\(('&ncname;')?\)|&piq;">
@@ -21,18 +21,27 @@
   <!ENTITY cnodes "(&text;(&pos;)?)|(&com;(&pos;)?)|((&pi;)(&pos;)?)">
   <!ENTITY child  "(&cnodes;|(&step;(&func;)?))">
   <!ENTITY last   "(&child;|&aname;|&nspa;)">
+  <!ENTITY path   "(/|//)?((&id;)(((/|//)&step;)*((/|//)&last;))?|(&step;(/|//))*(&last;))">
+  <!ENTITY patha  "(/|//)?((&id;)(((/|//)&step;)*((/|//)&child;))?|(&step;(/|//))*(&child;))">
+  <!ENTITY pathc  "(&patha;|not\(&patha;\)|&fn;)">
 ]>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   
   <xs:simpleType name="xpath">
     <xs:restriction base="xs:string">
-      <xs:pattern value="(/|//)?((&id;)(((/|//)&step;)*((/|//)&last;))?|(&step;(/|//))*(&last;))"/>
+      <xs:pattern value="&path;"/>
     </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="xpath-add">
     <xs:restriction base="xs:string">
-      <xs:pattern value="(/|//)?((&id;)(((/|//)&step;)*((/|//)&child;))?|(&step;(/|//))*(&child;))"/>
+      <xs:pattern value="&patha;"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="xpath-cond">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="&pathc;"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -59,6 +68,7 @@
         <xs:attribute name="sel" type="xpath-add" use="required"/>
         <xs:attribute name="pos" type="pos"/>
         <xs:attribute name="type" type="type"/>
+        <xs:attribute name="if" type="xpath-cond"/>
         <xs:attribute name="silent" type="xs:boolean"/>
       </xs:restriction>
     </xs:complexContent>
@@ -71,6 +81,7 @@
           <xs:any processContents="lax" namespace="##any" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute name="sel" type="xpath" use="required"/>
+        <xs:attribute name="if" type="xpath-cond"/>
         <xs:attribute name="silent" type="xs:boolean"/>
       </xs:restriction>
     </xs:complexContent>
@@ -78,6 +89,7 @@
 
   <xs:complexType name="remove">
     <xs:attribute name="sel" type="xpath" use="required"/>
+    <xs:attribute name="if" type="xpath-cond"/>
     <xs:attribute name="silent" type="xs:boolean"/>
   </xs:complexType>
 

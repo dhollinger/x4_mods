@@ -142,7 +142,7 @@
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:group ref="createmodule" />
+              <xs:group ref="createmodulewithmaxlimits" />
             </xs:sequence>
             <xs:attributeGroup ref="createmodule" />
             <xs:attribute name="id" type="idname" use="required">
@@ -185,7 +185,6 @@
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:group ref="createmodule" />
             </xs:sequence>
             <xs:attributeGroup ref="createroom" />
             <xs:attribute name="id" type="idname" use="required">
@@ -227,6 +226,34 @@
                     Prop category used for finding a suitable room in the PropDB
                   </xs:documentation>
                 </xs:annotation>
+              </xs:element>
+              <xs:element name="limits" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>
+                    Prop macro limits
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="limit" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Macro limit
+                        </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:attribute name="macro" use="required"/>
+                        <xs:attribute name="object" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Numerical limit for this macro on the whole object. Defaults to -1 which is unlimited. 0 will disable generation of this macro for this definition.
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
               </xs:element>
             </xs:sequence>
             <xs:attributeGroup ref="createprop" />
@@ -643,7 +670,7 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:double">
                               <xs:minInclusive value="0.0" />
-                              <xs:maxInclusive value="10.0" />
+                              <xs:maxInclusive value="20.0" />
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -651,7 +678,7 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:double">
                               <xs:minInclusive value="0.0" />
-                              <xs:maxInclusive value="10.0" />
+                              <xs:maxInclusive value="20.0" />
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -691,7 +718,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="policefaction" minOccurs="0" maxOccurs="1">
+                    <xs:element name="policefactions" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation>
                           Additional police faction conditions
@@ -717,6 +744,40 @@
                                 <xs:annotation>
                                   <xs:documentation>
                                     Only use locations with factions policed by factions that are not specified in 'factionpolice' (defaults to false)
+                                  </xs:documentation>
+                                </xs:annotation>
+                              </xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="stationfactions" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Additional faction conditions for stations contained in the space
+                        </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="stationfaction" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>
+                                Additional faction condition for stations contained in the space
+                              </xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="stationfaction">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Faction or list of factions, matched against owners of stations in the space (relation ranges are not taken into account)
+                                  </xs:documentation>
+                                </xs:annotation>
+                              </xs:attribute>
+                              <xs:attribute name="negatestationfaction" type="boolean">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Only use locations with no stations of the specified factions (defaults to false)
                                   </xs:documentation>
                                 </xs:annotation>
                               </xs:attribute>
@@ -751,6 +812,40 @@
                                 <xs:annotation>
                                   <xs:documentation>
                                     Only use locations owned by races that are not specified in 'factionrace' (defaults to false)
+                                  </xs:documentation>
+                                </xs:annotation>
+                              </xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="stationfactionraces" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Additional faction race conditions for stations contained in the space
+                        </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="stationfactionrace" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>
+                                Additional faction race condition for stations contained in the space
+                              </xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="stationfactionrace">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Race or list of races, matched against station owners' primary race in the space
+                                  </xs:documentation>
+                                </xs:annotation>
+                              </xs:attribute>
+                              <xs:attribute name="negatestationfactionrace" type="boolean">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Only use locations with no stations owned by a faction with the specified primary race (defaults to false)
                                   </xs:documentation>
                                 </xs:annotation>
                               </xs:attribute>
@@ -804,6 +899,13 @@
                   <xs:attribute name="macro" />
                   <xs:attribute name="class" />
                   <xs:attribute name="regionbasket" type="namestring" />
+                  <xs:attribute name="hasgravidarregion" type="boolean">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Does the sector need to contain a gravidar obscuring region?
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
                   <xs:attribute name="relation" type="relationlookup">
                     <xs:annotation>
                       <xs:documentation>
@@ -823,6 +925,27 @@
                     <xs:annotation>
                       <xs:documentation>
                         Only use locations owned by factions that are not specified in 'faction' (defaults to false)
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="stationfaction">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Faction or list of factions, matched against owners of stations in the space (relation ranges are not taken into account)
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="negatestationfaction" type="boolean">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Only use locations with no stations of the specified factions (defaults to false)
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="stationtype" type="stationtypestaticexprlookup" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Station type or list of types to match with station factions/races defined in 'stationfaction' or 'stationfactionrace' attributes
                       </xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
@@ -854,10 +977,38 @@
                       </xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
+                  <xs:attribute name="stationfactionrace">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Race or list of races, matched against station owners' primary race in the space
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="negatestationfactionrace" type="boolean">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Only use locations with no stations owned by a faction with the specified primary race (defaults to false)
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
                   <xs:attribute name="matchextension" type="xs:boolean">
                     <xs:annotation>
                       <xs:documentation>
                         Only use locations for the corresponding extension (default is true - base game locations for base game jobs, locations defined in an the corresponding extension for jobs defined in an extension)
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="tags" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Space tags which are all required to match
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="excludedtags" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Any space tags to avoid matching
                       </xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
@@ -894,6 +1045,13 @@
                   <xs:attribute name="zone" type="boolean" />
                   <xs:attribute name="gate" type="boolean" />
                   <xs:attribute name="buildatshipyard" type="boolean" />
+                  <xs:attribute name="preferbuilding" type="boolean">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Always prefer building at shipyards, as opposed to spawning in space when initialising the job. (defaults to false)
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
                   <xs:attribute name="spawninsector" type="boolean" />
                   <xs:attribute name="spwanoutofsector" type="boolean" />
                   <xs:attribute name="chancedocked">
@@ -1013,6 +1171,20 @@
                         <xs:complexType>
                           <xs:attribute name="job" use="required" />
                           <xs:attribute name="rebuild" type="booleanexpression" use="optional" />
+                          <xs:attribute name="assignment" type="assignmentlookup" use="optional"/>
+                          <xs:attribute name="group" use="optional">
+                            <xs:annotation>
+                              <xs:documentation>
+                                Subordinate group ID (1 to 10). Must match the assignment of any other subordinate definitions of the same group. Defaults to a random free group if possible.
+                              </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:integer">
+                                <xs:minInclusive value="1" />
+                                <xs:maxInclusive value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:attribute>
                         </xs:complexType>
                         <!-- 
                           <xs:keyref name="subordinate_job" refer="job_id">
@@ -1212,10 +1384,38 @@
           </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:attribute name="matchall" type="booleanexpression">
+          <xs:attribute name="matchall" type="boolean">
             <xs:annotation>
               <xs:documentation>
                 Match all wares? Defaults to false
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="allowhazardous" type="boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Allow whether object can be placed within a hazardous region but not necessarily at a damaging position. Defaults to the value defined in defaults/locations/region
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="allowgravidar" type="boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Allow whether object can be placed within a gravidar limiting region but not necessarily at an effecting position. Defaults to the value defined in defaults/locations/region
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="gravidar" type="boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Place at a gravidar limiting region position? Defaults to false.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="hazardous" type="boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Place at a damaging hazardous region position? Defaults to false.
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
@@ -1233,7 +1433,7 @@
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>
-          <xs:attribute name="ware" type="expression" use="required" />
+          <xs:attribute name="ware" type="expression" />
         </xs:complexType>
       </xs:element>
       <xs:element name="security" minOccurs="0" maxOccurs="unbounded">
@@ -1259,6 +1459,13 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:attribute>
+          <xs:attribute name="maxbound" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Is the location rejected if its security level exceeds the 'max' value? If false, location is treated as if it has the 'max' value (defaults to true)
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:complexType>
       </xs:element>
       <xs:element name="sunlight" minOccurs="0" maxOccurs="unbounded">
@@ -1272,7 +1479,7 @@
             <xs:simpleType>
               <xs:restriction base="xs:float">
                 <xs:minInclusive value="0.0" />
-                <xs:maxInclusive value="10.0" />
+                <xs:maxInclusive value="20.0" />
               </xs:restriction>
             </xs:simpleType>
           </xs:attribute>
@@ -1280,9 +1487,16 @@
             <xs:simpleType>
               <xs:restriction base="xs:float">
                 <xs:minInclusive value="0.0" />
-                <xs:maxInclusive value="10.0" />
+                <xs:maxInclusive value="20.0" />
               </xs:restriction>
             </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="maxbound" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Is the location rejected if its sunlight level exceeds the 'max' value? If false, location is treated as if it has the 'max' value (defaults to true)
+              </xs:documentation>
+            </xs:annotation>
           </xs:attribute>
         </xs:complexType>
       </xs:element>
@@ -1330,6 +1544,20 @@
       <xs:annotation>
         <xs:documentation>
           Only use locations for the corresponding extension (default is true - base game locations for base game god entries, locations defined in the same extension for god entries defined in an extension)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="tags" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Space tags which are all required to match
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="excludedtags" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Any space tags to avoid matching
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1405,38 +1633,61 @@
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="id" type="idname" use="required">
-                  <xs:annotation>
-                    <xs:documentation>
-                      ID
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="name">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Name
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="description">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Description
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="startactive" type="boolean">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Default active state (defaults to true)
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
+                <xs:attributeGroup ref="godentry"/>
                 <xs:attribute name="owner" type="rawfactionexprlookup">
                   <xs:annotation>
                     <xs:documentation>
                       Object owner faction (optional, defaults to ownerless)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ships" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Ship definitions
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ship" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Ship definition
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="godentry" />
+                  <xs:element name="ship" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Ship definition
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:group ref="createship" />
+                      <xs:attributeGroup ref="createship" />
+                      <xs:attribute name="state" type="componentstatelookup">
+                        <xs:annotation>
+                          <xs:documentation>
+                            Ship's initial state
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="comment" type="comment" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attributeGroup ref="godentry"/>
+                <xs:attribute name="owner" type="rawfactionexprlookup">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Ship owner faction (optional, defaults to ownerless)
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
@@ -1478,6 +1729,29 @@
                           <xs:complexType>
                             <xs:attribute name="min" type="xs:float" />
                             <xs:attribute name="max" type="xs:float" />
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="region" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Default placement range for god objects based on the core of the sector which is based on jumpgates and highways. 0 to 1 is within the core. Values exceeding 1 will place the object beyond the core boundary by that factor
+                            </xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="allowhazardous" type="boolean">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  Allow or disallow whether spaces containing hazardous regions can be considered for placement if the god entry does not define any hazard region rules
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="allowgravidar" type="boolean">
+                              <xs:annotation>
+                                <xs:documentation>
+                                  Allow or disallow whether spaces containing gravidar affecting regions can be considered for placement if the god entry does not define any gravidar region rules
+                                </xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
@@ -1533,34 +1807,7 @@
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="id" type="idname" use="required">
-                  <xs:annotation>
-                    <xs:documentation>
-                      ID
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="name">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Name
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="description">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Description
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="startactive" type="boolean">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Default active state (defaults to true)
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
+                <xs:attributeGroup ref="godentry"/>
                 <xs:attribute name="owner" type="rawfactionexprlookup" use="required">
                   <xs:annotation>
                     <xs:documentation>
@@ -1589,6 +1836,14 @@
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="encyclopedia" type="boolean">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Whether or not to list this station in the encyclopedia (default=false)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+				
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -1618,44 +1873,17 @@
                       </xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
-                      <xs:group ref="createmodule" />
+                      <xs:group ref="createmodulewithmaxlimits" />
                       <xs:attributeGroup ref="createmodule" />
                       <xs:attribute name="comment" type="comment" />
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="id" type="idname" use="required">
-                  <xs:annotation>
-                    <xs:documentation>
-                      ID
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="name">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Name
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="description">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Description
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
+                <xs:attributeGroup ref="godentry"/>
                 <xs:attribute name="ware" use="required">
                   <xs:annotation>
                     <xs:documentation>
                       Production ware
-                    </xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="startactive" type="boolean">
-                  <xs:annotation>
-                    <xs:documentation>
-                      Default active state (defaults to true)
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
@@ -1803,7 +2031,53 @@
     <xs:attribute name="cluster" type="xs:integer" />
     <xs:attribute name="sector" type="xs:integer" />
     <xs:attribute name="zone" type="xs:integer" />
+    <xs:attribute name="force" type="boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Force the object to spawn, ignoring any global defaults
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
+
+  <xs:attributeGroup name="godentry">
+    <xs:attribute name="id" type="idname" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          ID
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="name">
+      <xs:annotation>
+        <xs:documentation>
+          Name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="description">
+      <xs:annotation>
+        <xs:documentation>
+          Description
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="startactive" type="boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Default active state (defaults to true)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="respawnable">
+      <xs:annotation>
+        <xs:documentation>
+          Is this god object allowed to be respawned
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+    
 
   <xs:complexType name="basegodquota">
     <xs:annotation>
@@ -1856,6 +2130,41 @@
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="texture" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Texture name at this point (leave empty to use the default texture as defined in the material)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="r" type="xs:nonNegativeInteger">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Red color value at this point (between 0 and 255)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="g" type="xs:nonNegativeInteger">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Green color value at this point (between 0 and 255)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="b" type="xs:nonNegativeInteger">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Blue color value at this point (between 0 and 255)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="a" type="xs:nonNegativeInteger">
+                  <xs:annotation>
+                    <xs:documentation>
+                      Alpha color value at this point (between 0 and 255)
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -1865,6 +2174,20 @@
                 Shader parameter name
               </xs:documentation>
             </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="type">
+            <xs:annotation>
+              <xs:documentation>
+                The type of shader parameter. 'float' and 'color' support interpolation, 'texture' is swapped without fading. Defaults to 'float'.
+              </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="float" />
+                <xs:enumeration value="color" />
+                <xs:enumeration value="texture" />
+              </xs:restriction>
+            </xs:simpleType>
           </xs:attribute>
           <xs:attribute name="stat" type="xs:string">
             <xs:annotation>
@@ -2006,6 +2329,41 @@
                         </xs:attribute>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="resources" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Resources that stations try to keep in stock in this space, regardless of them being used for productions.
+                        </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ware" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="ware" type="xs:string">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Ware
+                                  </xs:documentation>
+                                </xs:annotation>
+                              </xs:attribute>
+                              <xs:attribute name="amount">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Percentage of available cargospace to try and fill
+                                  </xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:int">
+                                    <xs:minInclusive value="0" />
+                                    <xs:maxInclusive value="100" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element name="sounds" minOccurs="0" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
@@ -2045,7 +2403,7 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:float">
                               <xs:minInclusive value="0.0" />
-                              <xs:maxInclusive value="10.0" />
+                              <xs:maxInclusive value="20.0" />
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -2089,10 +2447,31 @@
                             </xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
+                        <xs:attribute name="extensionexclusivejobs" type="xs:boolean">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Is this space exclusive for job definitions of its own extension, affecting potential spawn location and jobmainsector/zone selection. (default is false)
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
                         <xs:attribute name="factionlogic" type="xs:boolean">
                           <xs:annotation>
                             <xs:documentation>
                               Faction logic allowed (default is true)
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="thewave" type="xs:boolean">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Does the sector contain The Wave anomaly (default is false, only valid for sector class)
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="tags" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>
+                              List of tags relevant for this location
                             </xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
@@ -2241,6 +2620,17 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="access" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="licence">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Licence type to allow access
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -2249,6 +2639,13 @@
               <xs:annotation>
                 <xs:documentation>
                   Macro name
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="comment" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  Documentation
                 </xs:documentation>
               </xs:annotation>
             </xs:attribute>

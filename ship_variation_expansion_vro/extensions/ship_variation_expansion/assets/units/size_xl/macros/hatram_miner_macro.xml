@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
+
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.2" decel="0.7" ratio="3" />
+      <forward_boost accel="0.2" ratio="3" />
+      <forward_travel accel="0.3" decel="0.7" ratio="3" />
+      <strafe value="0.3" />
+      <angular value="0.15" />
+    </jerk>
+  </add>
+
   <replace sel="//macros/macro/properties/hull/@max">570000</replace>
+
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.2" value="0.9" />
+      <point position="1.6" value="0.8" />
+      <point position="2.1" value="0.45" />
+      <point position="2.4" value="0.3" />
+    </steeringcurve>
+  </add>
 
   <replace sel="//macros/macro/properties/physics">
     <physics mass="855.723">
       <inertia pitch="798.799" yaw="798.799" roll="679.039" />
-      <drag forward="220.145" reverse="700.579" horizontal="250.116" vertical="250.116" pitch="647.145" yaw="647.145" roll="647.145" />
+      <drag forward="220.145" reverse="700.579" horizontal="250.116" vertical="250.116"
+        pitch="647.145" yaw="647.145" roll="647.145" />
+      <accfactors forward="1.2" horizontal="1.1" vertical="1.1" />
     </physics>
   </replace>
 </diff>
@@ -13,7 +37,8 @@
   <macro name="hatram_miner_macro" class="ship_xl">
     <component ref="hatram_miner" />
     <properties>
-      <identification name="{6920213,4}" basename="{20101,120401}" description="{6920213,3}" variation="{20111,3101}" shortvariation="{20111,3101}" icon="ship_xl_mine_01" />
+      <identification name="{6920213,4}" basename="{20101,120401}" description="{6920213,3}"
+variation="{20111,3101}" shortvariation="{20111,3101}" icon="ship_xl_mine_01" />
       <software>
         <software ware="software_dockmk2" compatible="1" />
         <software ware="software_flightassistmk1" default="1" />
@@ -32,7 +57,8 @@
       <people capacity="89" />
       <physics mass="855.723">
         <inertia pitch="598.799" yaw="598.799" roll="479.039" />
-        <drag forward="187.145" reverse="830.579" horizontal="347.116" vertical="347.116" pitch="647.145" yaw="647.145" roll="647.145" />
+        <drag forward="187.145" reverse="830.579" horizontal="347.116" vertical="347.116" pitch="647.145"
+yaw="647.145" roll="647.145" />
       </physics>
       <thruster tags="extralarge" />
       <ship type="largeminer" />

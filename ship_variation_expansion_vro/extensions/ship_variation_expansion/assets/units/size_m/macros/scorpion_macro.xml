@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.2" decel="0.8" ratio="4" />
+      <forward_boost accel="0.2" ratio="3" />
+      <forward_travel accel="0.3" decel="0.9" ratio="4" />
+      <strafe value="0.5" />
+      <angular value="0.4" />
+    </jerk>
+  </add>
   <replace sel="//macros/macro/properties/hull/@max">25000</replace>
-
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.1" value="0.75" />
+      <point position="1.3" value="0.6" />
+      <point position="1.5" value="0.4" />
+      <point position="2" value="0.2" />
+      <point position="2.3" value="0.1" />
+      <point position="2.7" value="0.08" />
+    </steeringcurve>
+  </add>
   <replace sel="//macros/macro/properties/physics">
     <physics mass="29.617">
       <inertia pitch="20.831" yaw="20.831" roll="19.265" />
-      <drag forward="5.875" reverse="24.998" horizontal="16.539" vertical="16.539" pitch="22" yaw="22" roll="22" />
+      <drag forward="5.875" reverse="24.998" horizontal="16.539" vertical="16.539" pitch="22"
+        yaw="22" roll="22" />
+      <accfactors forward="0.9" reverse="1.15" horizontal="1.3" vertical="1.3" />
     </physics>
   </replace>
 </diff>
@@ -13,7 +35,8 @@
   <macro name="scorpion_macro" class="ship_m">
     <component ref="scorpion" />
     <properties>
-      <identification name="{20101,40401}" basename="{20101,40401}" makerrace="split" description="{6920205,2}" icon="ship_m_fight_01" />
+      <identification name="{20101,40401}" basename="{20101,40401}" makerrace="split"
+description="{6920205,2}" icon="ship_m_fight_01" />
       <software>
         <software ware="software_dockmk2" compatible="1" />
         <software ware="software_flightassistmk1" default="1" />
@@ -35,7 +58,8 @@
       </sounds>
       <physics mass="29.617">
         <inertia pitch="6.831" yaw="6.831" roll="5.265" />
-        <drag forward="5.875" reverse="24.998" horizontal="8.539" vertical="8.539" pitch="10.154" yaw="10.154" roll="10.154" />
+        <drag forward="5.875" reverse="24.998" horizontal="8.539" vertical="8.539" pitch="10.154"
+yaw="10.154" roll="10.154" />
       </physics>
       <thruster tags="medium" />
       <ship type="gunboat" />

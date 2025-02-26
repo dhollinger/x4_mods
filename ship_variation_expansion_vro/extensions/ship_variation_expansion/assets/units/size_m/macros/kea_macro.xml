@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros/macro/properties/identification/@name">{20101,22001}</replace>
   <replace sel="//macros/macro/properties/identification/@basename">{20101,22001}</replace>
-
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.3" decel="0.8" ratio="3" />
+      <forward_boost accel="0.5" ratio="3" />
+      <forward_travel accel="0.3" decel="0.9" ratio="4" />
+      <strafe value="0.6" />
+      <angular value="0.5" />
+    </jerk>
+  </add>
   <replace sel="//macros/macro/properties/hull/@max">29500</replace>
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.1" value="0.9" />
+      <point position="1.3" value="0.6" />
+      <point position="1.5" value="0.4" />
+      <point position="2" value="0.28" />
+      <point position="2.3" value="0.15" />
+      <point position="2.7" value="0.15" />
+    </steeringcurve>
+  </add>
 </diff>
 <!-- <macros>
   <macro name="kea_macro" class="ship_m">
     <component ref="kea" />
     <properties>
-      <identification name="{20101,21501}" basename="{20101,21501}" description="{6920201,2}" icon="ship_m_fight_01" />
+      <identification name="{20101,21501}" basename="{20101,21501}" description="{6920201,2}"
+icon="ship_m_fight_01" />
       <software>
         <software ware="software_dockmk2" compatible="1" />
         <software ware="software_flightassistmk1" default="1" />
@@ -28,7 +49,8 @@
       <people capacity="21" />
       <physics mass="40.221">
         <inertia pitch="13.437" yaw="13.437" roll="10.75" />
-        <drag forward="10.21" reverse="42.2" horizontal="16.864" vertical="16.864" pitch="11.493" yaw="11.493" roll="11.493" />
+        <drag forward="10.21" reverse="42.2" horizontal="16.864" vertical="16.864" pitch="11.493"
+yaw="11.493" roll="11.493" />
       </physics>
       <thruster tags="medium" />
       <ship type="gunboat" />

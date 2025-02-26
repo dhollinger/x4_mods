@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="groups">
     <xs:complexType>
@@ -52,6 +52,7 @@
                   <xs:enumeration value="hydrogen" />
                   <xs:enumeration value="helium" />
                   <xs:enumeration value="methane" />
+                  <xs:enumeration value="rawscrap" />
                 </xs:restriction>
               </xs:simpleType>
             </xs:attribute>

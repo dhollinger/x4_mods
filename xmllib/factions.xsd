@@ -168,10 +168,19 @@
   <xs:simpleType name="factiontaglookup">
     <xs:restriction base="xs:string">
       <xs:enumeration value="aggressive" />
+      <xs:enumeration value="barterships" />
+      <xs:enumeration value="barterwares" />
       <xs:enumeration value="claimspace" />
       <xs:enumeration value="economic" />
+      <xs:enumeration value="extrarepair" />
       <xs:enumeration value="hidden" />
+      <xs:enumeration value="noblueprintsale" />
+      <xs:enumeration value="nolicencesale" />
+      <xs:enumeration value="noplayerbuyships" />
+      <xs:enumeration value="noplayersellships" />
+      <xs:enumeration value="noresupply" />
       <xs:enumeration value="notradeoffer" />
+      <xs:enumeration value="pirate" />
       <xs:enumeration value="plunder" />
       <xs:enumeration value="police" />
       <xs:enumeration value="privateloadout" />
@@ -179,6 +188,7 @@
       <xs:enumeration value="protective" />
       <xs:enumeration value="publicloadout" />
       <xs:enumeration value="publicship" />
+      <xs:enumeration value="standard" />
       <xs:enumeration value="visitor" />
       <xs:enumeration value="watchdoguser" />
     </xs:restriction>
@@ -186,8 +196,9 @@
 
   <xs:simpleType name="factionlicencetaglookup">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="hidden" />
       <xs:enumeration value="accessrestricted" />
+      <xs:enumeration value="basic" />
+      <xs:enumeration value="hidden" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -264,6 +275,16 @@
     </xs:attribute>
   </xs:complexType>
 
+  <xs:complexType name="buildrules">
+    <xs:attribute name="method" type="buildmethodlookup">
+      <xs:annotation>
+        <xs:documentation>
+          Override build method if it should be different from the default for the primaryrace (see wares.xml production/method definitions)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
   <xs:complexType name="account">
     <xs:attribute name="amount" type="xs:string">
       <xs:annotation>
@@ -293,6 +314,20 @@
       <xs:annotation>
         <xs:documentation>
           Blue
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="glow" type="xs:float">
+      <xs:annotation>
+        <xs:documentation>
+          Glow factor
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ref" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Reference to color library
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -445,6 +480,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="buildrules" type="buildrules" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Buildrules for a faction
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="id" type="factionid" use="required">
       <xs:annotation>
@@ -478,6 +520,20 @@
       <xs:annotation>
         <xs:documentation>
           Faction prefix name (used before item names)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="spacename" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Faction space name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="homespacename" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          Faction home space name
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>

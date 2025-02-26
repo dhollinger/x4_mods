@@ -568,6 +568,20 @@
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="resilient" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Whether this project is resilient against setbacks. Defaults to false.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="showalways" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Only for events. If set to true it will always be shown in the interface, even if conditions are not met. Defaults to false.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="research" type="xs:string">
       <xs:annotation>
         <xs:documentation>

@@ -1,61 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros">
-
     <macros>
       <macro name="bishamonten_macro" class="ship_l">
-        <component ref="bishamonten" />
+        <component ref="bishamonten"/>
         <properties>
-          <identification name="{20101,87101}" basename="{20101,87101}" description="{6920232,2}" icon="ship_l_fight_01" />
+          <identification name="{20101,87101}" basename="{20101,87101}" description="{6920232,2}" icon="ship_l_fight_01"/>
           <software>
-            <software ware="software_dockmk2" compatible="1" />
-            <software ware="software_flightassistmk1" default="1" />
-            <software ware="software_scannerlongrangemk1" default="1" />
-            <software ware="software_scannerlongrangemk2" compatible="1" />
-            <software ware="software_scannerobjectmk1" default="1" />
-            <software ware="software_scannerobjectmk2" compatible="1" />
-            <software ware="software_targetmk1" default="1" />
-            <software ware="software_trademk1" compatible="1" />
+            <software ware="software_dockmk2" compatible="1"/>
+            <software ware="software_flightassistmk1" default="1"/>
+            <software ware="software_scannerlongrangemk1" default="1"/>
+            <software ware="software_scannerlongrangemk2" compatible="1"/>
+            <software ware="software_scannerobjectmk1" default="1"/>
+            <software ware="software_scannerobjectmk2" compatible="1"/>
+            <software ware="software_targetmk1" default="1"/>
+            <software ware="software_trademk1" compatible="1"/>
           </software>
-          <explosiondamage value="10000" />
-          <storage missile="280" unit="10" />
-          <hull max="183000" />
-          <secrecy level="3" />
-          <purpose primary="fight" />
-          <people capacity="97" />
+          <jerk>
+            <forward accel="0.2" decel="0.8" ratio="3"/>
+            <forward_boost accel="0.2" ratio="3"/>
+            <forward_travel accel="0.4" decel="0.8" ratio="3"/>
+            <strafe value="0.4"/>
+            <angular value="0.25"/>
+          </jerk>
+          <explosiondamage value="10000"/>
+          <storage missile="280" unit="10"/>
+          <hull max="183000"/>
+          <secrecy level="3"/>
+          <steeringcurve>
+            <point position="1.01" value="1"/>
+            <point position="1.2" value="0.85"/>
+            <point position="1.6" value="0.75"/>
+            <point position="2.1" value="0.40"/>
+            <point position="2.4" value="0.25"/>
+            <point position="2.7" value="0.18"/>
+          </steeringcurve>
+          <purpose primary="fight"/>
+          <people capacity="97"/>
           <physics mass="232">
-            <inertia pitch="192.68" yaw="192.68" roll="147.544" />
-            <drag forward="68" reverse="300" horizontal="97.897" vertical="97.897" pitch="202.95" yaw="202.95" roll="202.95" />
+            <inertia pitch="192.68" yaw="192.68" roll="147.544"/>
+            <drag forward="68" reverse="300" horizontal="97.897" vertical="97.897" pitch="202.95" yaw="202.95" roll="202.95"/>
           </physics>
-          <thruster tags="large" />
-          <ship type="destroyer" />
+          <thruster tags="large"/>
+          <ship type="destroyer"/>
         </properties>
         <connections>
           <connection ref="con_cockpit">
-            <macro ref="bridge_par_l_01_macro" connection="con_cockpit" />
+            <macro ref="bridge_par_l_01_macro" connection="con_cockpit"/>
           </connection>
           <connection ref="con_dockarea_par_l_destroyer_01">
-            <macro ref="dockarea_par_l_destroyer_01_macro" connection="Connection01" />
+            <macro ref="dockarea_par_l_destroyer_01_macro" connection="Connection01"/>
           </connection>
           <connection ref="con_dock_xs">
-            <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+            <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component"/>
           </connection>
           <connection ref="con_shipstorage_m_01">
-            <macro ref="shipstorage_m_sokotra_macro" connection="object" />
+            <macro ref="shipstorage_m_sokotra_macro" connection="object"/>
           </connection>
           <connection ref="con_shipstorage_s_01">
-            <macro ref="shipstorage_s_caiman_macro" connection="object" />
+            <macro ref="shipstorage_s_caiman_macro" connection="object"/>
           </connection>
           <connection ref="con_shipstorage_xs_01">
-            <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+            <macro ref="shipstorage_gen_xs_01_macro" connection="object"/>
           </connection>
           <connection ref="con_storage01">
-            <macro ref="storage_bishamonten_macro" connection="ShipConnection" />
+            <macro ref="storage_bishamonten_macro" connection="ShipConnection"/>
           </connection>
         </connections>
       </macro>
     </macros>
-
   </replace>
 </diff>
 <!-- <macros>
