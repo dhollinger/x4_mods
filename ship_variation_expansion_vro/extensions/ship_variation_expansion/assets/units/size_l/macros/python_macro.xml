@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
+  <add sel="//macros/macro/properties/jerk">
+    <jerk>
+      <forward accel="0.2" decel="0.8" ratio="3" />
+      <forward_boost accel="0.2" ratio="3" />
+      <forward_travel accel="0.2" ratio="3" />
+      <strafe value="0.5" />
+      <angular value="0.6" />
+    </jerk>
+  </add>
+
   <replace sel="//macros/macro/properties/hull/@max">530000</replace>
+
+  <add sel="//macros/macro/properties/steeringcurve">
+    <steeringcurve>
+      <point position="1.01" value="1" />
+      <point position="1.15" value="0.75" />
+      <point position="1.5" value="0.5" />
+      <point position="2" value="0.4" />
+      <point position="2.4" value="0.3" />
+    </steeringcurve>
+  </add>
 
   <replace sel="//macros/macro/properties/physics">
     <physics mass="210">
       <inertia pitch="133.743" yaw="133.743" roll="93.394" />
-      <drag forward="85" reverse="220" horizontal="95.586" vertical="95.586" pitch="202.771" yaw="202.771" roll="202.771" />
+      <drag forward="85" reverse="220" horizontal="95.586" vertical="95.586" pitch="202.771"
+        yaw="202.771" roll="202.771" />
     </physics>
   </replace>
 </diff>
