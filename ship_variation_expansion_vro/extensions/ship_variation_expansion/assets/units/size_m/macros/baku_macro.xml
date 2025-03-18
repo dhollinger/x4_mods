@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
-  <add sel="//macros/macro/properties/jerk">
+  <replace sel="//macros/macro/properties/jerk">
     <jerk>
       <forward accel="0.3" decel="0.8" ratio="3" />
       <forward_boost accel="0.5" ratio="3" />
@@ -9,9 +9,9 @@
       <strafe value="0.5" />
       <angular value="0.5" />
     </jerk>
-  </add>
+  </replace>
   <replace sel="//macros/macro/properties/hull/@max">20000</replace>
-  <add sel="//macros/macro/properties/steeringcurve">
+  <replace sel="//macros/macro/properties/steeringcurve">
     <steeringcurve>
       <point position="1.01" value="1" />
       <point position="1.1" value="0.8" />
@@ -21,7 +21,7 @@
       <point position="2.3" value="0.15" />
       <point position="2.7" value="0.15" />
     </steeringcurve>
-  </add>
+  </replace>
   <replace sel="//macros/macro/properties/people/@capacity">15</replace>
 </diff>
 <!-- <macros>

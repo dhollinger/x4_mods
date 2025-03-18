@@ -6,7 +6,7 @@
   <remove sel="//macros/macro/properties/identification/@variation" />
   <remove sel="//macros/macro/properties/identification/@shortvariation" />
 
-  <add sel="//macros/macro/properties/jerk">
+  <replace sel="//macros/macro/properties/jerk">
     <jerk>
       <forward accel="0.2" decel="0.7" ratio="3" />
       <forward_boost accel="0.2" ratio="3" />
@@ -14,14 +14,14 @@
       <strafe value="0.3" />
       <angular value="0.15" />
     </jerk>
-  </add>
+  </replace>
 
   <replace sel="//macros/macro/properties/storage/@missile">420</replace>
   <replace sel="//macros/macro/properties/storage/@unit">30</replace>
 
   <replace sel="//macros/macro/properties/hull/@max">950000</replace>
 
-  <add sel="//macros/macro/properties/steeringcurve">
+  <replace sel="//macros/macro/properties/steeringcurve">
     <steeringcurve>
       <point position="1.01" value="1" />
       <point position="1.5" value="0.8" />
@@ -29,7 +29,7 @@
       <point position="2.4" value="0.5" />
       <point position="3" value="0.5" />
     </steeringcurve>
-  </add>
+  </replace>
 
   <replace sel="//macros/macro/properties/physics">
     <physics mass="900">

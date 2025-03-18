@@ -3,7 +3,7 @@
   xsi:noNamespaceSchemaLocation="../../../../../../../xmllib/diff.xsd">
   <replace sel="//macros/macro/properties/identification/@name">{20101,22001}</replace>
   <replace sel="//macros/macro/properties/identification/@basename">{20101,22001}</replace>
-  <add sel="//macros/macro/properties/jerk">
+  <replace sel="//macros/macro/properties/jerk">
     <jerk>
       <forward accel="0.3" decel="0.8" ratio="3" />
       <forward_boost accel="0.5" ratio="3" />
@@ -11,9 +11,9 @@
       <strafe value="0.6" />
       <angular value="0.5" />
     </jerk>
-  </add>
+  </replace>
   <replace sel="//macros/macro/properties/hull/@max">29500</replace>
-  <add sel="//macros/macro/properties/steeringcurve">
+  <replace sel="//macros/macro/properties/steeringcurve">
     <steeringcurve>
       <point position="1.01" value="1" />
       <point position="1.1" value="0.9" />
@@ -23,7 +23,7 @@
       <point position="2.3" value="0.15" />
       <point position="2.7" value="0.15" />
     </steeringcurve>
-  </add>
+  </replace>
 </diff>
 <!-- <macros>
   <macro name="kea_macro" class="ship_m">

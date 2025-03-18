@@ -5,7 +5,7 @@
   <replace sel="//macros/macro/properties/identification/@basename">{20101,67001}</replace>
   <replace sel="//macros/macro/properties/identification/@icon">ship_xl_battleship</replace>
 
-  <add sel="//macros/macro/properties/jerk">
+  <replace sel="//macros/macro/properties/jerk">
     <jerk>
       <forward accel="0.3" decel="0.7" ratio="3" />
       <forward_boost accel="0.3" ratio="3" />
@@ -13,11 +13,11 @@
       <strafe value="0.3" />
       <angular value="0.15" />
     </jerk>
-  </add>
+  </replace>
 
   <replace sel="//macros/macro/properties/hull/@max">1105000</replace>
 
-  <add sel="//macros/macro/properties/steeringcurve">
+  <replace sel="//macros/macro/properties/steeringcurve">
     <steeringcurve>
       <point position="1.01" value="1" />
       <point position="1.2" value="0.9" />
@@ -26,7 +26,7 @@
       <point position="2.4" value="0.3" />
       <point position="2.7" value="0.25" />
     </steeringcurve>
-  </add>
+  </replace>
 
   <replace sel="//macros/macro/properties/physics">
     <physics mass="587.388">
