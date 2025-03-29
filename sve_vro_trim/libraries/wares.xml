@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmllib/diff.xsd">
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../xmllib/diff.xsd">
   <remove sel="/wares/ware[@id='ship_spl_l_panther_a']" />
   <!-- <remove sel="/wares/ware[@id='ship_spl_l_viper']" /> -->
   <remove sel="/wares/ware[@id='ship_arg_l_centaur_a']" />
@@ -23,6 +24,7 @@
   <remove sel="//wares/ware[@id='weapon_viper_internal_torpedo_ware']" />
   <remove sel="//wares/ware[@id='skiron_ware']" />
   <remove sel="//wares/ware[@id='pallas_ware']" />
+  <remove sel="//wares/ware[@id='pallas_mk2_ware']" />
   <remove sel="//wares/ware[@id='valkyrie_ware']" />
   <remove sel="//wares/ware[@id='bishamonten_ware']" />
   <remove sel="//wares/ware[@id='fenrir_ware']" />
