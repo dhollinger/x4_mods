@@ -18,6 +18,7 @@
   <remove sel="//wares/ware[@id='weapon_viper_internal_torpedo_ware']" />
   <remove sel="//wares/ware[@id='skiron_ware']" />
   <remove sel="//wares/ware[@id='pallas_ware']" />
+  <remove sel="//wares/ware[@id='pallas_mk2_ware']" />
   <remove sel="//wares/ware[@id='valkyrie_ware']" />
   <remove sel="//wares/ware[@id='bishamonten_ware']" />
   <remove sel="//wares/ware[@id='fenrir_ware']" />
