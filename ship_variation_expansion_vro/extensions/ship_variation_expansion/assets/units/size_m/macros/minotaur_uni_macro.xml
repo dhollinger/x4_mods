@@ -11,7 +11,7 @@
     </jerk>
   </replace>
   <replace sel="//macros/macro/properties/hull/@max">33000</replace>
-  <replace sel="//macros/macro/properties/sterringcurve">
+  <replace sel="//macros/macro/properties/steeringcurve">
     <steeringcurve>
       <point position="1.01" value="1" />
       <point position="1.1" value="0.8" />
