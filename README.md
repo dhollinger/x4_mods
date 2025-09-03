@@ -1,3 +1,5 @@
+# NOTE: THIS REPOSITORY IS ARCHIVED. ALL FUTURE DEV CAN BE FOUND AT https://codeberg.org/dhollinger/x4_mods
+
 # Changes made for VRO
 
 ## Ship Names
